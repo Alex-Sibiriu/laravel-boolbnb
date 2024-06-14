@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
             HouseTableSeeder::class,
             ServiceSeeder::class,
             SponsorTableseeder::class,
+            HouseServiceTableseeder::class,
+            HouseSponsorTableSeeder::class,
 
         ]);
     }

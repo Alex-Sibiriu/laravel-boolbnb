@@ -27,8 +27,8 @@ return new class extends Migration
                     ->on('sponsors')
                     ->cascadeOnDelete();
 
-            $table->date('start_date');
-            $table->date('expiration_date');
+            $table->dateTime('start_date');
+            $table->dateTime('expiration_date');
             $table->timestamps();
         });
     }
