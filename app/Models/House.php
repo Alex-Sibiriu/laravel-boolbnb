@@ -9,25 +9,41 @@ class House extends Model
 {
     use HasFactory;
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function messages(){
+    public function messages()
+    {
         return $this->hasMany(Message::class);
     }
 
-    public function images(){
+    public function images()
+    {
         return $this->hasMany(Image::class);
     }
 
-    public function services(){
+    public function services()
+    {
         return $this->belongsToMany(Service::class);
     }
 
-    public function sponsors(){
+    public function sponsors()
+    {
         return $this->belongsToMany(Sponsor::class);
     }
 
-
+    protected $fillable = [
+        'title',
+        'rooms',
+        'bathrooms',
+        'bed',
+        'square_meters',
+        'description',
+        'address',
+        'latitude',
+        'longitude',
+        'user_id'
+    ];
 }
