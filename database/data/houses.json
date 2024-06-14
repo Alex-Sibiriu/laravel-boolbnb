@@ -1,0 +1,282 @@
+[
+    {
+        "title": "Castello di Velona",
+        "rooms": 40,
+        "bathorooms": 25,
+        "bed": 50,
+        "square_meters": 7000,
+        "description": "Un lussuoso resort situato in Toscana, con vista sulle colline di Montalcino.",
+        "latitude": 43.0249,
+        "longitude": 11.5295
+    },
+    {
+        "title": "Castello di Monterone",
+        "rooms": 30,
+        "bathorooms": 15,
+        "bed": 18,
+        "square_meters": 2500,
+        "description": "Un castello medievale situato vicino a Perugia, ora un affascinante hotel.",
+        "latitude": 43.0975,
+        "longitude": 12.3789
+    },
+    {
+        "title": "Castello di Spaltenna",
+        "rooms": 37,
+        "bathorooms": 20,
+        "bed": 25,
+        "square_meters": 5000,
+        "description": "Un antico monastero trasformato in un lussuoso hotel nel cuore del Chianti.",
+        "latitude": 43.4667,
+        "longitude": 11.4678
+    },
+    {
+        "title": "Castello di Pavone",
+        "rooms": 38,
+        "bathorooms": 21,
+        "bed": 26,
+        "square_meters": 4500,
+        "description": "Un castello medievale vicino a Ivrea, ora un esclusivo hotel e ristorante.",
+        "latitude": 45.4699,
+        "longitude": 7.8752
+    },
+    {
+        "title": "Castello di Petroia",
+        "rooms": 20,
+        "bathorooms": 15,
+        "bed": 15,
+        "square_meters": 3000,
+        "description": "Un castello storico situato in Umbria, ora un elegante hotel.",
+        "latitude": 43.2763,
+        "longitude": 12.5061
+    },
+    {
+        "title": "Castello di Vicarello",
+        "rooms": 23,
+        "bathorooms": 10,
+        "bed": 15,
+        "square_meters": 2000,
+        "description": "Un boutique hotel situato in un antico castello in Toscana.",
+        "latitude": 42.9131,
+        "longitude": 11.3051
+    },
+    {
+        "title": "Castello di Casole",
+        "rooms": 41,
+        "bathorooms": 20,
+        "bed": 30,
+        "square_meters": 6000,
+        "description": "Un lussuoso resort situato in un castello del X secolo in Toscana.",
+        "latitude": 43.3484,
+        "longitude": 11.0252
+    },
+    {
+        "title": "Castello di Gargonza",
+        "rooms": 30,
+        "bathorooms": 15,
+        "bed": 15,
+        "square_meters": 2500,
+        "description": "Un castello medievale trasformato in un hotel affascinante in Toscana.",
+        "latitude": 43.3140,
+        "longitude": 11.6865
+    },
+    {
+        "title": "Castello di Guarene",
+        "rooms": 26,
+        "bathorooms": 10,
+        "bed": 10,
+        "square_meters": 3000,
+        "description": "Un lussuoso hotel situato in un castello settecentesco nelle Langhe.",
+        "latitude": 44.7444,
+        "longitude": 8.0463
+    },
+    {
+        "title": "Castello di Ripa d'Orcia",
+        "rooms": 31,
+        "bathorooms": 15,
+        "bed": 15,
+        "square_meters": 2000,
+        "description": "Un castello storico trasformato in un accogliente hotel in Toscana.",
+        "latitude": 43.0573,
+        "longitude": 11.6256
+    },
+    {
+        "title": "Castello di Semivicoli",
+        "rooms": 24,
+        "bathorooms": 11,
+        "bed": 11,
+        "square_meters": 2500,
+        "description": "Un antico castello trasformato in un hotel boutique in Abruzzo.",
+        "latitude": 42.2811,
+        "longitude": 14.2186
+    },
+    {
+        "title": "Castello di Vigoleno",
+        "rooms": 20,
+        "bathorooms": 8,
+        "bed": 13,
+        "square_meters": 3000,
+        "description": "Un castello medievale ora un affascinante hotel in Emilia-Romagna.",
+        "latitude": 44.8251,
+        "longitude": 9.8513
+    },
+    {
+        "title": "Castello di Montegiove",
+        "rooms": 20,
+        "bathorooms": 9,
+        "bed": 15,
+        "square_meters": 2200,
+        "description": "Un castello storico situato in Umbria, ora un esclusivo agriturismo.",
+        "latitude": 42.8582,
+        "longitude": 12.1428
+    },
+    {
+        "title": "Castello di Tornano",
+        "rooms": 28,
+        "bathorooms": 12,
+        "bed": 12,
+        "square_meters": 2500,
+        "description": "Un castello medievale trasformato in un affascinante hotel nel Chianti.",
+        "latitude": 43.4203,
+        "longitude": 11.3887
+    },
+    {
+        "title": "Castello di Celsa",
+        "rooms": 34,
+        "bathorooms": 16,
+        "bed": 16,
+        "square_meters": 2000,
+        "description": "Un elegante castello situato in Toscana, ora disponibile per soggiorni esclusivi.",
+        "latitude": 43.3273,
+        "longitude": 11.3608
+    },
+    {
+        "title": "Castello di Sinio",
+        "rooms": 29,
+        "bathorooms": 12,
+        "bed": 12,
+        "square_meters": 2200,
+        "description": "Un antico castello trasformato in un hotel di charme nelle Langhe.",
+        "latitude": 44.6356,
+        "longitude": 8.0232
+    },
+    {
+        "title": "Castello di Magrano",
+        "rooms": 30,
+        "bathorooms": 12,
+        "bed": 25,
+        "square_meters": 2000,
+        "description": "Un castello medievale ora un agriturismo esclusivo in Umbria.",
+        "latitude": 43.2859,
+        "longitude": 12.5695
+    },
+    {
+        "title": "Castello di Vincigliata",
+        "rooms": 39,
+        "bathorooms": 15,
+        "bed": 25,
+        "square_meters": 1800,
+        "description": "Un castello storico situato vicino a Firenze, ora disponibile per soggiorni esclusivi.",
+        "latitude": 43.7866,
+        "longitude": 11.3074
+    },
+    {
+        "title": "Castello di Rivalta",
+        "rooms": 36,
+        "bathorooms": 15,
+        "bed": 25,
+        "square_meters": 2200,
+        "description": "Un castello medievale trasformato in un elegante hotel in Emilia-Romagna.",
+        "latitude": 44.9033,
+        "longitude": 9.6051
+    },
+    {
+        "title": "Castello di Sismano",
+        "rooms": 41,
+        "bathorooms": 17,
+        "bed": 28,
+        "square_meters": 3500,
+        "description": "Un castello medievale ora un agriturismo di lusso in Umbria.",
+        "latitude": 42.7138,
+        "longitude": 12.3996
+    },
+    {
+        "title": "Castello di Santa Cristina",
+        "rooms": 45,
+        "bathorooms": 20,
+        "bed": 30,
+        "square_meters": 2000,
+        "description": "Un castello storico situato nel Lazio, ora un agriturismo esclusivo.",
+        "latitude": 42.6014,
+        "longitude": 11.8671
+    },
+    {
+        "title": "Castello di Petroia",
+        "rooms": 37,
+        "bathorooms": 20,
+        "bed": 30,
+        "square_meters": 2500,
+        "description": "Un castello medievale trasformato in un elegante hotel in Umbria.",
+        "latitude": 43.2763,
+        "longitude": 12.5061
+    },
+    {
+        "title": "Castello di Scipione",
+        "rooms": 44,
+        "bathorooms": 24,
+        "bed": 35,
+        "square_meters": 1800,
+        "description": "Un castello medievale situato in Emilia-Romagna, ora un esclusivo hotel.",
+        "latitude": 44.8364,
+        "longitude": 9.9920
+    },
+    {
+        "title": "Castello di Vigoleno",
+        "rooms": 40,
+        "bathorooms": 21,
+        "bed": 31,
+        "square_meters": 2000,
+        "description": "Un castello medievale trasformato in un affascinante hotel in Emilia-Romagna.",
+        "latitude": 44.8251,
+        "longitude": 9.8513
+    },
+    {
+        "title": "Castello di Monterone",
+        "rooms": 38,
+        "bathorooms": 18,
+        "bed": 28,
+        "square_meters": 2000,
+        "description": "Un castello medievale situato vicino a Perugia, ora un affascinante hotel.",
+        "latitude": 43.0975,
+        "longitude": 12.3789
+    },
+    {
+        "title": "Castello di Spaltenna",
+        "rooms": 40,
+        "bathorooms": 20,
+        "bed": 30,
+        "square_meters": 2000,
+        "description": "Un antico monastero trasformato in un lussuoso hotel nel cuore del Chianti.",
+        "latitude": 43.4667,
+        "longitude": 11.4678
+    },
+    {
+        "title": "Castello di Montegufoni",
+        "rooms": 50,
+        "bathorooms": 30,
+        "bed": 40,
+        "square_meters": 2500,
+        "description": "Un antico castello trasformato in un elegante hotel in Toscana.",
+        "latitude": 43.6401,
+        "longitude": 11.0991
+    },
+    {
+        "title": "Castello di Meleto",
+        "rooms": 40,
+        "bathorooms": 20,
+        "bed": 30,
+        "square_meters": 1800,
+        "description": "Un castello medievale situato nel Chianti, ora un elegante hotel.",
+        "latitude": 43.4725,
+        "longitude": 11.4186
+    }
+]

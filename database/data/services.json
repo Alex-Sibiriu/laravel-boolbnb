@@ -1,0 +1,66 @@
+[
+    {
+        "name": "WI-FI",
+        "icon": "fa-solid fa-wifi"
+    },
+    {
+        "name": "Piscina",
+        "icon": "fa-solid fa-person-swimming"
+    },
+    {
+        "name": "Cene di Gala",
+        "icon": "fa-solid fa-utensils"
+    },
+    {
+        "name": "Mostre d'Arte",
+        "icon": "fa-solid fa-palette"
+    },
+    {
+        "name": "Concerti",
+        "icon": "fa-solid fa-music"
+    },
+    {
+        "name": "Spettacoli Teatrali",
+        "icon": "fa-solid fa-theater-masks"
+    },
+    {
+        "name": "Rievocazioni Storiche",
+        "icon": "fa-solid fa-chess-rook"
+    },
+    {
+        "name": "Conferenze",
+        "icon": "fa-solid fa-podium"
+    },
+    {
+        "name": "Spa e Benessere",
+        "icon": "fa-solid fa-spa"
+    },
+    {
+        "name": "Biblioteca Storica",
+        "icon": "fa-solid fa-book"
+    },
+    {
+        "name": "Accessibilità disabili",
+        "icon": "fa-solid fa-wheelchair"
+    },
+    {
+        "name": "Sala Giochi",
+        "icon": "fa-solid fa-gamepad"
+    },
+    {
+        "name": "CAntina vini",
+        "icon": "fa-solid fa-wine-bottle"
+    },
+    {
+        "name": "Golf",
+        "icon": "fa-solid fa-golf-ball-tee"
+    },
+    {
+        "name": "Maneggio",
+        "icon": "fa-solid fa-horse-head"
+    },
+    {
+        "name": "Palestra",
+        "icon": "fa-solid fa-dumbbell"
+    }
+]
