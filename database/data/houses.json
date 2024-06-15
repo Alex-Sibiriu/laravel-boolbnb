@@ -2,7 +2,7 @@
     {
         "title": "Castello di Velona",
         "rooms": 40,
-        "bathorooms": 25,
+        "bathrooms": 25,
         "bed": 50,
         "square_meters": 7000,
         "description": "Un lussuoso resort situato in Toscana, con vista sulle colline di Montalcino.",
@@ -12,7 +12,7 @@
     {
         "title": "Castello di Monterone",
         "rooms": 30,
-        "bathorooms": 15,
+        "bathrooms": 15,
         "bed": 18,
         "square_meters": 2500,
         "description": "Un castello medievale situato vicino a Perugia, ora un affascinante hotel.",
@@ -22,7 +22,7 @@
     {
         "title": "Castello di Spaltenna",
         "rooms": 37,
-        "bathorooms": 20,
+        "bathrooms": 20,
         "bed": 25,
         "square_meters": 5000,
         "description": "Un antico monastero trasformato in un lussuoso hotel nel cuore del Chianti.",
@@ -32,7 +32,7 @@
     {
         "title": "Castello di Pavone",
         "rooms": 38,
-        "bathorooms": 21,
+        "bathrooms": 21,
         "bed": 26,
         "square_meters": 4500,
         "description": "Un castello medievale vicino a Ivrea, ora un esclusivo hotel e ristorante.",
@@ -42,7 +42,7 @@
     {
         "title": "Castello di Petroia",
         "rooms": 20,
-        "bathorooms": 15,
+        "bathrooms": 15,
         "bed": 15,
         "square_meters": 3000,
         "description": "Un castello storico situato in Umbria, ora un elegante hotel.",
@@ -52,7 +52,7 @@
     {
         "title": "Castello di Vicarello",
         "rooms": 23,
-        "bathorooms": 10,
+        "bathrooms": 10,
         "bed": 15,
         "square_meters": 2000,
         "description": "Un boutique hotel situato in un antico castello in Toscana.",
@@ -62,7 +62,7 @@
     {
         "title": "Castello di Casole",
         "rooms": 41,
-        "bathorooms": 20,
+        "bathrooms": 20,
         "bed": 30,
         "square_meters": 6000,
         "description": "Un lussuoso resort situato in un castello del X secolo in Toscana.",
@@ -72,7 +72,7 @@
     {
         "title": "Castello di Gargonza",
         "rooms": 30,
-        "bathorooms": 15,
+        "bathrooms": 15,
         "bed": 15,
         "square_meters": 2500,
         "description": "Un castello medievale trasformato in un hotel affascinante in Toscana.",
@@ -82,7 +82,7 @@
     {
         "title": "Castello di Guarene",
         "rooms": 26,
-        "bathorooms": 10,
+        "bathrooms": 10,
         "bed": 10,
         "square_meters": 3000,
         "description": "Un lussuoso hotel situato in un castello settecentesco nelle Langhe.",
@@ -92,7 +92,7 @@
     {
         "title": "Castello di Ripa d'Orcia",
         "rooms": 31,
-        "bathorooms": 15,
+        "bathrooms": 15,
         "bed": 15,
         "square_meters": 2000,
         "description": "Un castello storico trasformato in un accogliente hotel in Toscana.",
@@ -102,7 +102,7 @@
     {
         "title": "Castello di Semivicoli",
         "rooms": 24,
-        "bathorooms": 11,
+        "bathrooms": 11,
         "bed": 11,
         "square_meters": 2500,
         "description": "Un antico castello trasformato in un hotel boutique in Abruzzo.",
@@ -112,7 +112,7 @@
     {
         "title": "Castello di Vigoleno",
         "rooms": 20,
-        "bathorooms": 8,
+        "bathrooms": 8,
         "bed": 13,
         "square_meters": 3000,
         "description": "Un castello medievale ora un affascinante hotel in Emilia-Romagna.",
@@ -122,7 +122,7 @@
     {
         "title": "Castello di Montegiove",
         "rooms": 20,
-        "bathorooms": 9,
+        "bathrooms": 9,
         "bed": 15,
         "square_meters": 2200,
         "description": "Un castello storico situato in Umbria, ora un esclusivo agriturismo.",
@@ -132,7 +132,7 @@
     {
         "title": "Castello di Tornano",
         "rooms": 28,
-        "bathorooms": 12,
+        "bathrooms": 12,
         "bed": 12,
         "square_meters": 2500,
         "description": "Un castello medievale trasformato in un affascinante hotel nel Chianti.",
@@ -142,7 +142,7 @@
     {
         "title": "Castello di Celsa",
         "rooms": 34,
-        "bathorooms": 16,
+        "bathrooms": 16,
         "bed": 16,
         "square_meters": 2000,
         "description": "Un elegante castello situato in Toscana, ora disponibile per soggiorni esclusivi.",
@@ -152,7 +152,7 @@
     {
         "title": "Castello di Sinio",
         "rooms": 29,
-        "bathorooms": 12,
+        "bathrooms": 12,
         "bed": 12,
         "square_meters": 2200,
         "description": "Un antico castello trasformato in un hotel di charme nelle Langhe.",
@@ -162,7 +162,7 @@
     {
         "title": "Castello di Magrano",
         "rooms": 30,
-        "bathorooms": 12,
+        "bathrooms": 12,
         "bed": 25,
         "square_meters": 2000,
         "description": "Un castello medievale ora un agriturismo esclusivo in Umbria.",
@@ -172,7 +172,7 @@
     {
         "title": "Castello di Vincigliata",
         "rooms": 39,
-        "bathorooms": 15,
+        "bathrooms": 15,
         "bed": 25,
         "square_meters": 1800,
         "description": "Un castello storico situato vicino a Firenze, ora disponibile per soggiorni esclusivi.",
@@ -182,7 +182,7 @@
     {
         "title": "Castello di Rivalta",
         "rooms": 36,
-        "bathorooms": 15,
+        "bathrooms": 15,
         "bed": 25,
         "square_meters": 2200,
         "description": "Un castello medievale trasformato in un elegante hotel in Emilia-Romagna.",
@@ -192,7 +192,7 @@
     {
         "title": "Castello di Sismano",
         "rooms": 41,
-        "bathorooms": 17,
+        "bathrooms": 17,
         "bed": 28,
         "square_meters": 3500,
         "description": "Un castello medievale ora un agriturismo di lusso in Umbria.",
@@ -202,7 +202,7 @@
     {
         "title": "Castello di Santa Cristina",
         "rooms": 45,
-        "bathorooms": 20,
+        "bathrooms": 20,
         "bed": 30,
         "square_meters": 2000,
         "description": "Un castello storico situato nel Lazio, ora un agriturismo esclusivo.",
@@ -212,7 +212,7 @@
     {
         "title": "Castello di Petroia",
         "rooms": 37,
-        "bathorooms": 20,
+        "bathrooms": 20,
         "bed": 30,
         "square_meters": 2500,
         "description": "Un castello medievale trasformato in un elegante hotel in Umbria.",
@@ -222,7 +222,7 @@
     {
         "title": "Castello di Scipione",
         "rooms": 44,
-        "bathorooms": 24,
+        "bathrooms": 24,
         "bed": 35,
         "square_meters": 1800,
         "description": "Un castello medievale situato in Emilia-Romagna, ora un esclusivo hotel.",
@@ -232,7 +232,7 @@
     {
         "title": "Castello di Vigoleno",
         "rooms": 40,
-        "bathorooms": 21,
+        "bathrooms": 21,
         "bed": 31,
         "square_meters": 2000,
         "description": "Un castello medievale trasformato in un affascinante hotel in Emilia-Romagna.",
@@ -242,7 +242,7 @@
     {
         "title": "Castello di Monterone",
         "rooms": 38,
-        "bathorooms": 18,
+        "bathrooms": 18,
         "bed": 28,
         "square_meters": 2000,
         "description": "Un castello medievale situato vicino a Perugia, ora un affascinante hotel.",
@@ -252,7 +252,7 @@
     {
         "title": "Castello di Spaltenna",
         "rooms": 40,
-        "bathorooms": 20,
+        "bathrooms": 20,
         "bed": 30,
         "square_meters": 2000,
         "description": "Un antico monastero trasformato in un lussuoso hotel nel cuore del Chianti.",
@@ -262,7 +262,7 @@
     {
         "title": "Castello di Montegufoni",
         "rooms": 50,
-        "bathorooms": 30,
+        "bathrooms": 30,
         "bed": 40,
         "square_meters": 2500,
         "description": "Un antico castello trasformato in un elegante hotel in Toscana.",
@@ -272,7 +272,7 @@
     {
         "title": "Castello di Meleto",
         "rooms": 40,
-        "bathorooms": 20,
+        "bathrooms": 20,
         "bed": 30,
         "square_meters": 1800,
         "description": "Un castello medievale situato nel Chianti, ora un elegante hotel.",

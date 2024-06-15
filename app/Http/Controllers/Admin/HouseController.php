@@ -27,9 +27,13 @@ class HouseController extends Controller
      */
     public function create()
     {
+        $method = 'POST';
+        $route = route('admin.houses.store');
+        $house = null;
+        $title = 'Aggiungi un nuovo Castello';
         $services = Service::all();
 
-        return view('admin.houses.index', compact('services'));
+        return view('admin.houses.create-edit', compact('services', 'method', 'route', 'title'));
     }
 
     /**
@@ -62,14 +66,18 @@ class HouseController extends Controller
      */
     public function edit(House $house)
     {
+        $method = 'PUT';
+        $route = route('admin.houses.update', $house);
+        $title = 'Modifica i dati del Castello';
         $services = Service::all();
-        return view('admin.houses.edit', compact('house', 'services'));
+
+        return view('admin.houses.create-edit', compact('house', 'services', 'method', 'route', 'title'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, House $house)
+    public function update(HouseRequest $request, House $house)
     {
         $val_data = $request->all();
         $val_data['user_id'] = Auth::user()->id;
