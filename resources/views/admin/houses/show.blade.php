@@ -4,7 +4,7 @@
 
 
 
-    <div class="container py-3 show">
+    <div class=" py-3 show">
       <h1 class="text-center my-3">{{$house->title}}</h1>
 
       <div class="text-center">
