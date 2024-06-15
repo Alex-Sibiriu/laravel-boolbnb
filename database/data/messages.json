@@ -1,0 +1,172 @@
+[
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 26.",
+        "email": "user1@example.com",
+        "house_id": 1
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 25.",
+        "email": "user2@example.com",
+        "house_id": 22
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 25.",
+        "email": "user3@example.com",
+        "house_id": 5
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 21.",
+        "email": "user4@example.com",
+        "house_id": 8
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 22.",
+        "email": "user5@example.com",
+        "house_id": 9
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 14.",
+        "email": "user6@example.com",
+        "house_id": 28
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 14.",
+        "email": "user7@example.com",
+        "house_id": 25
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 9.",
+        "email": "user8@example.com",
+        "house_id": 17
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 15.",
+        "email": "user9@example.com",
+        "house_id": 2
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 21.",
+        "email": "user10@example.com",
+        "house_id": 13
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 11.",
+        "email": "user11@example.com",
+        "house_id": 4
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 10.",
+        "email": "user12@example.com",
+        "house_id": 1
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 24.",
+        "email": "user13@example.com",
+        "house_id": 12
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 4.",
+        "email": "user14@example.com",
+        "house_id": 23
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 6.",
+        "email": "user15@example.com",
+        "house_id": 15
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 3.",
+        "email": "user16@example.com",
+        "house_id": 27
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 16.",
+        "email": "user17@example.com",
+        "house_id": 6
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 2.",
+        "email": "user18@example.com",
+        "house_id": 8
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 6.",
+        "email": "user19@example.com",
+        "house_id": 11
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 5.",
+        "email": "user20@example.com",
+        "house_id": 24
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 27.",
+        "email": "user21@example.com",
+        "house_id": 5
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 20.",
+        "email": "user22@example.com",
+        "house_id": 24
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 27.",
+        "email": "user23@example.com",
+        "house_id": 13
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 1.",
+        "email": "user24@example.com",
+        "house_id": 9
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 6.",
+        "email": "user25@example.com",
+        "house_id": 27
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 27.",
+        "email": "user26@example.com",
+        "house_id": 12
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 23.",
+        "email": "user27@example.com",
+        "house_id": 8
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 26.",
+        "email": "user28@example.com",
+        "house_id": 9
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 14.",
+        "email": "user29@example.com",
+        "house_id": 23
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 14.",
+        "email": "user30@example.com",
+        "house_id": 6
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 8.",
+        "email": "user31@example.com",
+        "house_id": 20
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 4.",
+        "email": "user32@example.com",
+        "house_id": 2
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 8.",
+        "email": "user33@example.com",
+        "house_id": 14
+    },
+    {
+        "message": "Richiedo informazioni sull'affitto del castello con ID 24.",
+        "email": "user34@example.com",
+        "house_id": 25
+    }
+]
