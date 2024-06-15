@@ -10,6 +10,7 @@
 
 .aside-bar{
     width: 200px;
+    flex-shrink: 0;
     height: calc(100vh - 60px);
     background: rgb(209,163,132);
     background: -moz-linear-gradient(90deg, rgba(209,163,132,1) 35%, rgba(247,206,171,1) 65%, rgba(228,228,228,1) 100%);
@@ -37,6 +38,10 @@
     }
 
 
+}
 
-
+.main{
+    width: calc(100% - 200px);
+    height: calc(100vh - 60px);
+    overflow-y: auto;
 }
