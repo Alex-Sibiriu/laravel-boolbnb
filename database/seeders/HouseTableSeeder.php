@@ -24,7 +24,7 @@ class HouseTableSeeder extends Seeder
             $new_castle->title = $castle->title;
             $new_castle->slug = Helper::generateSlug($castle->title, House::class);
             $new_castle->rooms = $castle->rooms;
-            $new_castle->bathorooms = $castle->bathorooms;
+            $new_castle->bathrooms = $castle->bathrooms;
             $new_castle->bed = $castle->bed;
             $new_castle->square_meters = $castle->square_meters;
             $new_castle->description = $castle->description;

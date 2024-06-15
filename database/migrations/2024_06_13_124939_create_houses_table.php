@@ -16,13 +16,13 @@ return new class extends Migration
             $table->string('title', 100);
             $table->string('slug', 120)->unique();
             $table->tinyInteger('rooms');
-            $table->tinyInteger('bathorooms');
+            $table->tinyInteger('bathrooms');
             $table->tinyInteger('bed');
             $table->integer('square_meters')->nullable();
             $table->text('description')->nullable();
             $table->boolean('is_visible')->default(1);
-            $table->decimal('latitude', 9,6);
-            $table->decimal('longitude', 9,6);
+            $table->decimal('latitude', 9, 6);
+            $table->decimal('longitude', 9, 6);
             $table->string('address', 100)->nullable();
             $table->timestamps();
         });
