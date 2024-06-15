@@ -36,6 +36,7 @@ class House extends Model
 
     protected $fillable = [
         'title',
+        'slug',
         'rooms',
         'bathrooms',
         'bed',
