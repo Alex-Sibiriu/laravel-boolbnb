@@ -51,7 +51,7 @@
                 </td>
 
                 <td class="align-content-center text-center">
-                  @if ($house->is_visible)
+                  @if ($house->is_visible === 1)
                     <i class="fa-solid fa-circle text-success"></i>
                   @else
                     <i class="fa-solid fa-circle text-danger"></i>

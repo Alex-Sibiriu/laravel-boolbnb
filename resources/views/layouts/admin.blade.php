@@ -27,10 +27,13 @@
 
     @include('admin.partials.header')
 
-   <div class="d-flex">
+   <div class="d-flex ">
         @include('admin.partials.aside')
 
-        @yield('content')
+        <div class="main">
+
+            @yield('content')
+        </div>
    </div>
 
 

@@ -45,6 +45,7 @@ class House extends Model
         'address',
         'latitude',
         'longitude',
-        'user_id'
+        'user_id',
+        'is_visible',
     ];
 }
