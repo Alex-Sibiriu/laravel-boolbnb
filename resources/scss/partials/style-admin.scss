@@ -1,6 +1,6 @@
 .header-admin{
     height: 60px;
-    background-color: rgb(247, 206, 171) !important;
+    background-color: rgb(209, 163, 132) !important;
 
 
     .user{
@@ -11,7 +11,13 @@
 .aside-bar{
     width: 200px;
     height: calc(100vh - 60px);
-    background-color: rgb(247, 206, 171);
+    background: rgb(209,163,132);
+    background: -moz-linear-gradient(90deg, rgba(209,163,132,1) 35%, rgba(247,206,171,1) 65%, rgba(228,228,228,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(209,163,132,1) 35%, rgba(247,206,171,1) 65%, rgba(228,228,228,1) 100%);
+    background: linear-gradient(90deg, rgba(209,163,132,1) 35%, rgba(247,206,171,1) 65%, rgba(228,228,228,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d1a384",endColorstr="#e4e4e4",GradientType=1);
+
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 
     ul{
         padding-left: 15px;
