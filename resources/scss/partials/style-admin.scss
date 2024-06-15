@@ -1,0 +1,36 @@
+.header-admin{
+    height: 60px;
+    background-color: rgb(247, 206, 171) !important;
+
+
+    .user{
+        color: rgb(152, 51, 26);
+    }
+}
+
+.aside-bar{
+    width: 200px;
+    height: calc(100vh - 60px);
+    background-color: rgb(247, 206, 171);
+
+    ul{
+        padding-left: 15px;
+
+        li{
+            list-style: none;
+            margin-bottom: 20px;
+
+            a{
+                text-decoration: none;
+                color: white;
+            }
+            &:hover a{
+                color: rgb(152, 51, 26);
+            }
+        }
+    }
+
+
+
+
+}

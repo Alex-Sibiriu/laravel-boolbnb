@@ -24,16 +24,19 @@
 </head>
 
 <body>
-  {{-- @include('admin.partials.header') --}}
 
-  <main class="d-flex">
-    {{-- @include('admin.partials.aside') --}}
+    @include('admin.partials.header')
 
-    <div class="content-section">
-      @yield('content')
-    </div>
+   <div class="d-flex">
+        @include('admin.partials.aside')
 
-  </main>
+        @yield('content')
+   </div>
+
+
+
+
+
 </body>
 
 </html>
