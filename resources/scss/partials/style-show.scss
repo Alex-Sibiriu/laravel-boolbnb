@@ -1,12 +1,18 @@
 .show{
-    background: rgb(196,44,44);
-    background: -moz-linear-gradient(0deg, rgba(196,44,44,1) 21%, rgba(218,134,111,1) 66%, rgba(228,228,228,1) 100%);
-    background: -webkit-linear-gradient(0deg, rgba(196,44,44,1) 21%, rgba(218,134,111,1) 66%, rgba(228,228,228,1) 100%);
-    background: linear-gradient(0deg, rgba(196,44,44,1) 21%, rgba(218,134,111,1) 66%, rgba(228,228,228,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c42c2c",endColorstr="#e4e4e4",GradientType=1);
+    height: calc(100vh - 60px);
+    background: rgb(247,206,171);
+    background: -moz-linear-gradient(0deg, rgba(247,206,171,1) 21%, rgba(254,237,224,1) 47%, rgba(228,228,228,1) 100%);
+    background: -webkit-linear-gradient(0deg, rgba(247,206,171,1) 21%, rgba(254,237,224,1) 47%, rgba(228,228,228,1) 100%);
+    background: linear-gradient(0deg, rgba(247,206,171,1) 21%, rgba(254,237,224,1) 47%, rgba(228,228,228,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f7ceab",endColorstr="#e4e4e4",GradientType=1);
 
     h1{
         color: rgb(152, 51, 26);
+    }
+
+    .house-image{
+        height: 200px;
+        object-fit: cover;
     }
 }
 

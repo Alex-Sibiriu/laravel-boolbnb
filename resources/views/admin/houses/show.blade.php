@@ -4,16 +4,24 @@
 
 
 
-    <div class="container show">
-      <h1 class="text-center">{{$house->title}}</h1>
+    <div class="container py-3 show">
+      <h1 class="text-center my-3">{{$house->title}}</h1>
 
       <div class="text-center">
 
-          <img src="https://ih1.redbubble.net/image.4905811447.8675/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="" width="100">
+        @if ($house->image)
+        <img src="{{ asset('storage/'. $house->image) }}"  alt="{{$house->image}}"  class="house-image">
+
+        @else
+
+        <img src="https://ih1.redbubble.net/image.4905811447.8675/flat,750x,075,f-pad,750x1000,f8f8f8.jpg"  alt="" class="house-image">
+
+        @endif
+
       </div>
 
       <div>
-          @if ($house->is_visible === 1)
+          @if ($house->is_visible == 1)
               <i class="fa-solid fa-circle text-success"></i>
           @else
               <i class="fa-solid fa-circle text-danger"></i>
