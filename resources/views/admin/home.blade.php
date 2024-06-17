@@ -16,10 +16,10 @@ use App\Functions\Helper as Helper;
 
     <div>
 
-        <h2 class="mb-4">Ultimo Castello aggiunto: {{Helper::formatDate($last_house->updated_at)}}</h2>
+        <h2 class="mb-4">Ultimo Castello aggiunto: {{Helper::formatDate($last_house?->updated_at)}}</h2>
 
-        <h3 class="mb-3">{{$last_house->title}}</h3>
-        <h3>{{$last_house->description}}</h3>
+        <h3 class="mb-3">{{$last_house?->title}}</h3>
+        <h3>{{$last_house?->description}}</h3>
 
 
     </div>

@@ -63,7 +63,7 @@ class UserSeeder extends Seeder
             $new_user = new User();
             $new_user->name = $user['name'];
             $new_user->surname = $user['surname'];
-            $new_user->slug = Help::generateSlug($user['name'] . $user['surname'], User::class);
+            // $new_user->slug = Help::generateSlug($user['name'] . $user['surname'], User::class);
             $new_user->email = $user['email'];
             $new_user->password = Hash::make($user['password']);
             $new_user->phone_number = $user['phone_number'];
