@@ -30,6 +30,8 @@ class HouseRequest extends FormRequest
             'bed' => 'required|min:1',
             'latitude' => 'required',
             'longitude' => 'required',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg',
+            'types.*' => 'string|max:50',
 
 
 
