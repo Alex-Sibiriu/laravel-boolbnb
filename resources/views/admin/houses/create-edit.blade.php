@@ -174,7 +174,7 @@
     <div class="text-center pt-3">
         {{-- passo dinamicamente la classe in base alla rotta  --}}
       <button type="submit" class="btn w-25 me-3 {{Route::currentRouteName() === 'admin.houses.create' ? 'btn-success' : 'btn-warning'}}">{{$button}}</button>
-      <button type="reset" class="btn btn-warning w-25">Reset</button>
+      <button type="reset" class="btn btn-danger w-25">Reset</button>
     </div>
   </form>
 
