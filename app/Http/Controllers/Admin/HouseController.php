@@ -70,6 +70,8 @@ class HouseController extends Controller
         $val_data['user_id'] = Auth::user()->id;
         $val_data['slug'] = Helper::generateSlug($val_data['title'], House::class);
 
+        $val_data['address'] = Helper::reverseGeocode($val_data['latitude'], $val_data['longitude']);
+
         $house = new House();
         $house->fill($val_data);
         $house->save();
@@ -79,7 +81,7 @@ class HouseController extends Controller
                 $path = $image->store('images', 'public');
                 Image::create([
                     'image_path' => $path,
-                    'type' => $request->input('types')[$key],
+                    'type' => 'cover',
                     'house_id' => $house->id,
                 ]);
             }
@@ -125,6 +127,8 @@ class HouseController extends Controller
         $val_data['user_id'] = Auth::user()->id;
         $val_data['slug'] = Helper::generateSlug($val_data['title'], House::class);
 
+        $val_data['address'] = Helper::reverseGeocode($val_data['latitude'], $val_data['longitude']);
+
         $house->update($val_data);
 
         if ($request->hasFile('images')) {
@@ -138,7 +142,8 @@ class HouseController extends Controller
                 $path = $image->store('images', 'public');
                 Image::create([
                     'image_path' => $path,
-                    'type' => $request->input('types')[$key],
+                    // FIX ME
+                    'type' => 'cover',
                     'house_id' => $house->id,
                 ]);
             }

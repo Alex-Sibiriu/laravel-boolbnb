@@ -36,8 +36,9 @@
             @endif
         </div>
 
-        <p>{{ $house->description }}</p>
-        <p>{{ $house->address }}</p>
+
+        <p>descrizione: {{ $house->description }}</p>
+        <p>address: {{ $house->address }}</p>
         <p>{{ $house->square_meters }} mq</p>
         <p>Numero stanze: {{ $house->rooms }}</p>
         <p>Bagni: {{ $house->bathrooms }}</p>

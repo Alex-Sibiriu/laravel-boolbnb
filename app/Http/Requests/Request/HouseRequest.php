@@ -25,9 +25,9 @@ class HouseRequest extends FormRequest
     {
         return [
             'title' => 'required|min:3|max:100',
-            'rooms' => 'required|min:1',
-            'bathrooms' => 'required|min:1',
-            'bed' => 'required|min:1',
+            'rooms' => 'required|min:1|max:125',
+            'bathrooms' => 'required|min:1|max:125',
+            'bed' => 'required|min:1|max:125',
             'latitude' => 'required|numeric|min:-90|max:90',
             'longitude' => 'required|numeric|min:-180|max:180'
         ];
@@ -43,12 +43,15 @@ class HouseRequest extends FormRequest
 
             'rooms.required' => 'Il numero di stanze è obbligatorio',
             'rooms.min' => 'Il numero di camere minimo è :min',
+            'rooms.max' => 'Il numero di camere massimo è :max',
 
             'bathrooms.required' => 'Il numero di bagni è obbligatorio',
             'bathrooms.min' => 'Il numero di bagni minimo è :min',
+            'bathrooms.max' => 'Il numero di bagni massimo è :max',
 
             'bed.required' => 'Il numero di letti è obbligatorio',
             'bed.min' => 'Il numero di letti minimo è :min',
+            'bed.max' => 'Il numero di letti massimo è :max',
 
 
             'latitude.required' => 'La latitudine è obbligatoria',
