@@ -28,13 +28,8 @@ class HouseRequest extends FormRequest
             'rooms' => 'required|min:1',
             'bathrooms' => 'required|min:1',
             'bed' => 'required|min:1',
-            'latitude' => 'required',
-            'longitude' => 'required',
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg',
-            'types.*' => 'string|max:50',
-
-
-
+            'latitude' => 'required|numeric|min:-90|max:90',
+            'longitude' => 'required|numeric|min:-180|max:180'
         ];
     }
 
@@ -45,14 +40,29 @@ class HouseRequest extends FormRequest
             'title.required' => 'Il titolo è obbligatorio',
             'title.min' => 'Il titolo deve contenere almeno :min caratteri',
             'title.max' => 'Il titolo deve contenere massimo :max caratteri',
+
             'rooms.required' => 'Il numero di stanze è obbligatorio',
             'rooms.min' => 'Il numero di camere minimo è :min',
+
             'bathrooms.required' => 'Il numero di bagni è obbligatorio',
             'bathrooms.min' => 'Il numero di bagni minimo è :min',
+
             'bed.required' => 'Il numero di letti è obbligatorio',
             'bed.min' => 'Il numero di letti minimo è :min',
+
+
             'latitude.required' => 'La latitudine è obbligatoria',
-            'longitude.required' => 'La longitudine è obbligatoria',
+            'latitude.numeric' => 'La latitudine deve essere un valore numerico',
+            'latitude.min' =>'La latitudine non può essere inferiore a :min °' ,
+            'latitude.max' => 'La latitudine non può essere maggiore di :max °',
+
+
+            'longitude.required' => 'La longitudine è obbligatoria ',
+            'longitude.numeric' => 'La longitudine deve essere un valore numerico',
+            'longitude.min' => 'La longitudine non può essere inferiore a :min °',
+            'longitude.max' => 'La longitudine non può essere maggiore di :max °',
+
+
         ];
 
     }

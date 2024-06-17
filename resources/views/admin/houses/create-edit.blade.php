@@ -7,6 +7,7 @@
     @csrf
     @method($method)
 
+    {{-- alert per errori request --}}
     @if ($errors->any())
       <div class="alert alert-danger">
         <ul class="m-0">
@@ -17,6 +18,7 @@
       </div>
     @endif
 
+      {{-- titolo --}}
     <div class="col-6 mb-3">
       <label for="title" class="form-label">Titolo (*)</label>
       <input name="title" type="text" class="form-control @error('title') is-invalid @enderror" id="title"
@@ -28,6 +30,7 @@
       @enderror
     </div>
 
+    {{-- stanze --}}
     <div class="col-6 mb-3">
       <label for="rooms" class="form-label">Stanze (*)</label>
       <input name="rooms" type="number" class="form-control @error('rooms') is-invalid @enderror" id="rooms"
@@ -39,6 +42,7 @@
       @enderror
     </div>
 
+    {{-- bagni --}}
     <div class="col-6 mb-3">
       <label for="bathrooms" class="form-label">Bagni (*)</label>
       <input name="bathrooms" type="number" class="form-control @error('bathrooms') is-invalid @enderror" id="bathrooms"
@@ -50,6 +54,7 @@
       @enderror
     </div>
 
+    {{-- letti --}}
     <div class="col-6 mb-3">
       <label for="bed" class="form-label">Posti Letto (*)</label>
       <input name="bed" type="number" class="form-control @error('bed') is-invalid @enderror" id="bed"
@@ -61,6 +66,7 @@
       @enderror
     </div>
 
+    {{-- mq --}}
     <div class="col-6 mb-3">
       <label for="square_meters" class="form-label">Metri Quadri</label>
       <input name="square_meters" type="number" class="form-control @error('square_meters') is-invalid @enderror"
@@ -72,6 +78,7 @@
       @enderror
     </div>
 
+    {{-- visibilità --}}
     <div class="col-6 align-content-center">
       <label for="is_visible" class="form-label m-0 pe-2">Visibilità del Castello</label>
       <select name="is_visible" id="is_visible" class="p-1 rounded-2">
@@ -80,9 +87,10 @@
       </select>
     </div>
 
+    {{-- latitudine  --}}
     <div class="col-2 mb-3">
       <label for="latitude" class="form-label">Latitudine (*)</label>
-      <input name="latitude" type="number" class="form-control @error('latitude') is-invalid @enderror" id="latitude"
+      <input name="latitude" type="text" class="form-control @error('latitude') is-invalid @enderror" id="latitude"
         value="{{ old('latitude', $house?->latitude) }}">
       @error('latitude')
         <small class="text-danger fw-bold">
@@ -91,9 +99,10 @@
       @enderror
     </div>
 
+    {{-- longitudine --}}
     <div class="col-2 mb-3">
       <label for="longitude" class="form-label">Longitudine (*)</label>
-      <input name="longitude" type="number" class="form-control @error('longitude') is-invalid @enderror" id="longitude"
+      <input name="longitude" type="text" class="form-control @error('longitude') is-invalid @enderror" id="longitude"
         value="{{ old('longitude', $house?->longitude) }}">
       @error('longitude')
         <small class="text-danger fw-bold">
@@ -102,6 +111,7 @@
       @enderror
     </div>
 
+    {{-- indirizzo --}}
     <div class="col-8 mb-3">
       <label for="address" class="form-label">Indirizzo</label>
       <input name="address" type="text" class="form-control @error('address') is-invalid @enderror" id="address"
@@ -113,6 +123,7 @@
       @enderror
     </div>
 
+    {{-- descrizione  --}}
     <div class="col-6 mb-3">
       <label for="description" class="form-label">Descrizione</label>
       <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="description"
@@ -124,6 +135,7 @@
       @enderror
     </div>
 
+    {{-- servizi --}}
     <div class="btn-group col-6 d-block" role="group" aria-label="Basic checkbox toggle button group">
       <p class="pe-2">Seleziona i Servizi:</p>
       <div class="dflex">
@@ -136,6 +148,7 @@
       </div>
     </div>
 
+    {{-- img  --}}
     <div class="col-6 mb-3">
         <label for="images" class="form-label">Immagini</label>
         <input type="file" class="form-control @error('images.*') is-invalid @enderror" id="images" name="images[]" multiple onchange="showImage(event)">
@@ -144,6 +157,8 @@
         @enderror
     </div>
 
+    {{-- FIXME: si può caricare solo una img  --}}
+    {{-- tipo img  --}}
     <div class="col-6 mb-3">
         <label for="types" class="form-label">Tipo immagine</label>
         <input type="text" class="form-control @error('types.*') is-invalid @enderror" id="types" name="types[]" multiple
@@ -157,11 +172,13 @@
     </div>
 
     <div class="text-center pt-3">
-      <button type="submit" class="btn btn-primary w-25 me-3">Invia</button>
+      <button type="submit" class="btn btn-primary w-25 me-3">{{$button}}</button>
       <button type="reset" class="btn btn-warning w-25">Reset</button>
     </div>
   </form>
 
+
+  {{-- javascript  --}}
   <script>
     function showImage(event) {
       const imagePreviewContainer = document.getElementById('image-preview');
@@ -177,4 +194,5 @@
       }
     }
   </script>
+
 @endsection
