@@ -34,7 +34,7 @@ Route::middleware(['auth', 'verified'])
         Route::resource('houses', HouseController::class);
 
          // rotte custom
-        Route::get('orderby/{direction}/{column}', [HouseController::class, 'orderBy']);
+        Route::get('orderby/{direction}/{column}', [HouseController::class, 'orderBy'])->name('orderby');
     });
 
 require __DIR__ . '/auth.php';

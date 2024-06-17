@@ -20,24 +20,46 @@ class HouseController extends Controller
      */
     public function index()
     {
-        $houses = House::where('user_id', Auth::user()->id)->paginate(5);
-        return view('admin.houses.index', compact('houses'));
+        if(isset($_GET['toSearch'])){
+            $houses = House::where('title', 'LIKE' , '%' . $_GET['toSearch'] . '%')
+                            ->where('user_id', Auth::id())->paginate(5);
+            $count_search = House::where('title', 'LIKE', '%' . $_GET['toSearch'] . '%')
+                                    ->where('user_id', Auth::id())->count();
+        }else{
+
+            $houses = House::where('user_id', Auth::user()->id)->paginate(5);
+            // vogliamo contare tutti i risultati ?
+            $count_search = House::count();
+        }
+
+        $direction = 'desc';
+
+        return view('admin.houses.index', compact('houses', 'direction'));
+
+    }
+
+    // funzione rotta custom per cambiare l'ordine di visualizzazione
+    public function orderBy($direction, $column){
+        $direction = $direction === 'desc' ? 'asc' : 'desc' ;
+        $houses = House::where('user_id', Auth::id())->orderBy($column, $direction)->paginate(5);
+
+        return view('admin.houses.index', compact('houses', 'direction'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-   public function create()
-{
-    $method = 'POST';
-    $route = route('admin.houses.store');
-    $house = null;
-    $title = 'Aggiungi un nuovo Castello';
-    $services = Service::all();
-    $button = 'Crea';
+    public function create()
+    {
+        $method = 'POST';
+        $route = route('admin.houses.store');
+        $house = null;
+        $title = 'Aggiungi un nuovo Castello';
+        $services = Service::all();
+        $button = 'Crea';
 
-    return view('admin.houses.create-edit', compact('services', 'method', 'route', 'title', 'house', 'button'));
-}
+        return view('admin.houses.create-edit', compact('services', 'method', 'route', 'title', 'house', 'button'));
+    }
 
     /**
      * Store a newly created resource in storage.

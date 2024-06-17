@@ -44,4 +44,12 @@
     width: calc(100% - 200px);
     height: calc(100vh - 60px);
     overflow-y: auto;
+
+    .toSearch{
+        border-color: lightgray;
+        &:focus{
+        box-shadow: none !important;
+        }
+    }
+
 }
