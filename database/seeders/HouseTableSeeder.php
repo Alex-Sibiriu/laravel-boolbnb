@@ -30,6 +30,10 @@ class HouseTableSeeder extends Seeder
             $new_castle->description = $castle->description;
             $new_castle->latitude = $castle->latitude;
             $new_castle->longitude = $castle->longitude;
+
+            // serve per rallentare la chiamata API
+            usleep(100000);
+
             $new_castle->address = Helper::reverseGeocode($castle->latitude, $castle->longitude);
 
             $randomUser = $users->random()->id;
