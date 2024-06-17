@@ -24,6 +24,11 @@
   </div>
 
   <div class="row pt-2 pb-5 px-5">
+    @if (isset($_GET['toSearch']))
+    <div class="mt-2">
+        <h1>Castelli trovati per {{$_GET['toSearch']}} : {{$count_search}} </h1>
+    </div>
+    @endif
     <div class="col-12">
       <div class="px-2 bg-dark rounded-3 pb-1">
         <h2 class="py-3 text-white rounded-3 fw-bold fs-2 p-3 mt-3">I tuoi Castelli</h2>
