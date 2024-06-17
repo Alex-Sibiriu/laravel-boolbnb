@@ -2,6 +2,21 @@
 
 @section('content')
     <div class="py-3 show">
+
+        <div class="col-12">
+            @if(session('success'))
+            <div class="alert alert-success" role="alert">
+            {{ session('success')}}
+            </div>
+            @endif
+
+            @if(session('update'))
+            <div class="alert alert-success" role="alert">
+            {{ session('update')}}
+            </div>
+            @endif
+        </div>
+
         <h1 class="text-center my-3">{{ $house->title }}</h1>
 
         <div class="text-center">
@@ -38,5 +53,14 @@
                 @endforeach
             </div>
         @endif
+
+        <div class="button">
+            <a href="{{route('admin.houses.edit', $house)}}" class="btn btn-warning"> <i class="fa-solid fa-pen-to-square"></i></a>
+            @include('admin.partials.formdelete', [
+                    'route' => route('admin.houses.destroy', $house),
+                    'message' => "Sei sicuro di voler eliminare  $house->title ?"
+            ])
+            <a href="{{route('admin.houses.index')}}" class="btn btn-success">Torna alle case</a>
+        </div>
     </div>
 @endsection

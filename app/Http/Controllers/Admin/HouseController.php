@@ -31,11 +31,12 @@ class HouseController extends Controller
 {
     $method = 'POST';
     $route = route('admin.houses.store');
-    $house = null; // Definisci la variabile $house come null
+    $house = null;
     $title = 'Aggiungi un nuovo Castello';
     $services = Service::all();
+    $button = 'Crea';
 
-    return view('admin.houses.create-edit', compact('services', 'method', 'route', 'title', 'house'));
+    return view('admin.houses.create-edit', compact('services', 'method', 'route', 'title', 'house', 'button'));
 }
 
     /**
@@ -62,7 +63,7 @@ class HouseController extends Controller
             }
         }
 
-        return redirect()->route('admin.houses.show', compact('house'));
+        return redirect()->route('admin.houses.show', compact('house'))->with('success', 'La casa è stata creata');
         // aggiungere i servizi col with
     }
 
@@ -87,9 +88,10 @@ class HouseController extends Controller
         $route = route('admin.houses.update', $house);
         $title = 'Modifica i dati del Castello: ' . $house->title ;
         $services = Service::all();
+        $button = 'Aggiorna';
 
 
-        return view('admin.houses.create-edit', compact('house', 'services', 'method', 'route', 'title'));
+        return view('admin.houses.create-edit', compact('house', 'services', 'method', 'route', 'title', 'button'));
     }
 
     /**
@@ -120,7 +122,7 @@ class HouseController extends Controller
             }
         }
 
-        return redirect()->route('admin.houses.show', compact('house'));
+        return redirect()->route('admin.houses.show', compact('house'))->with('update', 'La casa è stata aggiornata');
     }
 
     /**
@@ -129,6 +131,6 @@ class HouseController extends Controller
     public function destroy(House $house)
     {
         $house->delete();
-        return redirect()->route('admin.houses.index');
+        return redirect()->route('admin.houses.index')->with('deleted', 'La casa'. ' ' . $house->title. ' ' .'è stata cancellata con successo!');
     }
 }

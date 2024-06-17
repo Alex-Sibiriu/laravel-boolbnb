@@ -4,11 +4,11 @@
   <div class="row pt-2 pb-5 px-5">
 
     <div class="col-12">
-      @if (session('success'))
+        @if(session('deleted'))
         <div class="alert alert-success" role="alert">
-          <p class="m-0">{{ session('success') }}</p>
+        {{ session('deleted')}}
         </div>
-      @endif
+        @endif
     </div>
 
     <div class="col-12">
@@ -67,14 +67,10 @@
                     <i class="fa-solid fa-pen-to-square"></i>
                   </a>
 
-                  <form action="{{ route('admin.houses.destroy', $house) }}" method="POST"
-                    onsubmit="return confirm('Sei sicuro di voler eliminare {{ $house->title }}?')"
-                    class="d-inline-block">
-                    @csrf
-                    @method('DELETE')
-
-                    <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
-                  </form>
+                  @include('admin.partials.formdelete', [
+                    'route' => route('admin.houses.destroy', $house),
+                    'message' => "Sei sicuro di voler eliminare  $house->title ?"
+                  ])
                 </td>
 
               </tr>

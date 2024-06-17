@@ -29,7 +29,12 @@ Route::middleware(['auth', 'verified'])
     ->name('admin.')
     ->group(function () {
         Route::get('/', [DashboardController::class,'index'])->name('home');
+
+        // rotte crud houses
         Route::resource('houses', HouseController::class);
+
+         // rotte custom
+        Route::get('orderby/{direction}/{column}', [HouseController::class, 'orderBy']);
     });
 
 require __DIR__ . '/auth.php';
