@@ -12,4 +12,10 @@ class Image extends Model
     public function house(){
         return $this->belongsTo(House::class);
     }
+
+    protected $fillable = [
+        'image_path',
+        'type',
+        'house_id'
+    ];
 }

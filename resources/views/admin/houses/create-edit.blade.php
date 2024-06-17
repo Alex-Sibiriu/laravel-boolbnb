@@ -64,7 +64,7 @@
     <div class="col-6 mb-3">
       <label for="square_meters" class="form-label">Metri Quadri</label>
       <input name="square_meters" type="number" class="form-control @error('square_meters') is-invalid @enderror"
-        id="bed" value="{{ old('square_meters', $house?->square_meters) }}">
+        id="square_meters" value="{{ old('square_meters', $house?->square_meters) }}">
       @error('square_meters')
         <small class="text-danger fw-bold">
           {{ $message }}
@@ -75,11 +75,8 @@
     <div class="col-6 align-content-center">
       <label for="is_visible" class="form-label m-0 pe-2">Visibilità del Castello</label>
       <select name="is_visible" id="is_visible" class="p-1 rounded-2">
-
         <option @if ($house?->is_visible == 1) selected @endif value="1">Sì</option>
-
         <option @if ($house?->is_visible == 0) selected @endif value="0">No</option>
-
       </select>
     </div>
 
@@ -95,9 +92,9 @@
     </div>
 
     <div class="col-2 mb-3">
-      <label for="longitude" class="form-label">Latitudine (*)</label>
+      <label for="longitude" class="form-label">Longitudine (*)</label>
       <input name="longitude" type="number" class="form-control @error('longitude') is-invalid @enderror" id="longitude"
-        value="{{ old('longitude', $house?->latitude) }}">
+        value="{{ old('longitude', $house?->longitude) }}">
       @error('longitude')
         <small class="text-danger fw-bold">
           {{ $message }}
@@ -133,11 +130,30 @@
         @foreach ($services as $service)
           <input type="checkbox" value="{{ $service->id }}" name="technologies[]" class="btn-check"
             id="tech-{{ $service->id }}" autocomplete="off" @if (($errors->any() && in_array($service->id, old('technologies', []))) || $house?->services->contains($service)) checked @endif>
-
           <label class="btn btn-light btn-outline-primary fw-medium m-2"
             for="tech-{{ $service->id }}">{{ $service->name }} <i class="{{ $service->icon }} ms-1"></i></label>
         @endforeach
       </div>
+    </div>
+
+    <div class="col-6 mb-3">
+        <label for="images" class="form-label">Immagini</label>
+        <input type="file" class="form-control @error('images.*') is-invalid @enderror" id="images" name="images[]" multiple onchange="showImage(event)">
+        @error('images.*')
+        <small class="text-danger fw-bold">{{ $message }}</small>
+        @enderror
+    </div>
+
+    <div class="col-6 mb-3">
+        <label for="types" class="form-label">Tipo immagine</label>
+        <input type="text" class="form-control @error('types.*') is-invalid @enderror" id="types" name="types[]" multiple
+            value="{{ old('types') ? implode(',', old('types')) : '' }}">
+        @error('types.*')
+        <small class="text-danger fw-bold">{{ $message }}</small>
+        @enderror
+    </div>
+    <div id="image-preview" class="col-12 mb-3">
+        <!-- Anteprime delle immagini selezionate verranno inserite qui -->
     </div>
 
     <div class="text-center pt-3">
@@ -148,8 +164,17 @@
 
   <script>
     function showImage(event) {
-      const image = document.getElementById('thumb-img');
-      image.src = URL.createObjectURL(event.target.files[0]);
+      const imagePreviewContainer = document.getElementById('image-preview');
+      imagePreviewContainer.innerHTML = ''; // Reset del contenuto
+
+      // Mostra anteprima di tutte le immagini selezionate
+      for (let i = 0; i < event.target.files.length; i++) {
+        const file = event.target.files[i];
+        const imgElement = document.createElement('img');
+        imgElement.className = 'thumb w-25 mb-5';
+        imgElement.src = URL.createObjectURL(file);
+        imagePreviewContainer.appendChild(imgElement);
+      }
     }
   </script>
 @endsection

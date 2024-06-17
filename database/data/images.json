@@ -1,0 +1,422 @@
+[
+    {
+        "house_id": 1,
+        "image_path": "https://cdn.blastness.info/media/313/top/thumbs/medium/panoramica01-top.jpg",
+        "type": "cover"
+    },
+    {
+        "house_id": 1,
+        "image_path": "https://images.charmingsardinia.com/hotels/393/static/files/castello-di-velona4.jpg",
+        "type": "double_room"
+    },
+    {
+        "house_id": 1,
+        "image_path": "https://images.charmingsardinia.com/hotels/393/gallery/files/castello-di-velona12.jpg",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 2,
+        "image_path": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/35/56/1d/castello-di-monterone.jpg?w=700&h=-1&s=1",
+        "type": "cover"
+    },
+    {
+        "house_id": 2,
+        "image_path": "https://castellomonterone.com/wp-content/uploads/2016/07/altana2small.jpg",
+        "type": "double_room"
+    },
+    {
+        "house_id": 2,
+        "image_path": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/283830307.jpg?k=bd1f74504f72e48fe68a7b19d6983aaee0d14519bb746afac52f84c438c61525&o=&hp=1",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 3,
+        "image_path": "https://www.spaltenna.it/uploads/2019/05/23/SlideHOme06_23-05-2019_13-35-10.jpg",
+        "type": "cover"
+    },
+    {
+        "house_id": 3,
+        "image_path": "https://www.spaltenna.it/uploads/2019/05/22/DELUXE_22-05-2019_09-18-17.jpg",
+        "type": "double_room"
+    },
+    {
+        "house_id": 3,
+        "image_path": "https://castello-di-spaltenna-hotel-gaiole-in-chianti.hotelmix.it/data/Photos/OriginalPhoto/11571/1157161/1157161041/Castello-Di-Spaltenna-Exclusive-Resort-Spa-Gaiole-in-Chianti-Exterior.JPEG",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 4,
+        "image_path": "https://www.castellodipavone.com/images/sliders/home/CAST-4A.jpg",
+        "type": "cover"
+    },
+    {
+        "house_id": 4,
+        "image_path": "https://www.castellodipavone.com/images/453-IMG_2109.jpeg",
+        "type": "double_room"
+    },
+    {
+        "house_id": 4,
+        "image_path": "https://www.castellodipavone.com/images/sliders/hotel/3_HOT-2.jpg",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 5,
+        "image_path": "https://media-cdn.tripadvisor.com/media/photo-s/0f/c4/e8/15/castello-di-petroia.jpg",
+        "type": "cover"
+    },
+    {
+        "house_id": 5,
+        "image_path": "https://media-cdn.tripadvisor.com/media/photo-s/06/36/53/0d/castello-di-petroia.jpg",
+        "type": "double_room"
+    },
+    {
+        "house_id": 5,
+        "image_path": "https://www.dimoredepoca.it/templates/yootheme/cache/a8/3.bagno_deluxe_Castello_di_Petroia-a89cc137.jpeg",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 6,
+        "image_path": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/96276757.jpg?k=732ff70a927f35308b25d3d2efe34f2e6119844392fecf3f1b2846d47609927f&o=&hp=1",
+        "type": "cover"
+    },
+    {
+        "house_id": 6,
+        "image_path": "https://static.charmingsardinia.com/hotels/204/gallery/files/castello-di-vicarello13.jpg",
+        "type": "double_room"
+    },
+    {
+        "house_id": 6,
+        "image_path": "https://www.myboutiquehotel.com/photos/4514/castello-di-vicarello-poggi-del-sasso-154-84360-1110x700.jpg",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 7,
+        "image_path": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/157805873.jpg?k=b960840a6dabe687d80993de58075a38b187af4aeb896fab4e6abf8c9d58b71f&o=&hp=1",
+        "type": "cover"
+    },
+    {
+        "house_id": 7,
+        "image_path": "https://www.icastelli.net/photo/images/castello-di-casole_1000_560_3032_1542203630.jpg",
+        "type": "double_room"
+    },
+    {
+        "house_id": 7,
+        "image_path": "https://www.myboutiquehotel.com/photos/106362/belmond-castello-di-casole-casole-d-elsa-119-62433-1110x700.jpg",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 8,
+        "image_path": "https://castellitoscani.com/image/gargonza/gargonza01.jpg",
+        "type": "cover"
+    },
+    {
+        "house_id": 8,
+        "image_path": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/122957916.jpg?k=6868d39d90caa42baa910c1a2205b78aef7e0fcdf17d85df81dd744013c2de73&o=&hp=1",
+        "type": "double_room"
+    },
+    {
+        "house_id": 8,
+        "image_path": "https://castello-di-gargonza-hotel-monte-san-savino.hotelmix.it/data/Photos/OriginalPhoto/8468/846813/846813368/Castello-Di-Gargonza-Hotel-Monte-San-Savino-Exterior.JPEG",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 9,
+        "image_path": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/f6/26/bd/castello-di-guarene.jpg?w=700&h=-1&s=1",
+        "type": "cover"
+    },
+    {
+        "house_id": 9,
+        "image_path": "https://www.castellodiguarene.com/wp-content/uploads/2014/09/Castello-di-Guarene-camere.jpg",
+        "type": "double_room"
+    },
+    {
+        "house_id": 9,
+        "image_path": "https://www.castellodiguarene.com/wp-content/uploads/2017/05/Luxury-Room-08.jpg",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 10,
+        "image_path": "https://img.tuscanyaccommodation.com/properties/castello-di-ripa-dorcia/castello-ripa-arial-view.jpg?fit=clip&h=900",
+        "type": "cover"
+    },
+    {
+        "house_id": 10,
+        "image_path": "https://img.tuscanyaccommodation.com/properties/castello-di-ripa-dorcia/castello-di-ripa-dorcia_3_camere_per_hobb_dic_2010_012.jpg?fit=clip&h=900",
+        "type": "double_room"
+    },
+    {
+        "house_id": 10,
+        "image_path": "https://www.gaiamobili.com/wp-content/uploads/2022/12/arredo-bagno-di-lusso.jpg",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 11,
+        "image_path": "https://www.masciarelli.it/wp-content/uploads/2019/04/castello-di-semivicoli.jpg",
+        "type": "cover"
+    },
+    {
+        "house_id": 11,
+        "image_path": "https://www.icastelli.net/photo/images/castello-di-semivicoli_1000_560_1094_1380702032.jpg",
+        "type": "double_room"
+    },
+    {
+        "house_id": 11,
+        "image_path": "https://www.icastelli.net/photo/images/castello-di-semivicoli_480_290_1094_1475056799.jpg",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 12,
+        "image_path": "https://www.castellidelducato.it/upload/strutture/1379088208/gallery/vigolen4_1384361092.jpg",
+        "type": "cover"
+    },
+    {
+        "house_id": 12,
+        "image_path": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFeaMT1eJC2d7lKZRQ69ZWGYU_qSQ1amElyw&s",
+        "type": "double_room"
+    },
+    {
+        "house_id": 12,
+        "image_path": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/133057566.jpg?k=5837c2fd10b57a753af9d62f58ddbb63db1144ea85b966039a2ba101c56465de&o=&hp=1",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 13,
+        "image_path": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/0d/a5/c9/castello-di-montegiove.jpg?w=700&h=-1&s=1",
+        "type": "cover"
+    },
+    {
+        "house_id": 13,
+        "image_path": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/8478450.jpg?k=fed40b0252a199fd545ab44542adc24e6a6e86c0c155641a2fd59227e1afb899&o=&hp=1",
+        "type": "double_room"
+    },
+    {
+        "house_id": 13,
+        "image_path": "https://www.canalmarmi.it/wp-content/uploads/2018/03/vasche-da-bagno-silver-wave-anteprima.jpg",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 14,
+        "image_path": "https://media-cdn.tripadvisor.com/media/photo-s/0e/ef/74/2a/castello-di-tornano.jpg",
+        "type": "cover"
+    },
+    {
+        "house_id": 14,
+        "image_path": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/426264093.jpg?k=d78b9fe3699aca130fd41a759711d7bfb244b462bd0fe1d42930a73cd3305c7d&o=&hp=1",
+        "type": "double_room"
+    },
+    {
+        "house_id": 14,
+        "image_path": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/2e/7b/0e/castello-di-tornano.jpg?w=1200&h=-1&s=1",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 15,
+        "image_path": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0iQshTORFsqwW3DyHIZjnGF_qVyF1V3gbSw&s",
+        "type": "cover"
+    },
+    {
+        "house_id": 15,
+        "image_path": "https://www.castellodicelsa.com/wp-content/uploads/2021/04/Castello-di-Celsa-Gallery-Limonaia-New-02.jpg",
+        "type": "double_room"
+    },
+    {
+        "house_id": 15,
+        "image_path": "https://www.castellodicelsa.com/wp-content/uploads/2021/04/Castello-di-Celsa-Gallery-Granaio-Bagno-02.jpg",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 16,
+        "image_path": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/01/56/0a/ea/hotel-castello-di-sinio.jpg?w=700&h=-1&s=1",
+        "type": "cover"
+    },
+    {
+        "house_id": 16,
+        "image_path": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/38/03/32/junior-suite--v2446164.jpg?w=700&h=-1&s=1",
+        "type": "double_room"
+    },
+    {
+        "house_id": 16,
+        "image_path": "https://www.bagnoebagno.com/wp-content/uploads/2023/11/bagni-classici-eleganti.jpg",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 17,
+        "image_path": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/22152026.jpg?k=c3faa38c10d9d7e33cf6c7d998dfd4ef46a0e866534905a9cc0154e9befd927f&o=&hp=1",
+        "type": "cover"
+    },
+    {
+        "house_id": 17,
+        "image_path": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/22149689.jpg?k=134931fe01e1bdcf20c9bdb9143bee5a4601f87987aeb7706270c62619e7eaee&o=&hp=1",
+        "type": "double_room"
+    },
+    {
+        "house_id": 17,
+        "image_path": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/22124203.jpg?k=4ed78c3e786a51c013eeefff490d1a74400eddb9139dfb42f14008f11f115f63&o=&hp=1",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 18,
+        "image_path": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Castello_di_Vincigliata_veduta_aerea.png",
+        "type": "cover"
+    },
+    {
+        "house_id": 18,
+        "image_path": "https://images.trvl-media.com/lodging/1000000/20000/15300/15219/344b1eb1_y.jpg",
+        "type": "double_room"
+    },
+    {
+        "house_id": 18,
+        "image_path": "https://living.corriere.it/wp-content/uploads/2023/09/andrea-leung-loft-tribeca-new-york-foto-sarah-elliott-livingcorriere-5.jpg",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 19,
+        "image_path": "https://www.castellidelducato.it/upload/strutture/1379088036/gallery/rivalta-display.jpg",
+        "type": "cover"
+    },
+    {
+        "house_id": 19,
+        "image_path": "https://www.castellidelducato.it/upload/strutture/1379088036/gallery/rivalta9.jpg",
+        "type": "double_room"
+    },
+    {
+        "house_id": 19,
+        "image_path": "https://piacenzaonline.info/wp-content/uploads/2018/05/Castello-di-Rivalta_0758.jpg",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 20,
+        "image_path": "https://www.aviglianonews.it/wp-content/uploads/2018/08/Copia-di-Bella-768x522-768x445.jpg",
+        "type": "cover"
+    },
+    {
+        "house_id": 20,
+        "image_path": "https://files.caprionline.it/card/1799_Castello_di_Sismano/image/2_d.20170803175417.jpg",
+        "type": "double_room"
+    },
+    {
+        "house_id": 20,
+        "image_path": "https://files.caprionline.it/card/1799_Castello_di_Sismano/image/8_d.20170803175417.jpg",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 21,
+        "image_path": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/16255172.jpg?k=f369f9829d9de82ce96d633573bfa2e3130a41e93502f5390cfcf9c6ef248e32&o=&hp=1",
+        "type": "cover"
+    },
+    {
+        "house_id": 21,
+        "image_path": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/384772723.jpg?k=dff200da556b44aee8edfe720984d53c346987e886d1bf11af0d750f44020f8b&o=&hp=1",
+        "type": "double_room"
+    },
+    {
+        "house_id": 21,
+        "image_path": "https://indigosanitaryware.com/wp-content/uploads/2021/02/arredamentolusso.jpg",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 22,
+        "image_path": "https://media-cdn.tripadvisor.com/media/photo-s/0f/c4/e8/15/castello-di-petroia.jpg",
+        "type": "cover"
+    },
+    {
+        "house_id": 22,
+        "image_path": "https://www.petroia.it/wp-content/uploads/2018/02/Camera_nella_torre_medievale-1100x733.jpg",
+        "type": "double_room"
+    },
+    {
+        "house_id": 22,
+        "image_path": "https://media-cdn.tripadvisor.com/media/photo-s/06/36/52/e5/castello-di-petroia.jpg",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 23,
+        "image_path": "https://www.castellidelducato.it/upload/strutture/1379085699/gallery/72-scipione13.jpg",
+        "type": "cover"
+    },
+    {
+        "house_id": 23,
+        "image_path": "https://www.castellidelducato.it/upload/strutture/1380378421/gallery/72-allo-scipione2.jpg",
+        "type": "double_room"
+    },
+    {
+        "house_id": 23,
+        "image_path": "https://cdn0.matrimonio.com/vendor/5222/3_2/960/jpg/bagnoscuderie_2_125222.jpeg",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 24,
+        "image_path": "https://www.castellidelducato.it/upload/strutture/1379088208/gallery/vigolen4_1384361092.jpg",
+        "type": "cover"
+    },
+    {
+        "house_id": 24,
+        "image_path": "https://castellodivigoleno.com/wp-content/uploads/2018/09/castello_vigoleno_camera_classica-600x400.jpg",
+        "type": "double_room"
+    },
+    {
+        "house_id": 24,
+        "image_path": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/133057566.jpg?k=5837c2fd10b57a753af9d62f58ddbb63db1144ea85b966039a2ba101c56465de&o=&hp=1",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 25,
+        "image_path": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/35/56/1d/castello-di-monterone.jpg?w=700&h=-1&s=1",
+        "type": "cover"
+    },
+    {
+        "house_id": 25,
+        "image_path": "https://castellomonterone.com/wp-content/uploads/2016/07/altana2small.jpg",
+        "type": "double_room"
+    },
+    {
+        "house_id": 25,
+        "image_path": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/283830307.jpg?k=bd1f74504f72e48fe68a7b19d6983aaee0d14519bb746afac52f84c438c61525&o=&hp=1",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 26,
+        "image_path": "https://www.spaltenna.it/uploads/2019/05/23/SlideHOme07_23-05-2019_13-35-09.jpg",
+        "type": "cover"
+    },
+    {
+        "house_id": 26,
+        "image_path": "https://www.spaltenna.it/uploads/2019/05/22/DELUXE_22-05-2019_09-18-17.jpg",
+        "type": "double_room"
+    },
+    {
+        "house_id": 26,
+        "image_path": "https://castello-di-spaltenna-hotel-gaiole-in-chianti.hotelmix.it/data/Photos/OriginalPhoto/11571/1157161/1157161041/Castello-Di-Spaltenna-Exclusive-Resort-Spa-Gaiole-in-Chianti-Exterior.JPEG",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 27,
+        "image_path": "https://www.montegufoni.it/wp-content/uploads/2019/05/montegufoni-20190517-18-15-07.jpg",
+        "type": "cover"
+    },
+    {
+        "house_id": 27,
+        "image_path": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/248513205.jpg?k=a0a59bf0181c1518e675099327f879f5dbd281cf833e7ef23b0fd9be592e6ae4&o=&hp=1",
+        "type": "double_room"
+    },
+    {
+        "house_id": 27,
+        "image_path": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/248317943.jpg?k=20ffeb7e1e675f4c378aada7ee092d1c51ea84080bdd244826ce7d9673820ad0&o=&hp=1",
+        "type": "bathroom"
+    },
+    {
+        "house_id": 28,
+        "image_path": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/306041908.jpg?k=2250f64528210ff1c00542dce479bed46132da4757671d4872cdb2fb4111f4cb&o=&hp=1",
+        "type": "cover"
+    },
+    {
+        "house_id": 28,
+        "image_path": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/227068605.jpg?k=dc155f7808a24f997d98c0ff6ddfae86bc12d6e97244f2434f87b7fd50f58744&o=&hp=1",
+        "type": "double_room"
+    },
+    {
+        "house_id": 28,
+        "image_path": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/227080648.jpg?k=c2fe3022efc0bb71fb626102c082832f8854c2297d6065a06a3d6a1421db6e45&o=&hp=1",
+        "type": "bathroom"
+    }
+]

@@ -20,4 +20,10 @@ class Helper{
         return $slug;
 
     }
+    public static function formatDate($data){
+
+        $date=date_create($data);
+        return date_format($date,'d/m/Y');
+
+    }
 }

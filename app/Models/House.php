@@ -4,10 +4,26 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class House extends Model
 {
     use HasFactory;
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($house) {
+            // Elimina le immagini associate
+            foreach ($house->images as $image) {
+                // Elimina il file dal storage
+                Storage::delete('public/' . $image->image_path);
+                // Elimina il record dal database
+                $image->delete();
+            }
+        });
+    }
 
     public function user()
     {
