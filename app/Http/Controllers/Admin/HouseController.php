@@ -91,7 +91,7 @@ class HouseController extends Controller
             }
         }
 
-        return redirect()->route('admin.houses.show', compact('house'))->with('success', 'La casa è stata creata');
+        return redirect()->route('admin.houses.show', compact('house'))->with('success', 'Il castello è stato creato');
         // aggiungere i servizi col with
     }
 
@@ -167,7 +167,7 @@ class HouseController extends Controller
             }
         }
 
-        return redirect()->route('admin.houses.show', compact('house'))->with('update', 'La casa è stata aggiornata');
+        return redirect()->route('admin.houses.show', compact('house'))->with('update', 'Il castello è stato aggiornato');
     }
 
     /**
@@ -176,6 +176,21 @@ class HouseController extends Controller
     public function destroy(House $house)
     {
         $house->delete();
-        return redirect()->route('admin.houses.index')->with('deleted', 'La casa' . ' ' . $house->title . ' ' . 'è stata cancellata con successo!');
+        return redirect()->route('admin.houses.index')->with('deleted', 'Il castello' . ' ' . $house->title . ' ' . 'è stato cancellato con successo!');
     }
+
+    public function deleted()
+    {
+        $houses = House::onlyTrashed()->where('user_id', Auth::id())->get();
+        return view('admin.houses.deleted', compact('houses'));
+    }
+
+    public function retrieve(House $house)
+    {
+        $house->restore();
+        dd($house);
+        return view('admin.houses.deleted', compact('house'));
+    }
+
+
 }

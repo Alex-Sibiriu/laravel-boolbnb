@@ -31,6 +31,12 @@
           Messaggi
         </a>
       </li>
+      <li>
+        <a href="{{ route('admin.deleted') }}">
+            <i class="fa-solid fa-folder-minus"></i>
+          Castelli cancellati
+        </a>
+      </li>
     </ul>
   </nav>
 </div>
