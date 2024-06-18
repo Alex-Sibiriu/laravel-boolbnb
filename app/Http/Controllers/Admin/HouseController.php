@@ -188,8 +188,9 @@ class HouseController extends Controller
     public function retrieve(House $house)
     {
         $house->restore();
-        dd($house);
-        return view('admin.houses.deleted', compact('house'));
+
+        return redirect()->route('admin.houses.index');
+        // non lo recupera veramente
     }
 
 
