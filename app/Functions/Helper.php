@@ -9,12 +9,13 @@ class Helper
 {
     public static function generateSlug($string, $model)
     {
-        $slug = Str::of($string)->slug('-');
+        $slug = Str::slug($string, '-');
         $original_slug = $slug;
 
         $exist = $model::where('slug', $slug)->first();
 
         $count = 1;
+
         while ($exist) {
             $slug = $original_slug . '-' . $count;
             $exist = $model::where('slug', $slug)->first();
@@ -38,7 +39,7 @@ class Helper
         // La mia API key
         $apiKey = env('TOMTOM_API_KEY');
 
-        // Percorso del file cacert.pem
+        // Percorso del file cacert.pem (serve per i permessi , dei certificati)
         $cacertPath = env('CACERT_PEM_PATH');
 
         // Configura il client GuzzleHttp
@@ -52,16 +53,15 @@ class Helper
             'query' => ['key' => $apiKey]
         ]);
 
+
         // Verifico lo stato della risposta
-        if ($response->getStatusCode() == 200) {
-            $data = json_decode($response->getBody(), true);
-            if (isset($data['addresses']) && count($data['addresses']) > 0 && isset($data['addresses'][0]['address']['freeformAddress'])) {
-                return $data['addresses'][0]['address']['freeformAddress'];
-            } else {
-                return 'Nessun indirizzo corrispondente';
-            }
-        } else {
+        if ($response->getStatusCode() != 200) {
             return 'Errore: ' . $response->getStatusCode();
         }
+
+        $data = json_decode($response->getBody(), true);
+        $address = $data['addresses'][0]['address']['freeformAddress'] ?? 'Nessun indirizzo corrispondente';
+
+        return $address;
     }
 }
