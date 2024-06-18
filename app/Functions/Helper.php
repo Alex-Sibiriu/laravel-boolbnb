@@ -55,7 +55,7 @@ class Helper
         // Verifico lo stato della risposta
         if ($response->getStatusCode() == 200) {
             $data = json_decode($response->getBody(), true);
-            if (isset($data['addresses']) && count($data['addresses']) > 0) {
+            if (isset($data['addresses']) && count($data['addresses']) > 0 && isset($data['addresses'][0]['address']['freeformAddress'])) {
                 return $data['addresses'][0]['address']['freeformAddress'];
             } else {
                 return 'Nessun indirizzo corrispondente';

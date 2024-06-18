@@ -3,31 +3,31 @@
 @section('content')
   <div class="row py-2 px-5 justify-content-between">
     <div class="col-12">
-        {{-- alert di avvenuta cancellazione  --}}
-        @if(session('deleted'))
+      {{-- alert di avvenuta cancellazione  --}}
+      @if (session('deleted'))
         <div class="alert alert-success" role="alert">
-        {{ session('deleted')}}
+          {{ session('deleted') }}
         </div>
-        @endif
+      @endif
     </div>
 
     <div class="col-4 my-3">
-        <form action="{{route('admin.houses.index')}}" method="GET" class="d-flex" role="search">
-            <input name="toSearch" class=" toSearch form-control me-2" type="search" placeholder="Cerca" aria-label="Search">
+      <form action="{{ route('admin.houses.index') }}" method="GET" class="d-flex" role="search">
+        <input name="toSearch" class=" toSearch form-control me-2" type="search" placeholder="Cerca" aria-label="Search">
 
-            <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-circle-chevron-right"></i></button>
-          </form>
+        <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-circle-chevron-right"></i></button>
+      </form>
     </div>
     <div class="col-4 my-3 text-end">
-        <a href="{{route('admin.houses.create')}}" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a>
+      <a href="{{ route('admin.houses.create') }}" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a>
     </div>
   </div>
 
   <div class="row pt-2 pb-5 px-5">
     @if (isset($_GET['toSearch']))
-    <div class="mt-2">
-        <h1>Castelli trovati per {{$_GET['toSearch']}} : {{$count_search}} </h1>
-    </div>
+      <div class="mt-2">
+        <h1>Castelli trovati per <span class="text-danger">"{{ $_GET['toSearch'] }}"</span> : {{ $count_search }} </h1>
+      </div>
     @endif
     <div class="col-12">
       <div class="px-2 bg-dark rounded-3 pb-1">
@@ -37,9 +37,11 @@
           @if (count($houses) > 0)
             <thead>
               <tr>
-                <th class="ps-3 id-column" scope="col"><a href="{{route('admin.orderby', ['direction' => $direction , 'column'=> 'id'])}}">ID</a></th>
+                <th class="ps-3 id-column" scope="col"><a
+                    href="{{ route('admin.orderby', ['direction' => $direction, 'column' => 'id']) }}">ID</a></th>
                 <th scope="col">Immagine</th>
-                <th scope="col"><a href="{{route('admin.orderby', ['direction' => $direction , 'column' => 'title'])}}">Nome</a></th>
+                <th scope="col"><a
+                    href="{{ route('admin.orderby', ['direction' => $direction, 'column' => 'title']) }}">Nome</a></th>
                 <th scope="col">Sponsor</th>
                 <th scope="col">Pubblica</th>
                 <th class="text-center" scope="col">Azioni</th>
@@ -86,14 +88,14 @@
                   </a>
 
                   @include('admin.partials.formdelete', [
-                    'route' => route('admin.houses.destroy', $house),
-                    'message' => "Sei sicuro di voler eliminare  $house->title ?"
+                      'route' => route('admin.houses.destroy', $house),
+                      'message' => "Sei sicuro di voler eliminare  $house->title ?",
                   ])
                 </td>
 
               </tr>
             @empty
-              <h2 class="text-white">Nessun Castello Trovato</h2>
+              <h2 class="text-white ms-3">Nessun Castello Trovato</h2>
             @endforelse
 
           </tbody>
