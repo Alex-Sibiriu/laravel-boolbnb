@@ -15,7 +15,7 @@
 
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item ">
-            <span class="nav-link text-white fw-bold">Benvenuto <span
+            <span class="nav-link text-white fw-bold"><span
                 class="user">{{ Auth::user()->name }}</span></span>
           </li>
 

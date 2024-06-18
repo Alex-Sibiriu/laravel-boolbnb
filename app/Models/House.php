@@ -25,6 +25,12 @@ class House extends Model
         });
     }
 
+    // funzione per far apparire lo slug nella url al posto dell'id
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
