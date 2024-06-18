@@ -37,11 +37,22 @@
           @if (count($houses) > 0)
             <thead>
               <tr>
-                <th class="ps-3 id-column" scope="col"><a
-                    href="{{ route('admin.orderby', ['direction' => $direction, 'column' => 'id']) }}">ID</a></th>
+
                 <th scope="col">Immagine</th>
-                <th scope="col"><a
-                    href="{{ route('admin.orderby', ['direction' => $direction, 'column' => 'title']) }}">Nome</a></th>
+                <th scope="col">
+                    <a
+                      class="text-white text-decoration-none"
+                      href="{{ route('admin.orderby', ['direction' => $direction, 'column' => 'title']) }}">Nome
+
+                         @if ($direction === 'asc')
+                            <i class="fa-solid fa-sort-up"></i>
+                         @else
+                            <i class="fa-solid fa-sort-down"></i>
+                        @endif
+
+                    </a>
+
+                </th>
                 <th scope="col">Sponsor</th>
                 <th scope="col">Pubblica</th>
                 <th class="text-center" scope="col">Azioni</th>
@@ -52,10 +63,13 @@
 
             @forelse ($houses as $house)
               <tr>
-                <td class="ps-3">{{ $house->id }}</td>
 
                 <td class="align-content-center">
-                  IMMAGINE
+
+                    <img src="{{asset('storage/' . $house?->images->first()?->image_path)}}" alt="{{$house?->title}}" width="100" onerror="this.src='/img/not-found.jpg'" >
+
+
+
                 </td>
 
                 <td class="align-content-center">
@@ -78,7 +92,8 @@
                   @endif
                 </td>
 
-                <td class="text-center">
+                <td class="align-content-center text-center">
+
                   <a href="{{ route('admin.houses.show', $house) }}" class="btn btn-info me-2">
                     <i class="fa-solid fa-eye"></i>
                   </a>
@@ -91,6 +106,7 @@
                       'route' => route('admin.houses.destroy', $house),
                       'message' => "Sei sicuro di voler eliminare  $house->title ?",
                   ])
+
                 </td>
 
               </tr>

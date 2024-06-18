@@ -100,6 +100,9 @@ class HouseController extends Controller
      */
     public function show(House $house)
     {
+        if(Auth::id() !== $house->user_id){
+            abort('404');
+        }
         // Carica anche le immagini associate al castello
         $house->load('images');
 
@@ -112,6 +115,11 @@ class HouseController extends Controller
      */
     public function edit(House $house)
     {
+
+        if(Auth::id() !== $house->user_id){
+            abort('404');
+        }
+        // dd($house);
         $method = 'PUT';
         $route = route('admin.houses.update', $house);
         $title = 'Modifica i dati del Castello: ' . $house->title;

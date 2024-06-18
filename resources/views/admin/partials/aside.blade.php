@@ -21,11 +21,13 @@
       </li>
       <li>
         <a href="">
+          <i class="fa-solid fa-money-bill-wave me-2"></i>
           Sponsor
         </a>
       </li>
       <li>
         <a href="">
+          <i class="fa-solid fa-message me-2"></i>
           Messaggi
         </a>
       </li>

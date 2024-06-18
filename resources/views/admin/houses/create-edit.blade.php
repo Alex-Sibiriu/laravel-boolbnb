@@ -138,8 +138,8 @@
 
     {{-- img  --}}
     <div class="col-6 mb-3">
-      <label for="images" class="form-label">Immagini</label>
-      <input type="file" class="form-control @error('images.*') is-invalid @enderror" id="images"
+      <label for="images"  class="form-label">Immagini</label>
+      <input type="file" value="{{old('images', $house?->images)}}" class="form-control @error('images.*') is-invalid @enderror" id="images"
         name="images[]" multiple onchange="showImage(event)">
       @error('images.*')
         <small class="text-danger fw-bold">{{ $message }}</small>
@@ -150,6 +150,8 @@
 
     <div id="image-preview" class="col-12 mb-3">
       <!-- Anteprime delle immagini selezionate verranno inserite qui -->
+      <img class="thumb img-thumbnail w-25 my-2" onerror="this.src='/img/not-found.jpg'" id="thumb" src="{{asset('storage/' . $house?->images->first()?->image_path)}}" >
+      {{-- modificato il percorso per far vedere in anteprima l'immagine se presente appare se non è presente ne appare una di default --}}
     </div>
 
     <div class="text-center pt-3">
