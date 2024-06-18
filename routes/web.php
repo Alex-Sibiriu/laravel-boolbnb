@@ -42,7 +42,7 @@ Route::middleware(['auth', 'verified'])
 
         Route::get('deleted-castles', [HouseController::class, 'deleted'])->name('deleted');
 
-        Route::put('retrieve-castles', [HouseController::class, 'retrieve'])->name('retrieve');
+        Route::put('retrieve-castles/{id}', [HouseController::class, 'retrieve'])->name('retrieve');
     });
 
 require __DIR__ . '/auth.php';

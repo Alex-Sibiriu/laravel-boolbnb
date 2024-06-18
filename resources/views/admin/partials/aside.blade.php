@@ -33,7 +33,7 @@
       </li>
       <li>
         <a href="{{ route('admin.deleted') }}">
-            <i class="fa-solid fa-folder-minus"></i>
+          <i class="fa-solid fa-trash-arrow-up me-2"></i>
           Castelli cancellati
         </a>
       </li>

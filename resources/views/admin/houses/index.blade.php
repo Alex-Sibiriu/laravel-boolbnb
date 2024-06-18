@@ -40,17 +40,16 @@
 
                 <th scope="col">Immagine</th>
                 <th scope="col">
-                    <a
-                      class="text-white text-decoration-none"
-                      href="{{ route('admin.orderby', ['direction' => $direction, 'column' => 'title']) }}">Nome
+                  <a class="text-white text-decoration-none"
+                    href="{{ route('admin.orderby', ['direction' => $direction, 'column' => 'title']) }}">Nome
 
-                         @if ($direction === 'asc')
-                            <i class="fa-solid fa-sort-up"></i>
-                         @else
-                            <i class="fa-solid fa-sort-down"></i>
-                        @endif
+                    @if ($direction === 'asc')
+                      <i class="fa-solid fa-sort-up"></i>
+                    @else
+                      <i class="fa-solid fa-sort-down"></i>
+                    @endif
 
-                    </a>
+                  </a>
 
                 </th>
                 <th scope="col">Sponsor</th>
@@ -66,9 +65,8 @@
 
                 <td class="align-content-center">
 
-                    <img src="{{asset('storage/' . $house?->images->first()?->image_path)}}" alt="{{$house?->title}}" width="100" onerror="this.src='/img/not-found.jpg'" >
-
-
+                  <img src="{{ asset('storage/' . $house?->images->first()?->image_path) }}" alt="{{ $house?->title }}"
+                    width="100" onerror="this.src='/img/not-found.jpg'">
 
                 </td>
 

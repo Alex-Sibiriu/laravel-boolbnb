@@ -1,11 +1,18 @@
 @extends('layouts.admin')
 
 @section('content')
+  @php
+    $isEdit = isset($house);
+
+    dump($isEdit);
+  @endphp
+
   <h1 class="py-5 text-center mt-3 rounded-3 bg-gray">{{ $title }}</h1>
 
   <h6 class="ps-5">I campi con <strong>(*)</strong> sono obbligatori</h6>
 
-  <form class="row fw-medium rounded-3 bg-gray p-5" enctype="multipart/form-data" action='{{ $route }}' method='POST'>
+  <form id="houseForm" class="row fw-medium rounded-3 bg-gray p-5" enctype="multipart/form-data" action='{{ $route }}'
+    method='POST'>
     @csrf
     @method($method)
 
@@ -97,16 +104,16 @@
     {{-- Indirizzo --}}
     <div class="col-6 mb-3">
       <label for="address" class="form-label">Indirizzo (*)</label>
-      <input type="text" id="address" placeholder="Inserisci l'indirizzo" class="form-control"
-        value="{{ old('address', $house?->address) }}">
+      <input type="text" name="address" id="address" placeholder="Inserisci l'indirizzo" class="form-control"
+        value="{{ old('address', $house?->address) }}" required min="2" max="100">
       <div id="addressList" role="button" class="autocomplete-items rounded-bottom-3 overflow-hidden"></div>
     </div>
 
-    <input name="latitude" type="hidden" class="form-control @error('latitude') is-invalid @enderror" id="latitude"
-      value="{{ old('latitude', $house?->latitude) }}" required min="-90" max="90">
+    <input name="latitude" type="hidden" id="latitude" value="{{ old('latitude', $house?->latitude) }}" required
+      min="-90" max="90">
 
-    <input name="longitude" type="hidden" step="any" class="form-control @error('longitude') is-invalid @enderror"
-      id="longitude" value="{{ old('longitude', $house?->longitude) }}" required min="-180" max="180">
+    <input name="longitude" type="hidden" id="longitude" value="{{ old('longitude', $house?->longitude) }}" required
+      min="-180" max="180">
 
     {{-- descrizione  --}}
     <div class="col-6 mb-3">
@@ -163,127 +170,120 @@
 
   {{-- javascript  --}}
   <script>
-    const addressInput = document.getElementById('address');
-    const addressList = document.getElementById('addressList');
-    const latitudeInput = document.getElementById('latitude');
-    const longitudeInput = document.getElementById('longitude');
+    document.addEventListener('DOMContentLoaded', function() {
+      const addressInput = document.getElementById('address');
+      const addressList = document.getElementById('addressList');
+      const latitudeInput = document.getElementById('latitude');
+      const longitudeInput = document.getElementById('longitude');
 
-    addressInput.addEventListener('input', function() {
-      let query = this.value;
+      let addressSelected = @json($isEdit);
 
-      if (query.length > 1) {
-        // Richiamo la rotta
-        fetch('{{ route('autocomplete') }}?query=' + encodeURIComponent(query))
-          .then(response => response.json())
-          .then(data => {
-            // Pulisce la lista
-            addressList.innerHTML = '';
+      addressInput.addEventListener('input', function() {
+        let query = this.value;
 
-            data.forEach(item => {
-              const option = document.createElement('div');
-              option.classList.add('bg-white', 'p-1', 'ps-2', 'border-bottom', 'border-secondary-subtle')
-              option.innerHTML = "<strong>" + item.address.freeformAddress + "</strong>";
+        if (query.length > 1) {
+          // Richiamo la rotta
+          fetch('{{ route('autocomplete') }}?query=' + encodeURIComponent(query))
+            .then(response => response.json())
+            .then(data => {
+              // Pulisce la lista
+              addressList.innerHTML = '';
 
-              // Quando si clicca su un elemento viene impostato come valore dell'input
-              option.addEventListener('click', function() {
-                addressInput.value = item.address.freeformAddress;
-                latitudeInput.value = item.position.lat;
-                longitudeInput.value = item.position.lon;
-                addressList.innerHTML = '';
+              data.forEach(item => {
+                const option = document.createElement('div');
+                option.classList.add('bg-white', 'p-1', 'ps-2', 'border-bottom', 'border-secondary-subtle')
+                option.innerHTML = "<strong>" + item.address.freeformAddress + "</strong>";
+
+                // Quando si clicca su un elemento viene impostato come valore dell'input
+                option.addEventListener('click', function() {
+                  addressInput.value = item.address.freeformAddress;
+                  latitudeInput.value = item.position.lat;
+                  longitudeInput.value = item.position.lon;
+                  addressList.innerHTML = '';
+                  addressSelected = true;
+                });
+
+                addressList.appendChild(option);
               });
-
-              addressList.appendChild(option);
             });
-          });
-      } else {
-        // Se la query è vuota, svuota la lista
-        addressList.innerHTML = '';
-      }
-    });
+        } else {
+          // Se la query è vuota, svuota la lista
+          addressList.innerHTML = '';
+        }
+      });
 
-    // Chiude la lista dei suggerimenti cliccando altrove sulla pagina
-    document.addEventListener('click', function(e) {
-      if (!addressList.contains(e.target) && e.target !== addressInput) {
-        addressList.innerHTML = '';
-      }
-    });
+      // Chiude la lista dei suggerimenti cliccando altrove sulla pagina
+      document.addEventListener('click', function(e) {
+        if (!addressList.contains(e.target) && e.target !== addressInput) {
+          addressList.innerHTML = '';
+          console.log({{ $isEdit }});
+        }
+      });
 
-    function showImage(event) {
-      const imagePreviewContainer = document.getElementById('image-preview');
-      imagePreviewContainer.innerHTML = ''; // Reset del contenuto
+      function showImage(event) {
+        const imagePreviewContainer = document.getElementById('image-preview');
+        imagePreviewContainer.innerHTML = ''; // Reset del contenuto
 
-      // Mostra anteprima di tutte le immagini selezionate
-      for (let i = 0; i < event.target.files.length; i++) {
-        const file = event.target.files[i];
-        const imgElement = document.createElement('img');
-        imgElement.className = 'thumb w-25 mb-5';
-        imgElement.src = URL.createObjectURL(file);
-        imagePreviewContainer.appendChild(imgElement);
-      }
-    }
-
-    document.getElementById('houseForm').addEventListener('submit', function(event) {
-      let valid = true;
-
-      // Campi obbligatori
-      const title = document.getElementById('title').value;
-      const rooms = document.getElementById('rooms').value;
-      const bathrooms = document.getElementById('bathrooms').value;
-      const bed = document.getElementById('bed').value;
-      const latitude = document.getElementById('latitude').value;
-      const longitude = document.getElementById('longitude').value;
-
-      // Validazione immagini
-      const images = document.getElementById('images').files;
-      const validImageTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif', 'image/svg+xml'];
-
-      for (let i = 0; i < images.length; i++) {
-        if (!validImageTypes.includes(images[i].type)) {
-          alert('I file selezionati devono essere di tipo jpeg, png, jpg, gif o svg');
-          valid = false;
-          break;
+        // Mostra anteprima di tutte le immagini selezionate
+        for (let i = 0; i < event.target.files.length; i++) {
+          const file = event.target.files[i];
+          const imgElement = document.createElement('img');
+          imgElement.className = 'thumb w-25 mb-5';
+          imgElement.src = URL.createObjectURL(file);
+          imagePreviewContainer.appendChild(imgElement);
         }
       }
 
-      // Controlla se i campi sono validi
-      if (title.length < 3 || title.length > 100) {
-        alert('Il titolo deve contenere tra 3 e 100 caratteri');
-        valid = false;
-      }
-      if (rooms < 1) {
-        alert('Il numero di stanze deve essere almeno 1');
-        valid = false;
-      }
-      if (bathrooms < 1) {
-        alert('Il numero di bagni deve essere almeno 1');
-        valid = false;
-      }
-      if (bed < 1) {
-        alert('Il numero di letti deve essere almeno 1');
-        valid = false;
-      }
-      if (!latitude) {
-        alert('La latitudine è obbligatoria');
-        valid = false;
-      }
-      if (isNaN(latitude) || latitude < -90 || latitude > 90) {
-        alert('La latitudine deve essere un numero tra -90 e 90');
-        valid = false;
-      }
-      if (!longitude) {
-        alert('La longitudine è obbligatoria');
-        valid = false;
-      }
-      if (isNaN(longitude) || longitude < -180 || longitude > 180) {
-        alert('La longitudine deve essere un numero tra -180 e 180');
-        valid = false;
-      }
+      document.getElementById('houseForm').addEventListener('submit', function(event) {
+        let valid = true;
 
-      // Se non è valido, prevenire l'invio del form
-      if (!valid) {
-        event.preventDefault();
-      }
-    });
+        // Campi obbligatori
+        const title = document.getElementById('title').value;
+        const rooms = document.getElementById('rooms').value;
+        const bathrooms = document.getElementById('bathrooms').value;
+        const bed = document.getElementById('bed').value;
+        const address = document.getElementById('address').value;
+
+        // Validazione immagini
+        const images = document.getElementById('images').files;
+        const validImageTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif', 'image/svg+xml'];
+
+        for (let i = 0; i < images.length; i++) {
+          if (!validImageTypes.includes(images[i].type)) {
+            alert('I file selezionati devono essere di tipo jpeg, png, jpg, gif o svg');
+            valid = false;
+            break;
+          }
+        }
+
+        // Controlla se i campi sono validi
+        if (title.length < 3 || title.length > 100) {
+          alert('Il titolo deve contenere tra 3 e 100 caratteri');
+          valid = false;
+        }
+        if (rooms < 1) {
+          alert('Il numero di stanze deve essere almeno 1');
+          valid = false;
+        }
+        if (bathrooms < 1) {
+          alert('Il numero di bagni deve essere almeno 1');
+          valid = false;
+        }
+        if (bed < 1) {
+          alert('Il numero di letti deve essere almeno 1');
+          valid = false;
+        }
+        if (!address || address.length < 2 || address.length > 100 || addressSelected === false) {
+          alert('L\'indirizzo inserito non é valido. Per favore, seleziona un indirizzo dalla lista');
+          valid = false;
+        }
+
+        // Se non è valido, prevenire l'invio del form
+        if (!valid) {
+          event.preventDefault();
+        }
+      });
+    })
   </script>
 
 @endsection
