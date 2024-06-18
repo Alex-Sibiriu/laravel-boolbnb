@@ -3,6 +3,8 @@
 @section('content')
   <h1 class="py-5 text-center mt-3 rounded-3 bg-gray">{{ $title }}</h1>
 
+  <h6 class="ps-5">I campi con <strong>(*)</strong> sono obbligatori</h6>
+
   <form class="row fw-medium rounded-3 bg-gray p-5" enctype="multipart/form-data" action='{{ $route }}' method='POST'>
     @csrf
     @method($method)
@@ -21,7 +23,8 @@
     {{-- titolo --}}
     <div class="col-6 mb-3">
       <label for="title" class="form-label">Titolo (*)</label>
-      <input name="title" type="text" class="form-control @error('title') is-invalid @enderror" id="title"
+      <input name="title" type="text" placeholder="Inserisci il nome del castello"
+        class="form-control @error('title') is-invalid @enderror" id="title"
         value="{{ old('title', $house?->title) }}" required minlength="3" maxlength="100">
       @error('title')
         <small class="text-danger fw-bold">
@@ -33,7 +36,8 @@
     {{-- stanze --}}
     <div class="col-6 mb-3">
       <label for="rooms" class="form-label">Stanze (*)</label>
-      <input name="rooms" type="number" class="form-control @error('rooms') is-invalid @enderror" id="rooms"
+      <input name="rooms" type="number" placeholder="Inserisci il numero di stanze"
+        class="form-control @error('rooms') is-invalid @enderror" id="rooms"
         value="{{ old('rooms', $house?->rooms) }}" required min="1" max="125">
       @error('rooms')
         <small class="text-danger fw-bold">
@@ -45,7 +49,8 @@
     {{-- bagni --}}
     <div class="col-6 mb-3">
       <label for="bathrooms" class="form-label">Bagni (*)</label>
-      <input name="bathrooms" type="number" class="form-control @error('bathrooms') is-invalid @enderror" id="bathrooms"
+      <input name="bathrooms" type="number" placeholder="Inserisci il numero di bagni"
+        class="form-control @error('bathrooms') is-invalid @enderror" id="bathrooms"
         value="{{ old('bathrooms', $house?->bathrooms) }}" required min="1" max="125">
       @error('bathrooms')
         <small class="text-danger fw-bold">
@@ -57,8 +62,9 @@
     {{-- letti --}}
     <div class="col-6 mb-3">
       <label for="bed" class="form-label">Posti Letto (*)</label>
-      <input name="bed" type="number" class="form-control @error('bed') is-invalid @enderror" id="bed"
-        value="{{ old('bed', $house?->bed) }}" required min="1" max="125">
+      <input name="bed" type="number" placeholder="Inserisci il numero di posti letto"
+        class="form-control @error('bed') is-invalid @enderror" id="bed" value="{{ old('bed', $house?->bed) }}"
+        required min="1" max="125">
       @error('bed')
         <small class="text-danger fw-bold">
           {{ $message }}
@@ -69,8 +75,9 @@
     {{-- mq --}}
     <div class="col-6 mb-3">
       <label for="square_meters" class="form-label">Metri Quadri</label>
-      <input name="square_meters" type="number" class="form-control @error('square_meters') is-invalid @enderror"
-        id="square_meters" value="{{ old('square_meters', $house?->square_meters) }}">
+      <input name="square_meters" type="number" placeholder="Inserisci i metri quadri"
+        class="form-control @error('square_meters') is-invalid @enderror" id="square_meters"
+        value="{{ old('square_meters', $house?->square_meters) }}">
       @error('square_meters')
         <small class="text-danger fw-bold">
           {{ $message }}
@@ -78,32 +85,8 @@
       @enderror
     </div>
 
-    {{-- latitudine  --}}
-    <div class="col-2 mb-3">
-      <label for="latitude" class="form-label">Latitudine (*)</label>
-      <input name="latitude" type="number" step="any" class="form-control @error('latitude') is-invalid @enderror"
-        id="latitude" value="{{ old('latitude', $house?->latitude) }}" required min="-90" max="90">
-      @error('latitude')
-        <small class="text-danger fw-bold">
-          {{ $message }}
-        </small>
-      @enderror
-    </div>
-
-    {{-- longitudine --}}
-    <div class="col-2 mb-3">
-      <label for="longitude" class="form-label">Longitudine (*)</label>
-      <input name="longitude" type="number" step="any" class="form-control @error('longitude') is-invalid @enderror"
-        id="longitude" value="{{ old('longitude', $house?->longitude) }}" required min="-180" max="180">
-      @error('longitude')
-        <small class="text-danger fw-bold">
-          {{ $message }}
-        </small>
-      @enderror
-    </div>
-
     {{-- visibilità --}}
-    <div class="col-2 align-content-center">
+    <div class="col-6 align-content-center">
       <label for="is_visible" class="form-label m-0 pe-2">Visibilità del Castello</label>
       <select name="is_visible" id="is_visible" class="p-1 rounded-2">
         <option @if ($house?->is_visible == 1) selected @endif value="1">Sì</option>
@@ -111,11 +94,25 @@
       </select>
     </div>
 
+    {{-- Indirizzo --}}
+    <div class="col-6 mb-3">
+      <label for="address" class="form-label">Indirizzo (*)</label>
+      <input type="text" id="address" placeholder="Inserisci l'indirizzo" class="form-control"
+        value="{{ old('address', $house?->address) }}">
+      <div id="addressList" role="button" class="autocomplete-items rounded-bottom-3 overflow-hidden"></div>
+    </div>
+
+    <input name="latitude" type="hidden" class="form-control @error('latitude') is-invalid @enderror" id="latitude"
+      value="{{ old('latitude', $house?->latitude) }}" required min="-90" max="90">
+
+    <input name="longitude" type="hidden" step="any" class="form-control @error('longitude') is-invalid @enderror"
+      id="longitude" value="{{ old('longitude', $house?->longitude) }}" required min="-180" max="180">
+
     {{-- descrizione  --}}
     <div class="col-6 mb-3">
       <label for="description" class="form-label">Descrizione</label>
-      <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="description"
-        rows="15">{{ old('description', $house?->description) }}</textarea>
+      <textarea name="description" placeholder="Inserisci una descrizione"
+        class="form-control @error('description') is-invalid @enderror" id="description" rows="15">{{ old('description', $house?->description) }}</textarea>
       @error('description')
         <small class="text-danger fw-bold">
           {{ $message }}
@@ -126,7 +123,7 @@
     {{-- servizi --}}
     <div class="btn-group col-6 d-block" role="group" aria-label="Basic checkbox toggle button group">
       <p class="pe-2">Seleziona i Servizi:</p>
-      <div class="dflex">
+      <div class="d-flex flex-wrap">
         @foreach ($services as $service)
           <input type="checkbox" value="{{ $service->id }}" name="services[]" class="btn-check"
             id="tech-{{ $service->id }}" autocomplete="off" @if (($errors->any() && in_array($service->id, old('services', []))) || $house?->services->contains($service)) checked @endif>
@@ -138,9 +135,10 @@
 
     {{-- img  --}}
     <div class="col-6 mb-3">
-      <label for="images"  class="form-label">Immagini</label>
-      <input type="file" value="{{old('images', $house?->images)}}" class="form-control @error('images.*') is-invalid @enderror" id="images"
-        name="images[]" multiple onchange="showImage(event)">
+      <label for="images" class="form-label">Immagini</label>
+      <input type="file" value="{{ old('images', $house?->images) }}"
+        class="form-control @error('images.*') is-invalid @enderror" id="images" name="images[]" multiple
+        onchange="showImage(event)">
       @error('images.*')
         <small class="text-danger fw-bold">{{ $message }}</small>
       @enderror
@@ -150,7 +148,8 @@
 
     <div id="image-preview" class="col-12 mb-3">
       <!-- Anteprime delle immagini selezionate verranno inserite qui -->
-      <img class="thumb img-thumbnail w-25 my-2" onerror="this.src='/img/not-found.jpg'" id="thumb" src="{{asset('storage/' . $house?->images->first()?->image_path)}}" >
+      <img class="thumb img-thumbnail w-25 my-2" onerror="this.src='/img/not-found.jpg'" id="thumb"
+        src="{{ asset('storage/' . $house?->images->first()?->image_path) }}">
       {{-- modificato il percorso per far vedere in anteprima l'immagine se presente appare se non è presente ne appare una di default --}}
     </div>
 
@@ -164,6 +163,51 @@
 
   {{-- javascript  --}}
   <script>
+    const addressInput = document.getElementById('address');
+    const addressList = document.getElementById('addressList');
+    const latitudeInput = document.getElementById('latitude');
+    const longitudeInput = document.getElementById('longitude');
+
+    addressInput.addEventListener('input', function() {
+      let query = this.value;
+
+      if (query.length > 1) {
+        // Richiamo la rotta
+        fetch('{{ route('autocomplete') }}?query=' + encodeURIComponent(query))
+          .then(response => response.json())
+          .then(data => {
+            // Pulisce la lista
+            addressList.innerHTML = '';
+
+            data.forEach(item => {
+              const option = document.createElement('div');
+              option.classList.add('bg-white', 'p-1', 'ps-2', 'border-bottom', 'border-secondary-subtle')
+              option.innerHTML = "<strong>" + item.address.freeformAddress + "</strong>";
+
+              // Quando si clicca su un elemento viene impostato come valore dell'input
+              option.addEventListener('click', function() {
+                addressInput.value = item.address.freeformAddress;
+                latitudeInput.value = item.position.lat;
+                longitudeInput.value = item.position.lon;
+                addressList.innerHTML = '';
+              });
+
+              addressList.appendChild(option);
+            });
+          });
+      } else {
+        // Se la query è vuota, svuota la lista
+        addressList.innerHTML = '';
+      }
+    });
+
+    // Chiude la lista dei suggerimenti cliccando altrove sulla pagina
+    document.addEventListener('click', function(e) {
+      if (!addressList.contains(e.target) && e.target !== addressInput) {
+        addressList.innerHTML = '';
+      }
+    });
+
     function showImage(event) {
       const imagePreviewContainer = document.getElementById('image-preview');
       imagePreviewContainer.innerHTML = ''; // Reset del contenuto
