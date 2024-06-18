@@ -1,0 +1,40 @@
+.header-admin{
+    height: 60px;
+    background-color: #222 !important;
+    .user{
+        color: rgb(152, 51, 26);
+    }
+}
+
+li{
+    a{
+        text-decoration: none;
+        color: white !important;
+        font-weight: bold !important;
+    }
+    &:hover a{
+        color: rgb(152, 51, 26) !important;
+    }
+}
+
+.main{
+    width: calc(100% - 200px);
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    background-color: #D9CAB3;
+    .toSearch{
+        border-color: lightgray;
+        &:focus{
+        box-shadow: none !important;
+        }
+    }
+}
+
+h1{
+    color: rgb(152, 51, 26);
+}
+
+.house-image{
+    height: 200px;
+    object-fit: cover;
+}

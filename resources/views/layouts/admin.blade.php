@@ -25,20 +25,16 @@
 
 <body>
 
-    @include('admin.partials.header')
+  @include('admin.partials.header')
 
-   <div class="d-flex ">
-        @include('admin.partials.aside')
+  <div class="d-flex">
+    @include('admin.partials.aside')
 
-        <div class="main">
+    <div class="main">
 
-            @yield('content')
-        </div>
-   </div>
-
-
-
-
+      @yield('content')
+    </div>
+  </div>
 
 </body>
 

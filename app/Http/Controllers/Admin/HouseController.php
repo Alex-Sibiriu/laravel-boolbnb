@@ -20,27 +20,27 @@ class HouseController extends Controller
      */
     public function index()
     {
-        if(isset($_GET['toSearch'])){
-            $houses = House::where('title', 'LIKE' , '%' . $_GET['toSearch'] . '%')
-                            ->where('user_id', Auth::id())->paginate(5);
+        if (isset($_GET['toSearch'])) {
+            $houses = House::where('title', 'LIKE', '%' . $_GET['toSearch'] . '%')
+                ->where('user_id', Auth::id())->paginate(5);
             $count_search = House::where('title', 'LIKE', '%' . $_GET['toSearch'] . '%')
-                                    ->where('user_id', Auth::id())->count();
-        }else{
+                ->where('user_id', Auth::id())->count();
+        } else {
 
             $houses = House::where('user_id', Auth::user()->id)->paginate(5);
             // vogliamo contare tutti i risultati ?
             $count_search = House::count();
         }
 
-        $direction = 'desc';
+        $direction = 'asc';
 
-        return view('admin.houses.index', compact('houses', 'direction'));
-
+        return view('admin.houses.index', compact('houses', 'direction', 'count_search'));
     }
 
     // funzione rotta custom per cambiare l'ordine di visualizzazione
-    public function orderBy($direction, $column){
-        $direction = $direction === 'desc' ? 'asc' : 'desc' ;
+    public function orderBy($direction, $column)
+    {
+        $direction = $direction === 'desc' ? 'asc' : 'desc';
         $houses = House::where('user_id', Auth::id())->orderBy($column, $direction)->paginate(5);
 
         return view('admin.houses.index', compact('houses', 'direction'));
@@ -76,6 +76,10 @@ class HouseController extends Controller
         $house->fill($val_data);
         $house->save();
 
+        if (array_key_exists('services', $val_data)) {
+            $house->services()->attach($val_data['services']);
+        }
+
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $key => $image) {
                 $path = $image->store('images', 'public');
@@ -110,7 +114,7 @@ class HouseController extends Controller
     {
         $method = 'PUT';
         $route = route('admin.houses.update', $house);
-        $title = 'Modifica i dati del Castello: ' . $house->title ;
+        $title = 'Modifica i dati del Castello: ' . $house->title;
         $services = Service::all();
         $button = 'Aggiorna';
 
@@ -130,6 +134,12 @@ class HouseController extends Controller
         $val_data['address'] = Helper::reverseGeocode($val_data['latitude'], $val_data['longitude']);
 
         $house->update($val_data);
+
+        if (array_key_exists('services', $val_data)) {
+            $house->services()->sync($val_data['services']);
+        } else {
+            $house->services->detach();
+        }
 
         if ($request->hasFile('images')) {
             // Elimina le vecchie immagini se necessario
@@ -158,6 +168,6 @@ class HouseController extends Controller
     public function destroy(House $house)
     {
         $house->delete();
-        return redirect()->route('admin.houses.index')->with('deleted', 'La casa'. ' ' . $house->title. ' ' .'è stata cancellata con successo!');
+        return redirect()->route('admin.houses.index')->with('deleted', 'La casa' . ' ' . $house->title . ' ' . 'è stata cancellata con successo!');
     }
 }
