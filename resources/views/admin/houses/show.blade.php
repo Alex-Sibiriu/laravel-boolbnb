@@ -5,13 +5,13 @@
 
     <div class="col-12">
       @if (session('success'))
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-success container" role="alert">
           {{ session('success') }}
         </div>
       @endif
 
       @if (session('update'))
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-success container" role="alert">
           {{ session('update') }}
         </div>
       @endif

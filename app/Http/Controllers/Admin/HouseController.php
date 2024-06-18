@@ -70,8 +70,6 @@ class HouseController extends Controller
         $val_data['user_id'] = Auth::user()->id;
         $val_data['slug'] = Helper::generateSlug($val_data['title'], House::class);
 
-        $val_data['address'] = Helper::reverseGeocode($val_data['latitude'], $val_data['longitude']);
-
         $house = new House();
         $house->fill($val_data);
         $house->save();
@@ -100,7 +98,7 @@ class HouseController extends Controller
      */
     public function show(House $house)
     {
-        if(Auth::id() !== $house->user_id){
+        if (Auth::id() !== $house->user_id) {
             abort('404');
         }
         // Carica anche le immagini associate al castello
@@ -116,7 +114,7 @@ class HouseController extends Controller
     public function edit(House $house)
     {
 
-        if(Auth::id() !== $house->user_id){
+        if (Auth::id() !== $house->user_id) {
             abort('404');
         }
         // dd($house);
@@ -185,13 +183,13 @@ class HouseController extends Controller
         return view('admin.houses.deleted', compact('houses'));
     }
 
-    public function retrieve(House $house)
+    public function retrieve($id)
     {
+
+        $house = House::onlyTrashed()->where('id', $id)->where('user_id', Auth::id())->firstOrFail();
         $house->restore();
 
-        return redirect()->route('admin.houses.index');
+        return redirect()->route('admin.houses.index')->with('deleted', 'Il castello ' . $house->title . ' è stato ripristinato');
         // non lo recupera veramente
     }
-
-
 }

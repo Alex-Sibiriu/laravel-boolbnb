@@ -1,8 +1,6 @@
 @extends('layouts.admin')
 
 @section('content')
-
-
   <div class="row pt-2 pb-5 px-5">
 
     <div class="col-12">
@@ -16,7 +14,7 @@
 
                 <th scope="col">Immagine</th>
                 <th scope="col">
-                    Nome
+                  Nome
                 </th>
 
                 <th class="text-center" scope="col">Azioni</th>
@@ -30,9 +28,8 @@
 
                 <td class="align-content-center">
 
-                    <img src="{{asset('storage/' . $house?->images->first()?->image_path)}}" alt="{{$house?->title}}" width="100" onerror="this.src='/img/not-found.jpg'" >
-
-
+                  <img src="{{ asset('storage/' . $house?->images->first()?->image_path) }}" alt="{{ $house?->title }}"
+                    width="100" onerror="this.src='/img/not-found.jpg'">
 
                 </td>
 
@@ -40,18 +37,15 @@
                   {{ $house->title }}
                 </td>
 
-
-
-
                 <td class="align-content-center text-center">
 
-
-                <form action="{{ route('admin.retrieve', $house) }}" method="POST"  class="d-inline-block">
-                    @csrf @method('PUT')
+                  <form action="{{ route('admin.retrieve', $house->id) }}" method="POST" class="d-inline-block">
+                    @method('PUT')
+                    @csrf
                     <button type="submit" class="btn btn-success">
-                        <i class="fa-solid fa-recycle"></i>
+                      <i class="fa-solid fa-recycle"></i>
                     </button>
-                </form>
+                  </form>
 
                 </td>
 
