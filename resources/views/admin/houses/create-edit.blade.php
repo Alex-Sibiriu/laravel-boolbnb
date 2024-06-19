@@ -176,24 +176,35 @@
 
       let addressSelected = @json($isEdit);
 
-      addressInput.addEventListener('input', function() {
-        let query = this.value;
+      // Funzione debounce
+      function debounce(func, wait) {
+        let timeout;
+        return function(...args) {
+          const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+          };
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+        };
+      }
+
+      // Funzione che gestisce l'input dell'indirizzo con debounce
+      const handleAddressInput = debounce(function() {
+        let query = addressInput.value;
         addressSelected = false;
 
         if (query.length > 1) {
-          // Richiamo la rotta
           fetch('{{ route('autocomplete') }}?query=' + encodeURIComponent(query))
             .then(response => response.json())
             .then(data => {
-              // Pulisce la lista
               addressList.innerHTML = '';
 
               data.forEach(item => {
                 const option = document.createElement('div');
-                option.classList.add('bg-white', 'p-1', 'ps-2', 'border-bottom', 'border-secondary-subtle')
+                option.classList.add('bg-white', 'p-1', 'ps-2', 'border-bottom', 'border-secondary-subtle');
                 option.innerHTML = "<strong>" + item.address.freeformAddress + "</strong>";
 
-                // Quando si clicca su un elemento viene impostato come valore dell'input
                 option.addEventListener('click', function() {
                   addressInput.value = item.address.freeformAddress;
                   latitudeInput.value = item.position.lat;
@@ -206,16 +217,15 @@
               });
             });
         } else {
-          // Se la query è vuota, svuota la lista
           addressList.innerHTML = '';
         }
-      });
+      }, 300);
 
-      // Chiude la lista dei suggerimenti cliccando altrove sulla pagina
+      addressInput.addEventListener('input', handleAddressInput);
+
       document.addEventListener('click', function(e) {
         if (!addressList.contains(e.target) && e.target !== addressInput) {
           addressList.innerHTML = '';
-          console.log({{ $isEdit }});
         }
       });
 
@@ -223,7 +233,6 @@
         const imagePreviewContainer = document.getElementById('image-preview');
         imagePreviewContainer.innerHTML = ''; // Reset del contenuto
 
-        // Mostra anteprima di tutte le immagini selezionate
         for (let i = 0; i < event.target.files.length; i++) {
           const file = event.target.files[i];
           const imgElement = document.createElement('img');
@@ -236,14 +245,12 @@
       document.getElementById('houseForm').addEventListener('submit', function(event) {
         let valid = true;
 
-        // Campi obbligatori
         const title = document.getElementById('title').value;
         const rooms = document.getElementById('rooms').value;
         const bathrooms = document.getElementById('bathrooms').value;
         const bed = document.getElementById('bed').value;
         const address = document.getElementById('address').value;
 
-        // Validazione immagini
         const images = document.getElementById('images').files;
         const validImageTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif', 'image/svg+xml'];
 
@@ -255,7 +262,6 @@
           }
         }
 
-        // Controlla se i campi sono validi
         if (title.length < 3 || title.length > 100) {
           alert('Il titolo deve contenere tra 3 e 100 caratteri');
           valid = false;
@@ -273,16 +279,14 @@
           valid = false;
         }
         if (!address || address.length < 2 || address.length > 100 || addressSelected === false) {
-          alert('L\'indirizzo inserito non é valido. Per favore, seleziona un indirizzo dalla lista');
+          alert('L\'indirizzo inserito non è valido. Per favore, seleziona un indirizzo dalla lista');
           valid = false;
         }
 
-        // Se non è valido, prevenire l'invio del form
         if (!valid) {
           event.preventDefault();
         }
       });
-    })
+    });
   </script>
-
 @endsection
