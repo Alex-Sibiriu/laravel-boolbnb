@@ -22,6 +22,7 @@ class TomTomController extends Controller
                 'key' => env('TOMTOM_API_KEY'),
                 'typeahead' => 'true',
                 'language' => 'it-IT',
+                'countrySet' => 'IT',
                 'limit' => 10
             ]
         ]);
