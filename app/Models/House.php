@@ -19,15 +19,15 @@ class House extends Model
     {
         parent::boot();
 
-        static::deleting(function ($house) {
-            // Elimina le immagini associate
-            foreach ($house->images as $image) {
-                // Elimina il file dal storage
-                Storage::delete('public/' . $image->image_path);
-                // Elimina il record dal database
-                $image->delete();
-            }
-        });
+        // static::deleting(function ($house) {
+        //     // Elimina le immagini associate
+        //     foreach ($house->images as $image) {
+        //         // Elimina il file dal storage
+        //         Storage::delete('public/' . $image->image_path);
+        //         // Elimina il record dal database
+        //         $image->delete();
+        //     }
+        // });
     }
 
     // funzione per far apparire lo slug nella url al posto dell'id

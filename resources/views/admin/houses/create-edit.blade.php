@@ -3,8 +3,6 @@
 @section('content')
   @php
     $isEdit = isset($house);
-
-    dump($isEdit);
   @endphp
 
   <h1 class="py-5 text-center mt-3 rounded-3 bg-gray">{{ $title }}</h1>
@@ -180,6 +178,7 @@
 
       addressInput.addEventListener('input', function() {
         let query = this.value;
+        addressSelected = false;
 
         if (query.length > 1) {
           // Richiamo la rotta
