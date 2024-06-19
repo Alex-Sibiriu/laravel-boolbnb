@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\House;
 use App\Models\Message;
+use App\Models\Service;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
@@ -51,5 +52,10 @@ class HousesController extends Controller
             ->get();
 
         return response()->json($houses);
+    }
+
+    public function getServices(){
+        $services = Service::get();
+        return response()->json($services);
     }
 }
