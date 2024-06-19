@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\HouseController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\TomTomController;
+use App\Http\Controllers\Admin\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,9 @@ Route::middleware(['auth', 'verified'])
     ->name('admin.')
     ->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('home');
+
+        // rotte crud messages
+        Route::resource('messages', MessageController::class);
 
         // rotte crud houses
         Route::resource('houses', HouseController::class);

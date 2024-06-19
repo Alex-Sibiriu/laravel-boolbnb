@@ -26,7 +26,7 @@
         </a>
       </li>
       <li>
-        <a href="">
+        <a href="{{ route('admin.messages.index') }}">
           <i class="fa-solid fa-message me-2"></i>
           Messaggi
         </a>
