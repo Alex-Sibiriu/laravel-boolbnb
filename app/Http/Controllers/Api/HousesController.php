@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\House;
 use App\Models\Message;
 use App\Models\Service;
+use GrahamCampbell\ResultType\Success;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
@@ -57,5 +58,11 @@ class HousesController extends Controller
     public function getServices(){
         $services = Service::get();
         return response()->json($services);
+    }
+
+    public function getHouseBySlug($slug){
+        $house = House::where('slug', $slug)->with('user', 'messages', 'images', 'services', 'sponsors')->first();
+
+        return response()->json($house);
     }
 }

@@ -23,3 +23,5 @@ Route::get('/houses/search/{address}/{radius?}', [HousesController::class, 'getN
 // json servizi
 Route::get('/services', [HousesController::class, 'getServices']);
 
+// json dettaglio castello
+Route::get('/house-detail/{slug}', [HousesController::class, 'getHouseBySlug']);
