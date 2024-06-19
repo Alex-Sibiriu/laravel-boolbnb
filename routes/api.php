@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/houses', [HousesController::class, 'index']);
+
+Route::get('/houses/search/{address}/{radius?}', [HousesController::class, 'getNearbyCastles']);
