@@ -1,14 +1,13 @@
 @extends('layouts.admin')
 
 @section('content')
-  <div class="py-3 show">
-    <h1 class="text-center fw-bold my-3">{{ $message->title }}</h1>
+  <div class="py-3 m-3 show">
 
     <div class="container d-flex justify-content-center">
-      <div class="bg-dark w-100 text-white p-3 rounded-3 mb-3">
+      <div class="w-100 text-dark p-3 mb-3">
         <p><strong>Riferito al Castello: </strong>{{ $message->house->title }}</p>
         <p><strong>Inviato da:</strong> {{ $message->email }}</p>
-        <p class="bg-secondary m-0 p-2 rounded-2">{{ $message->message }}</p>
+        <p class="m-0 p-2 rounded-2 bg-body-secondary">{{ $message->message }}</p>
       </div>
     </div>
 
