@@ -27,7 +27,7 @@ class HousesController extends Controller
             'verify' => $cacertPath,
         ]);
 
-        $response = $client->get('search/2/geocode/' . urlencode($address) . '.json', [
+        $response = $client->get('search/2/geocode/' . $address . '.json', [
             'query' => [
                 'key' => env('TOMTOM_API_KEY')
             ]
@@ -49,18 +49,21 @@ class HousesController extends Controller
             [$latitude, $longitude, $latitude]
         )
             ->having('distance', '<', $radius)
+            ->with('user', 'messages', 'images', 'services', 'sponsors')
             ->orderBy('distance')
             ->get();
 
         return response()->json($houses);
     }
 
-    public function getServices(){
+    public function getServices()
+    {
         $services = Service::get();
         return response()->json($services);
     }
 
-    public function getHouseBySlug($slug){
+    public function getHouseBySlug($slug)
+    {
         $house = House::where('slug', $slug)->with('user', 'messages', 'images', 'services', 'sponsors')->first();
 
         return response()->json($house);
