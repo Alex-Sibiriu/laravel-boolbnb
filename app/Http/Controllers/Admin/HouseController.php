@@ -79,12 +79,21 @@ class HouseController extends Controller
         }
 
         if ($request->hasFile('images')) {
-            foreach ($request->file('images') as $key => $image) {
-                $path = $image->store('images', 'public');
-                Image::create([
-                    'image_path' => $path,
-                    'type' => 'cover',
-                    'house_id' => $house->id,
+            $images = $request->file('images');
+
+            foreach ($images as $key => $image) {
+
+                // La prima immagine sarà type 'cover', le altre type 'thumb'
+                $type = $key === 0 ? 'cover' : 'thumb';
+
+
+                $imagePath = $image->store('houses/images', 'public');
+
+                // Creazione dell'immagine nel database
+
+                $house->images()->create([
+                    'image_path' => $imagePath,
+                    'type' => $type,
                 ]);
             }
         }

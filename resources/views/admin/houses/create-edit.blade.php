@@ -138,25 +138,34 @@
       </div>
     </div>
 
-    {{-- img  --}}
-    <div class="col-6 mb-3">
-      <label for="images" class="form-label">Immagini</label>
-      <input type="file" value="{{ old('images', $house?->images) }}"
-        class="form-control @error('images.*') is-invalid @enderror" id="images" name="images[]" multiple
-        onchange="showImage(event)">
-      @error('images.*')
-        <small class="text-danger fw-bold">{{ $message }}</small>
-      @enderror
+
+
+    {{-- immagini --}}
+    <div class="col-12 mb-3">
+        <label for="images" class="form-label">Immagini</label>
+        <input name="images[]" type="file" class="form-control @error('images.*') is-invalid @enderror" id="images" multiple>
+        @error('images.*')
+            <small class="text-danger fw-bold">
+                {{ $message }}
+            </small>
+        @enderror
+
+        {{-- Preview delle immagini --}}
+        <div id="image-preview" class="mt-3">
+            @if ($isEdit && $house->images->count() > 0)
+                @foreach ($house->images as $image)
+                    <img src="{{ asset('storage/' . $image->image_path) }}" class="img-thumbnail mx-1" style="max-height: 100px;">
+                @endforeach
+            @endif
+        </div>
     </div>
 
-    {{-- FIXME: si può caricare solo una img  --}}
+    <small>* La prima immagine caricata verrà salvata come copertina</small>
 
-    <div id="image-preview" class="col-12 mb-3">
-      <!-- Anteprime delle immagini selezionate verranno inserite qui -->
-      <img class="thumb img-thumbnail w-25 my-2" onerror="this.src='/img/not-found.jpg'" id="thumb"
-        src="{{ asset('storage/' . $house?->images->first()?->image_path) }}">
-      {{-- modificato il percorso per far vedere in anteprima l'immagine se presente appare se non è presente ne appare una di default --}}
-    </div>
+
+
+    {{-- FIXME: si può caricare solo una img  , ORA NON PIU'!--}}
+
 
     <div class="text-center pt-3">
       {{-- passo dinamicamente la classe in base alla rotta  --}}
@@ -229,18 +238,6 @@
         }
       });
 
-      function showImage(event) {
-        const imagePreviewContainer = document.getElementById('image-preview');
-        imagePreviewContainer.innerHTML = ''; // Reset del contenuto
-
-        for (let i = 0; i < event.target.files.length; i++) {
-          const file = event.target.files[i];
-          const imgElement = document.createElement('img');
-          imgElement.className = 'thumb w-25 mb-5';
-          imgElement.src = URL.createObjectURL(file);
-          imagePreviewContainer.appendChild(imgElement);
-        }
-      }
 
       document.getElementById('houseForm').addEventListener('submit', function(event) {
         let valid = true;
@@ -288,5 +285,73 @@
         }
       });
     });
+
+    //DOMContentLoaded è un evento JavaScript che si verifica quando il documento html è stato completamente caricato e analizzato,
+    // senza dover aspettare che tutti i file esterni (immagini, stili CSS, script, etc.) siano stati caricati.
+
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+    // Ottieni l'elemento input per le immagini dal DOM quando è stato caricato completamente
+    const imagesInput = document.getElementById('images');
+
+    // Aggiungi un event listener per il cambio dell'input di immagini
+    imagesInput.addEventListener('change', function() {
+        // Ottieni i file selezionati
+        const images = imagesInput.files;
+
+        // Definisci i tipi di immagine validi
+        const validImageTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif', 'image/svg+xml'];
+
+        // Cicla attraverso ogni file selezionato
+        for (let i = 0; i < images.length; i++) {
+            // Verifica se il tipo di file è tra quelli validi
+            if (!validImageTypes.includes(images[i].type)) {
+                // Se il tipo di file non è valido, mostra un messaggio di errore
+                alert('I file selezionati devono essere di tipo jpeg, png, jpg, gif o svg');
+
+                // Resetta l'input per consentire all'utente di selezionare nuove immagini
+                imagesInput.value = '';
+
+                // Interrompi il ciclo e non procedere oltre
+                return;
+            }
+        }
+
+        // Se tutte le immagini sono valide, puoi mostrare una preview (opzionale)
+        const imagePreviewDiv = document.getElementById('image-preview');
+
+        // Pulisci la preview esistente
+        imagePreviewDiv.innerHTML = '';
+
+        // Cicla attraverso ogni file di immagine per creare un'anteprima
+        for (let i = 0; i < images.length; i++) {
+            const file = images[i];
+            const reader = new FileReader();
+
+            // Quando la lettura del file è completata, visualizza l'immagine nell'anteprima
+            reader.onload = function(e) {
+                // Crea un elemento immagine
+                const image = document.createElement('img');
+
+                // Imposta il percorso dell'immagine come URL dei dati del file letto
+                image.src = e.target.result;
+
+                // Aggiungi classi CSS per lo stile
+                image.classList.add('img-thumbnail', 'mx-1');
+
+                // Imposta l'altezza massima dell'immagine
+                image.style.maxHeight = '100px';
+
+                // Aggiungi l'immagine all'elemento di anteprima
+                imagePreviewDiv.appendChild(image);
+            };
+
+            // Leggi il contenuto del file come URL dei dati
+            reader.readAsDataURL(file);
+        }
+    });
+});
+
   </script>
 @endsection

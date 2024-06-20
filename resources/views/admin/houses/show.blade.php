@@ -19,7 +19,9 @@
 
     <h1 class="text-center fw-bold my-3">{{ $house->title }}</h1>
 
-    <div class="text-center">
+    <h2 class="text-center my-5">Immagine di copertina</h2>
+
+    <div class="text-center mb-5">
       @if ($house->images->count() > 0)
         <img src="{{ asset('storage/' . $house->images->first()->image_path) }}" alt="{{ $house->title }}"
           class="house-image">
@@ -59,8 +61,8 @@
     </div>
 
     @if ($house->images->count() > 1)
-      <h2>Altre immagini</h2>
-      <div class="row">
+      <h2 class="text-center my-5">Altre immagini</h2>
+      <div class="row mx-5 d-flex justify-content-center">
         @foreach ($house->images->skip(1) as $image)
           <div class="col-md-4 mb-3">
             <img src="{{ asset('storage/' . $image->image_path) }}" alt="Image" class="img-fluid">
@@ -69,7 +71,7 @@
       </div>
     @endif
 
-    <div class="container text-center">
+    <div class="container text-center mt-5">
       <a href="{{ route('admin.houses.edit', $house) }}" class="btn btn-warning"> <i
           class="fa-solid fa-pen-to-square"></i></a>
       @include('admin.partials.formdelete', [
