@@ -1,8 +1,14 @@
+@use './variables' as * ;
+.nav-log{
+    background-color: #051C2C;
+    height: 100px;
+    margin-bottom: 50px;
+}
 .header-admin{
     height: 60px;
-    background-color: #222 !important;
+    background-color: $dark-color !important;
     .user{
-        color: rgb(152, 51, 26);
+        color: $brand-color;
     }
 }
 
@@ -13,7 +19,7 @@ li{
         font-weight: bold !important;
     }
     &:hover a{
-        color: rgb(152, 51, 26) !important;
+        color: $brand-color!important;
     }
 }
 
@@ -21,7 +27,8 @@ li{
     width: calc(100% - 200px);
     height: calc(100vh - 60px);
     overflow-y: auto;
-    background-color: #D9CAB3;
+    overflow-x: hidden;
+    background-color: white;
     .toSearch{
         border-color: lightgray;
         &:focus{
@@ -31,7 +38,7 @@ li{
 }
 
 h1{
-    color: rgb(152, 51, 26);
+    color: $brand-color;
 }
 
 .house-image{
@@ -45,4 +52,8 @@ h1{
     text-overflow: ellipsis;
     max-width: 350px;
     display: block;
+}
+
+.logo{
+    width: 100px;
 }

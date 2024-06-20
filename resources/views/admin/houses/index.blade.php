@@ -30,10 +30,13 @@
       </div>
     @endif
     <div class="col-12">
-      <div class="px-2 bg-dark rounded-3 pb-1">
-        <h2 class="py-3 text-white rounded-3 fw-bold fs-2 p-3 mt-3">I tuoi Castelli</h2>
+      <div class="px-2 rounded-3 pb-1">
+        @if (count($houses) > 0)
 
-        <table class="table table-dark table-striped">
+        <h2 class="py-3 text-dark rounded-3 fw-bold fs-2 p-3 mt-3">I tuoi Castelli</h2>
+        @endif
+
+        <table class="table table-light table-striped">
           @if (count($houses) > 0)
             <thead>
               <tr>
@@ -58,7 +61,7 @@
               </tr>
             </thead>
           @endif
-          <tbody>
+          <tbody class="table-group-divider">
 
             @forelse ($houses as $house)
               <tr>
