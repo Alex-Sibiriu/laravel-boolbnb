@@ -4,10 +4,11 @@
   <div class="row pt-2 pb-5 px-5">
 
     <div class="col-12">
-      <div class="px-2 bg-dark rounded-3 pb-1">
-        <h2 class="py-3 text-white rounded-3 fw-bold fs-2 p-3 mt-3">Castelli cancellati</h2>
+      <div class="px-2 pb-1">
+        <h2 class="py-3 text-dark rounded-3 fw-bold fs-2 p-3 mt-3">Castelli cancellati</h2>
 
-        <table class="table table-dark table-striped">
+
+        <table class="table table-light table-striped">
           @if (count($houses) > 0)
             <thead>
               <tr>
@@ -21,7 +22,7 @@
               </tr>
             </thead>
           @endif
-          <tbody>
+          <tbody class="table-group-divider">
 
             @forelse ($houses as $house)
               <tr>
@@ -51,7 +52,7 @@
 
               </tr>
             @empty
-              <h2 class="text-white ms-3">Nessun Castello Trovato</h2>
+              <h3 class="text-dark ms-3">Nessun Castello Cancellato</h3>
             @endforelse
 
           </tbody>

@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name', 50);
             $table->string('slug', 60)->unique();
             $table->string('icon', 50);
+            $table->string('img', 50);
+            $table->text('description');
             $table->timestamps();
         });
     }

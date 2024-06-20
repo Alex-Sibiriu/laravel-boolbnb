@@ -7,8 +7,10 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
           <li class="nav-item">
-            {{-- _blanck si usa per aprire una nuova pagina al posto di caricare la stessa pagina --}}
-            <a class="nav-link" target="_blank" href="">Go to WebSite</a>
+            {{-- faccio aprire sulla stessa pagina --}}
+            <a class="nav-link" target="" href="{{url('http://localhost:5174/')}}">
+                Home Pubblica
+            </a>
           </li>
 
         </ul>

@@ -1,66 +1,98 @@
 [
     {
         "name": "WI-FI",
-        "icon": "fa-solid fa-wifi"
+        "icon": "fa-solid fa-wifi",
+        "description": "Connessione internet wireless ad alta velocità disponibile in tutta la struttura.",
+        "img" : ""
     },
     {
         "name": "Piscina",
-        "icon": "fa-solid fa-person-swimming"
+        "icon": "fa-solid fa-person-swimming",
+        "description": "Piscina all'aperto per il relax e il divertimento degli ospiti.",
+        "img" : ""
     },
     {
         "name": "Cene di Gala",
-        "icon": "fa-solid fa-utensils"
+        "icon": "fa-solid fa-utensils",
+        "description": "Eventi gastronomici eleganti con menù pregiati e servizio impeccabile.",
+        "img" : "cene.jpg"
     },
     {
         "name": "Mostre d'Arte",
-        "icon": "fa-solid fa-palette"
+        "icon": "fa-solid fa-palette",
+        "description": "Esposizioni di opere d'arte locali e internazionali.",
+        "img" : "mostre.jpg"
     },
     {
         "name": "Concerti",
-        "icon": "fa-solid fa-music"
+        "icon": "fa-solid fa-music",
+        "description": "Eventi musicali dal vivo con artisti di fama nazionale e internazionale.",
+        "img" : "concerti.jpg"
     },
     {
         "name": "Spettacoli Teatrali",
-        "icon": "fa-solid fa-theater-masks"
+        "icon": "fa-solid fa-theater-masks",
+        "description": "Performance teatrali con compagnie di livello professionale.",
+        "img" : "teatro.jpg"
     },
     {
         "name": "Rievocazioni Storiche",
-        "icon": "fa-solid fa-chess-rook"
+        "icon": "fa-solid fa-chess-rook",
+        "description": "Eventi che ricreano momenti storici con costumi e scenografie.",
+        "img" : "rievocazione.jpg"
     },
     {
         "name": "Conferenze",
-        "icon": "fa-solid fa-podium"
+        "icon": "fa-solid fa-podium",
+        "description": "Spazi attrezzati per conferenze e incontri professionali.",
+        "img" : ""
     },
     {
         "name": "Spa e Benessere",
-        "icon": "fa-solid fa-spa"
+        "icon": "fa-solid fa-spa",
+        "description": "Centro benessere con trattamenti di bellezza e relax.",
+        "img" : ""
     },
     {
         "name": "Biblioteca Storica",
-        "icon": "fa-solid fa-book"
+        "icon": "fa-solid fa-book",
+        "description": "Collezione di libri antichi e rari disponibile per la lettura.",
+        "img" : ""
     },
     {
         "name": "Accessibilità disabili",
-        "icon": "fa-solid fa-wheelchair"
+        "icon": "fa-solid fa-wheelchair",
+        "description": "Strutture e servizi accessibili per persone con disabilità.",
+        "img" : ""
     },
     {
         "name": "Sala Giochi",
-        "icon": "fa-solid fa-gamepad"
+        "icon": "fa-solid fa-gamepad",
+        "description": "Area dedicata ai giochi e all'intrattenimento per tutte le età.",
+        "img" : ""
     },
     {
         "name": "Cantina Vini",
-        "icon": "fa-solid fa-wine-bottle"
+        "icon": "fa-solid fa-wine-bottle",
+        "description": "Degustazione di vini pregiati provenienti da tutto il mondo.",
+        "img" : ""
     },
     {
         "name": "Golf",
-        "icon": "fa-solid fa-golf-ball-tee"
+        "icon": "fa-solid fa-golf-ball-tee",
+        "description": "Campo da golf attrezzato per giocatori di tutti i livelli.",
+        "img" : ""
     },
     {
         "name": "Maneggio",
-        "icon": "fa-solid fa-horse-head"
+        "icon": "fa-solid fa-horse-head",
+        "description": "Centro equestre per lezioni e passeggiate a cavallo.",
+        "img" : "maneggio.jpg"
     },
     {
         "name": "Palestra",
-        "icon": "fa-solid fa-dumbbell"
+        "icon": "fa-solid fa-dumbbell",
+        "description": "Palestra attrezzata con macchinari moderni per l'allenamento fisico.",
+        "img" : ""
     }
 ]

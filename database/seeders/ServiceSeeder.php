@@ -20,6 +20,8 @@ class ServiceSeeder extends Seeder
             $new_service->name=$service->name;
             $new_service->slug=Help::generateSlug($service->name, Service::class);
             $new_service->icon=$service->icon;
+            $new_service->img=$service->img;
+            $new_service->description=$service->description;
             $new_service->save();
         }
     }
