@@ -81,7 +81,7 @@
         "name": "Golf",
         "icon": "fa-solid fa-golf-ball-tee",
         "description": "Campo da golf attrezzato per giocatori di tutti i livelli.",
-        "img" : ""
+        "img" : "golf.jpg"
     },
     {
         "name": "Maneggio",
