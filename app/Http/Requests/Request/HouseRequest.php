@@ -27,6 +27,7 @@ class HouseRequest extends FormRequest
             'bathrooms' => 'required|min:1|max:125',
             'bed' => 'required|min:1|max:125',
             'address' => 'required|min:1|max:100',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg'
         ];
     }
 
@@ -54,6 +55,9 @@ class HouseRequest extends FormRequest
             'address.required' => 'L\'indirizzo è obbligatorio',
             'address.min' => 'L\'indirizzo non può essere più corto di :min carattere',
             'address.max' => 'L\'indirizzo non può essere più lungo di :max caratteri',
+
+            'images.*.image' => 'Il file deve essere un\'immagine',
+            'images.*.mimes' => 'Il file deve essere di tipo jpeg, png, jpg, gif o svg',
         ];
     }
 }
