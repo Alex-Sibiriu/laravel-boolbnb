@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-md nav-log navbar-light shadow-sm">
             <div class="container ">
                 {{-- passo all'url la voce dell'env così ad ognuno prende la sua  --}}
-                <a class="navbar-brand d-flex align-items-center" href="{{ url(env('APP_FRONTEND_URL ')) }}">
+                <a class="navbar-brand d-flex align-items-center" href="{{env('APP_FRONTEND_URL ') }}">
                     <img src="/img/logo2.png" alt="" class="logo">
                 </a>
 
