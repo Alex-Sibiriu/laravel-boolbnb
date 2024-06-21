@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/houses', [HousesController::class, 'index']);
 
 // json castelli vicini
-Route::get('/houses/search/{address}/{radius?}', [HousesController::class, 'getNearbyCastles']);
+Route::get('/houses/search', [HousesController::class, 'getNearbyCastles']);
 
 // json servizi
 Route::get('/services', [HousesController::class, 'getServices']);
@@ -29,5 +29,3 @@ Route::get('/house-detail/{slug}', [HousesController::class, 'getHouseBySlug']);
 
 // json castelli per servizi
 Route::get('/house-service/{slug}', [HousesController::class, 'getHousesByServices']);
-
-
