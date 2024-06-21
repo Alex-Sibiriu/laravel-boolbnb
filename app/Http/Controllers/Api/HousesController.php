@@ -68,4 +68,9 @@ class HousesController extends Controller
 
         return response()->json($house);
     }
+
+    public function getHousesByServices($slug){
+        $service = Service::where('slug', $slug)->with('houses')->first();
+        return response()->json($service);
+    }
 }
