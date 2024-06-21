@@ -132,14 +132,10 @@ class HousesController extends Controller
         $nonSponsoredQuery = clone $query;
 
         // Query per case sponsorizzate
-        $sponsoredHouses = $sponsoredQuery->whereHas('sponsors')
-            ->orderBy('distance', 'asc')
-            ->get();
+        $sponsoredHouses = $sponsoredQuery->whereHas('sponsors')->get();
 
         // Query per case non sponsorizzate
-        $nonSponsoredHouses = $nonSponsoredQuery->whereDoesntHave('sponsors')
-            ->orderBy('distance', 'asc')
-            ->get();
+        $nonSponsoredHouses = $nonSponsoredQuery->whereDoesntHave('sponsors')->get();
 
         // Unisco i risultati, con le case sponsorizzate per prime
         $houses = $sponsoredHouses->merge($nonSponsoredHouses);
