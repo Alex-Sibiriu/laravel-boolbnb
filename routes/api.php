@@ -25,3 +25,9 @@ Route::get('/services', [HousesController::class, 'getServices']);
 
 // json dettaglio castello
 Route::get('/house-detail/{slug}', [HousesController::class, 'getHouseBySlug']);
+
+
+// json castelli per servizi
+Route::get('/house-service/{slug}', [HousesController::class, 'getHousesByServices']);
+
+
