@@ -55,7 +55,7 @@ class HouseController extends Controller
         $route = route('admin.houses.store');
         $house = null;
         $title = 'Aggiungi un nuovo Castello';
-        $services = Service::all();
+        $services = Service::orderBy('name')->get();
         $button = 'Crea';
 
         return view('admin.houses.create-edit', compact('services', 'method', 'route', 'title', 'house', 'button'));
@@ -130,7 +130,7 @@ class HouseController extends Controller
         $method = 'PUT';
         $route = route('admin.houses.update', $house);
         $title = 'Modifica i dati del Castello: ' . $house->title;
-        $services = Service::all();
+        $services = Service::orderBy('name')->get();
         $button = 'Aggiorna';
 
 

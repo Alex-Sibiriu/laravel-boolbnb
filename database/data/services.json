@@ -43,7 +43,7 @@
     },
     {
         "name": "Conferenze",
-        "icon": "fa-solid fa-podium",
+        "icon": "fa-solid fa-microphone-lines",
         "description": "Spazi attrezzati per conferenze e incontri professionali.",
         "img" : ""
     },
