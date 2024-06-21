@@ -133,12 +133,10 @@
           <input type="checkbox" value="{{ $service->id }}" name="services[]" class="btn-check"
             id="tech-{{ $service->id }}" autocomplete="off" @if (($errors->any() && in_array($service->id, old('services', []))) || $house?->services->contains($service)) checked @endif>
           <label class="btn btn-light btn-outline-primary fw-medium m-2"
-            for="tech-{{ $service->id }}"><i class="{{ $service->icon }} me-1"></i>{{ $service->name }} </label>
+            for="tech-{{ $service->id }}">{{ $service->name }} <i class="{{ $service->icon }} ms-1"></i></label>
         @endforeach
       </div>
     </div>
-
-
 
     {{-- immagini --}}
     <div class="col-12 mb-3">
@@ -154,23 +152,21 @@
         <div id="image-preview" class="mt-3">
             @if ($isEdit && $house->images->count() > 0)
                 @foreach ($house->images as $image)
-                    <img src="{{ asset('storage/' . $image->image_path) }}" class="img-thumbnail mx-1" style="max-height: 100px;">
+                    <div class="image-container position-relative d-inline-block mx-1">
+                        <img src="{{ asset('storage/' . $image->image_path) }}" class="img-thumbnail" style="max-height: 100px;">
+                        <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 remove-image-btn">x</button>
+                    </div>
                 @endforeach
             @endif
         </div>
+
+        <button type="button" id="clear-images" class="btn btn-danger mt-2 d-none">Cancella immagini</button>
     </div>
 
     <small>* La prima immagine caricata verrà salvata come copertina</small>
 
-
-
-    {{-- FIXME: si può caricare solo una img  , ORA NON PIU'!--}}
-
-
     <div class="text-center pt-3">
-      {{-- passo dinamicamente la classe in base alla rotta  --}}
-      <button type="submit"
-        class="btn w-25 me-3 {{ Route::currentRouteName() === 'admin.houses.create' ? 'btn-success' : 'btn-warning' }}">{{ $button }}</button>
+      <button type="submit" class="btn w-25 me-3 {{ Route::currentRouteName() === 'admin.houses.create' ? 'btn-success' : 'btn-warning' }}">{{ $button }}</button>
       <button type="reset" class="btn btn-danger w-25">Reset</button>
     </div>
   </form>
@@ -182,6 +178,9 @@
       const addressList = document.getElementById('addressList');
       const latitudeInput = document.getElementById('latitude');
       const longitudeInput = document.getElementById('longitude');
+      const clearImagesButton = document.getElementById('clear-images');
+      const imagePreviewDiv = document.getElementById('image-preview');
+      const imagesInput = document.getElementById('images');
 
       let addressSelected = @json($isEdit);
 
@@ -238,7 +237,6 @@
         }
       });
 
-
       document.getElementById('houseForm').addEventListener('submit', function(event) {
         let valid = true;
 
@@ -284,74 +282,95 @@
           event.preventDefault();
         }
       });
-    });
 
-    //DOMContentLoaded è un evento JavaScript che si verifica quando il documento html è stato completamente caricato e analizzato,
-    // senza dover aspettare che tutti i file esterni (immagini, stili CSS, script, etc.) siano stati caricati.
+      // Gestione rimozione immagini
+      function handleImageRemoval(event) {
+        const btn = event.target;
+        const imageContainer = btn.parentElement;
+        const imageIndex = Array.from(imageContainer.parentElement.children).indexOf(imageContainer);
 
+        // Rimuovi l'elemento immagine dalla preview
+        imageContainer.remove();
 
+        // Rimuovi l'immagine dalla lista dei file selezionati
+        const dataTransfer = new DataTransfer();
+        const input = document.getElementById('images');
+        const { files } = input;
 
-    document.addEventListener('DOMContentLoaded', function() {
-    // Ottieni l'elemento input per le immagini dal DOM quando è stato caricato completamente
-    const imagesInput = document.getElementById('images');
-
-    // Aggiungi un event listener per il cambio dell'input di immagini
-    imagesInput.addEventListener('change', function() {
-        // Ottieni i file selezionati
-        const images = imagesInput.files;
-
-        // Definisci i tipi di immagine validi
-        const validImageTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif', 'image/svg+xml'];
-
-        // Cicla attraverso ogni file selezionato
-        for (let i = 0; i < images.length; i++) {
-            // Verifica se il tipo di file è tra quelli validi
-            if (!validImageTypes.includes(images[i].type)) {
-                // Se il tipo di file non è valido, mostra un messaggio di errore
-                alert('I file selezionati devono essere di tipo jpeg, png, jpg, gif o svg');
-
-                // Resetta l'input per consentire all'utente di selezionare nuove immagini
-                imagesInput.value = '';
-
-                // Interrompi il ciclo e non procedere oltre
-                return;
-            }
+        for (let i = 0; i < files.length; i++) {
+          if (i !== imageIndex) {
+            dataTransfer.items.add(files[i]);
+          }
         }
 
-        // Se tutte le immagini sono valide, puoi mostrare una preview (opzionale)
-        const imagePreviewDiv = document.getElementById('image-preview');
+        input.files = dataTransfer.files;
 
-        // Pulisci la preview esistente
+        // Controlla se ci sono ancora immagini selezionate
+        if (input.files.length === 0) {
+          clearImagesButton.classList.add('d-none');
+        }
+      }
+
+      // Event listener per il cambio delle immagini selezionate
+      imagesInput.addEventListener('change', function() {
+        const images = this.files;
+
         imagePreviewDiv.innerHTML = '';
 
-        // Cicla attraverso ogni file di immagine per creare un'anteprima
         for (let i = 0; i < images.length; i++) {
-            const file = images[i];
-            const reader = new FileReader();
+          const file = images[i];
+          const reader = new FileReader();
 
-            // Quando la lettura del file è completata, visualizza l'immagine nell'anteprima
-            reader.onload = function(e) {
-                // Crea un elemento immagine
-                const image = document.createElement('img');
+          reader.onload = function(e) {
+            const imageContainer = document.createElement('div');
+            imageContainer.classList.add('image-container', 'position-relative', 'd-inline-block', 'mx-1');
 
-                // Imposta il percorso dell'immagine come URL dei dati del file letto
-                image.src = e.target.result;
+            const image = document.createElement('img');
+            image.src = e.target.result;
+            image.classList.add('img-thumbnail');
+            image.style.maxHeight = '100px';
 
-                // Aggiungi classi CSS per lo stile
-                image.classList.add('img-thumbnail', 'mx-1');
+            const removeButton = document.createElement('button');
+            removeButton.type = 'button';
+            removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'position-absolute', 'top-0', 'end-0', 'remove-image-btn');
+            removeButton.textContent = 'x';
 
-                // Imposta l'altezza massima dell'immagine
-                image.style.maxHeight = '100px';
+            imageContainer.appendChild(image);
+            imageContainer.appendChild(removeButton);
+            imagePreviewDiv.appendChild(imageContainer);
 
-                // Aggiungi l'immagine all'elemento di anteprima
-                imagePreviewDiv.appendChild(image);
-            };
+            removeButton.addEventListener('click', handleImageRemoval);
+          };
 
-            // Leggi il contenuto del file come URL dei dati
-            reader.readAsDataURL(file);
+          reader.readAsDataURL(file);
         }
-    });
-});
 
+        // Mostra il bottone "Cancella immagini" se ci sono immagini selezionate
+        if (images.length > 0) {
+          clearImagesButton.classList.remove('d-none');
+        } else {
+          clearImagesButton.classList.add('d-none');
+        }
+      });
+
+      // Event listener per il bottone "Cancella immagini"
+      clearImagesButton.addEventListener('click', function() {
+        // Deseleziona tutte le immagini
+        imagesInput.value = '';
+        imagePreviewDiv.innerHTML = '';
+        clearImagesButton.classList.add('d-none');
+      });
+
+      // Event listener per la rimozione delle immagini già esistenti
+      document.querySelectorAll('.remove-image-btn').forEach(btn => {
+        btn.addEventListener('click', handleImageRemoval);
+      });
+
+      // Controlla se ci sono immagini già caricate al caricamento della pagina
+      if (imagePreviewDiv.children.length > 0) {
+        clearImagesButton.classList.remove('d-none');
+      }
+    });
   </script>
+
 @endsection
