@@ -5,15 +5,18 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header text-danger ">{{ __('Register') }}</div>
+                    <div class="card-header text-danger ">
+                        <h4 class="text-center">Registrati</h4>
+                    </div>
 
                     <div class="card-body login-register text-white">
+                        <h6 class="py-4">I campi con <strong>(*)</strong> sono obbligatori</h6>
                         <form method="POST" action="{{ route('register') }}" onsubmit="return matchPassword()">
                             @csrf
 
                             {{-- Nome --}}
-                            <div class="mb-4 row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">Nome</label>
+                            <div class="mb-3 row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">Nome <strong>(*)</strong></label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
@@ -29,8 +32,8 @@
                                 </div>
                             </div>
                             {{-- Cognome --}}
-                            <div class="mb-4 row">
-                                <label for="surname" class="col-md-4 col-form-label text-md-right">Cognome</label>
+                            <div class="mb-3 row">
+                                <label for="surname" class="col-md-4 col-form-label text-md-right">Cognome <strong>(*)</strong></label>
 
                                 <div class="col-md-6">
                                     <input id="surname" type="text"
@@ -46,9 +49,9 @@
                                 </div>
                             </div>
                             {{-- Data di nascita --}}
-                            <div class="mb-4 row">
+                            <div class="mb-3 row">
                                 <label for="birth_date" class="col-md-4 col-form-label text-md-right">Data di
-                                    nascita</label>
+                                    nascita <strong>(*)</strong></label>
 
                                 <div class="col-md-6">
                                     <input id="birth_date" type="date"
@@ -67,8 +70,8 @@
 
 
                             {{-- Email  --}}
-                            <div class="mb-4 row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
+                            <div class="mb-3 row">
+                                <label for="email" class="col-md-4 col-form-label text-md-right">Email <strong>(*)</strong></label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
@@ -84,15 +87,15 @@
                             </div>
 
                             {{-- password  --}}
-                            <div class="mb-4 row">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                            <div class="mb-3 row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">Password <strong>(*)</strong></label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         required autocomplete="new-password">
-                                    <small id="password-error" class="text-white p-3 rounded-2 text-center w-75"
-                                        style="display: none;background-color:#42414D;font-size: 0.75rem"></small>
+                                    <ul id="password-error" class="text-white p-3 rounded-2 mt-2 w-75"
+                                        style="display: none;background-color:#42414D;font-size: 0.75rem"></ul>
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -102,9 +105,9 @@
                             </div>
 
                             {{-- conferma password  --}}
-                            <div class="mb-4 row">
+                            <div class="mb-3 row">
                                 <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Conferma
-                                    Password</label>
+                                    Password <strong>(*)</strong></label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
@@ -115,7 +118,7 @@
                             </div>
 
                             {{-- reCAPTCHA --}}
-                            <div class="mb-4 row">
+                            <div class="mb-3 row">
                                 <div class="col-md-6 offset-md-4">
                                     <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site') }}"></div>
                                     @if ($errors->has('g-recaptcha-response'))
@@ -127,7 +130,7 @@
                             </div>
 
                             {{-- btn submit  --}}
-                            <div class="mb-4 row mb-0">
+                            <div class="mb-3 row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-log">
                                         Registrati
@@ -199,18 +202,15 @@
             // 2. Concatena i messaggiscrivendoli all'interno di password-error e confirm-error prevenendo l'invio del form
             // 3. Se nell'array non sono presenti messaggi permette l'invio del form
 
+            const passwordError = document.getElementById("password-error");
             if (messages.length > 0) {
-                document.getElementById("password-error").style.display = 'block';
-                // document.getElementById("password-confirm-error").style.display = 'block';
-                document.getElementById("password-error").textContent = messages.join('. ');
-                // document.getElementById("password-confirm-error").textContent = messages.join('. ');
-                return false; // Previene l'invio del form
+                passwordError.style.display = 'block';
+                passwordError.innerHTML = messages.map(message => `<li class="mb-2">${message}</li>`).join('');
+                return false; // Previene l' invio del form
             } else {
-                document.getElementById("password-error").style.display = 'none';
-                // document.getElementById("password-confirm-error").style.display = 'none';
-                document.getElementById("password-error").textContent = '';
-                // document.getElementById("password-confirm-error").textContent = '';
-                return true; // Permette l'invio del form
+                passwordError.style.display = 'none';
+                passwordError.innerHTML = '';
+                return true; // Permette l' invio del form
             }
         }
     </script>

@@ -23,7 +23,7 @@
     <div id="app">
 
 
-        <nav class="navbar navbar-expand-md nav-log navbar-light shadow-sm">
+        <nav class="navbar navbar-expand-md nav-log navbar-light shadow-sm mb-4">
             <div class="container ">
                 {{-- passo all'url la voce dell'env così ad ognuno prende la sua  --}}
                 <a class="navbar-brand d-flex align-items-center" href="{{env('APP_FRONTEND_URL')}}">
@@ -47,11 +47,11 @@
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="{{ route('login') }}">Accedi</a>
                         </li>
                         @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">Registrati</a>
                         </li>
                         @endif
                         @else
