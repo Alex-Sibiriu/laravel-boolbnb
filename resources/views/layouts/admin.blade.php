@@ -20,7 +20,7 @@
     crossorigin='anonymous' />
 
   <!-- Scripts -->
-  @vite(['resources/css/app.css', 'resources/js/app.js'])
+  @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 </head>
 
 <body>
