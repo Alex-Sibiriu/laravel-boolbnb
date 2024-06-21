@@ -127,8 +127,22 @@ class HousesController extends Controller
             }
         }
 
-        // Eseguo la query e ottengo i risultati
-        $houses = $query->get();
+        // Clono la query base per i castelli sponsorizzati e non sponsorizzati
+        $sponsoredQuery = clone $query;
+        $nonSponsoredQuery = clone $query;
+
+        // Query per case sponsorizzate
+        $sponsoredHouses = $sponsoredQuery->whereHas('sponsors')
+            ->orderBy('distance', 'asc')
+            ->get();
+
+        // Query per case non sponsorizzate
+        $nonSponsoredHouses = $nonSponsoredQuery->whereDoesntHave('sponsors')
+            ->orderBy('distance', 'asc')
+            ->get();
+
+        // Unisco i risultati, con le case sponsorizzate per prime
+        $houses = $sponsoredHouses->merge($nonSponsoredHouses);
 
         return response()->json($houses);
     }
