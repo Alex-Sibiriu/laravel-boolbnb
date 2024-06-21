@@ -58,7 +58,7 @@ class HousesController extends Controller
 
     public function getServices()
     {
-        $services = Service::get();
+        $services = Service::orderBy('name')->get();
         return response()->json($services);
     }
 
