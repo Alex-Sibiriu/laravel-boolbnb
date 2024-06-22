@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\TomTomController;
 use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\Admin\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,10 @@ Route::middleware(['auth', 'verified'])
         Route::get('deleted-castles', [HouseController::class, 'deleted'])->name('deleted');
 
         Route::put('retrieve-castles/{id}', [HouseController::class, 'retrieve'])->name('retrieve');
+
+        Route::get('payment', [PaymentController::class, 'index'])->name('payment.index');
+        Route::post('payment/create', [PaymentController::class, 'create'])->name('payment.create');
+        Route::get('payment/token', [PaymentController::class, 'generateClientToken'])->name('payment.token');
     });
 
 require __DIR__ . '/auth.php';
