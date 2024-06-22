@@ -34,6 +34,13 @@ return [
     'recaptcha' => [
         'site' => env('RECAPTCHA_SITE_KEY'),
         'secret' => env('RECAPTCHA_SECRET_KEY'),
+    ],
+
+    'braintree' => [
+        'env' => 'sandbox',
+        'merchant_id' => env('BRAINTREE_MERCHANT_ID'),
+        'public_key' => env('BRAINTREE_PUBLIC_KEY'),
+        'private_key' => env('BRAINTREE_PRIVATE_KEY'),
     ]
 
 ];
