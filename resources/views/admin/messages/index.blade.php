@@ -25,6 +25,7 @@
 
                 <th scope="col">Relativo a</th>
                 <th scope="col">Anteprima</th>
+                <th scope="col">Data di Ricezione</th>
                 <th scope="col">Mittente</th>
                 <th class="text-center" scope="col">Azioni</th>
               </tr>
@@ -40,6 +41,9 @@
                 <td class="align-content-center">
                   <p class="m-0 truncate-text">{{ $message->message }}</p>
                 </td>
+
+                <td class="align-content-center">
+                  {{ \Carbon\Carbon::parse($message->created_at)->format('d/m/y \a\l\l\e H:i') }}</td>
 
                 <td class="align-content-center">{{ $message->email }}</td>
 
