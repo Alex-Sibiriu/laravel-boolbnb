@@ -9,7 +9,14 @@ class Message extends Model
 {
     use HasFactory;
 
-    public function house(){
+    protected $fillable = [
+        'message',
+        'email',
+        'house_id'
+    ];
+
+    public function house()
+    {
         return $this->belongsTo(House::class);
     }
 }

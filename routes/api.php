@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\HousesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\MessagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,6 @@ Route::get('/house-detail/{slug}', [HousesController::class, 'getHouseBySlug']);
 
 // json castelli per servizi
 Route::get('/house-service/{slug}', [HousesController::class, 'getHousesByServices']);
+
+// Salvataggio messaggi dal front end
+Route::post('/send-message', [MessagesController::class, 'create']);

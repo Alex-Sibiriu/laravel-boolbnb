@@ -32,8 +32,7 @@
     <div class="col-12">
       <div class="px-2 rounded-3 pb-1">
         @if (count($houses) > 0)
-
-        <h2 class="py-3 text-dark rounded-3 fw-bold fs-2 p-3 mt-3">I tuoi Castelli</h2>
+          <h2 class="py-3 text-dark rounded-3 fw-bold fs-2 p-3 mt-3">I tuoi Castelli</h2>
         @endif
 
         <table class="table table-light table-striped">
@@ -55,8 +54,8 @@
                   </a>
 
                 </th>
-                <th scope="col">Sponsor</th>
-                <th scope="col">Pubblica</th>
+                <th class="text-center" scope="col">Sponsor</th>
+                <th class="text-center" scope="col">Pubblica</th>
                 <th class="text-center" scope="col">Azioni</th>
               </tr>
             </thead>
@@ -77,7 +76,7 @@
                   {{ $house->title }}
                 </td>
 
-                <td class="align-content-center">
+                <td class="align-content-center text-center">
                   @if ($house->sponsors()->exists())
                     Si
                   @else

@@ -103,7 +103,7 @@
     <div class="col-6 mb-3">
       <label for="address" class="form-label">Indirizzo (*)</label>
       <input type="text" name="address" id="address" placeholder="Inserisci l'indirizzo" class="form-control"
-        value="{{ old('address', $house?->address) }}" required min="2" max="100">
+        value="{{ old('', $house?->address) }}" required min="2" max="100">
       <div id="addressList" role="button" class="autocomplete-items rounded-bottom-3 overflow-hidden"></div>
     </div>
 
@@ -140,33 +140,37 @@
 
     {{-- immagini --}}
     <div class="col-12 mb-3">
-        <label for="images" class="form-label">Immagini</label>
-        <input name="images[]" type="file" class="form-control @error('images.*') is-invalid @enderror" id="images" multiple>
-        @error('images.*')
-            <small class="text-danger fw-bold">
-                {{ $message }}
-            </small>
-        @enderror
+      <label for="images" class="form-label">Immagini</label>
+      <input name="images[]" type="file" class="form-control @error('images.*') is-invalid @enderror"
+        id="images" multiple>
+      @error('images.*')
+        <small class="text-danger fw-bold">
+          {{ $message }}
+        </small>
+      @enderror
 
-        {{-- Preview delle immagini --}}
-        <div id="image-preview" class="mt-3">
-            @if ($isEdit && $house->images->count() > 0)
-                @foreach ($house->images as $image)
-                    <div class="image-container position-relative d-inline-block mx-1">
-                        <img src="{{ asset('storage/' . $image->image_path) }}" class="img-thumbnail" style="max-height: 100px;">
-                        <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 remove-image-btn">x</button>
-                    </div>
-                @endforeach
-            @endif
-        </div>
+      {{-- Preview delle immagini --}}
+      <div id="image-preview" class="mt-3">
+        @if ($isEdit && $house->images->count() > 0)
+          @foreach ($house->images as $image)
+            <div class="image-container position-relative d-inline-block mx-1">
+              <img src="{{ asset('storage/' . $image->image_path) }}" class="img-thumbnail"
+                style="max-height: 100px;">
+              <button type="button"
+                class="btn btn-danger btn-sm position-absolute top-0 end-0 remove-image-btn">x</button>
+            </div>
+          @endforeach
+        @endif
+      </div>
 
-        <button type="button" id="clear-images" class="btn btn-danger mt-2 d-none">Cancella immagini</button>
+      <button type="button" id="clear-images" class="btn btn-danger mt-2 d-none">Cancella immagini</button>
     </div>
 
     <small>* La prima immagine caricata verrà salvata come copertina</small>
 
     <div class="text-center pt-3">
-      <button type="submit" class="btn w-25 me-3 {{ Route::currentRouteName() === 'admin.houses.create' ? 'btn-success' : 'btn-warning' }}">{{ $button }}</button>
+      <button type="submit"
+        class="btn w-25 me-3 {{ Route::currentRouteName() === 'admin.houses.create' ? 'btn-success' : 'btn-warning' }}">{{ $button }}</button>
       <button type="reset" class="btn btn-danger w-25">Reset</button>
     </div>
   </form>
@@ -295,7 +299,9 @@
         // Rimuovi l'immagine dalla lista dei file selezionati
         const dataTransfer = new DataTransfer();
         const input = document.getElementById('images');
-        const { files } = input;
+        const {
+          files
+        } = input;
 
         for (let i = 0; i < files.length; i++) {
           if (i !== imageIndex) {
@@ -332,7 +338,8 @@
 
             const removeButton = document.createElement('button');
             removeButton.type = 'button';
-            removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'position-absolute', 'top-0', 'end-0', 'remove-image-btn');
+            removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'position-absolute', 'top-0', 'end-0',
+              'remove-image-btn');
             removeButton.textContent = 'x';
 
             imageContainer.appendChild(image);
