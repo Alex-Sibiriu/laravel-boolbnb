@@ -58,7 +58,7 @@ class House extends Model
 
     public function sponsors()
     {
-        return $this->belongsToMany(Sponsor::class);
+        return $this->belongsToMany(Sponsor::class)->withPivot('start_date', 'expiration_date');
     }
 
     protected $fillable = [

@@ -57,6 +57,16 @@
           @empty
           @endforelse
         </ul>
+        @if ($house->sponsors->count() > 0)
+        <p><strong>Sponsor attivi:</strong></p>
+            <ul>
+                @foreach ($house->sponsors as $sponsor)
+                <li class="text-capitalize">
+                    {{ $sponsor->name }}:  {{ $sponsor->pivot->start_date }} - {{ $sponsor->pivot->expiration_date }}
+                </li>
+            @endforeach
+            </ul>
+        @endif
       </div>
     </div>
 
