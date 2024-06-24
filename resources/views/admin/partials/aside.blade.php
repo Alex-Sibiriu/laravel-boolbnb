@@ -1,40 +1,34 @@
 <div class="aside-bar pt-3">
   <nav>
     <ul>
-      <li class="my-4">
+      <li class="my-4 {{Route::currentRouteName() === 'admin.home' ? 'activeAside' : ''}}">
         <a class="text-decoration-none" href="{{ route('admin.home') }}">
           <i class="fa-solid fa-house me-2"></i>
-          Home
+          <span class="d-none d-md-inline-block"> Home </span>
         </a>
       </li>
-      <li class="my-4">
+      <li class="my-4 {{Route::currentRouteName() === 'admin.houses.create' ? 'activeAside' : ''}}">
         <a class="text-decoration-none" href="{{ route('admin.houses.create') }}">
           <i class="fa-solid fa-circle-plus me-2"></i>
-          Nuovo Castello
+          <span class="d-none d-md-inline-block"> Nuovo Castello </span>
         </a>
       </li>
-      <li>
+      <li class="my-4 {{Route::currentRouteName() === 'admin.houses.index' ? 'activeAside' : ''}}">
         <a href="{{ route('admin.houses.index') }}">
           <i class="fa-brands fa-fort-awesome me-2"></i>
-          Castelli
+          <span class="d-none d-md-inline-block"> Castelli </span>
         </a>
       </li>
-      <li>
-        <a href="">
-          <i class="fa-solid fa-money-bill-wave me-2"></i>
-          Sponsor
-        </a>
-      </li>
-      <li>
+      <li class="my-4 {{Route::currentRouteName() === 'admin.messages.index' ? 'activeAside' : ''}}">
         <a href="{{ route('admin.messages.index') }}">
           <i class="fa-solid fa-message me-2"></i>
-          Messaggi
+          <span class="d-none d-md-inline-block"> Messaggi </span>
         </a>
       </li>
-      <li>
+      <li class="my-4 {{Route::currentRouteName() === 'admin.deleted' ? 'activeAside' : ''}}">
         <a href="{{ route('admin.deleted') }}">
           <i class="fa-solid fa-trash-arrow-up me-2"></i>
-          Castelli cancellati
+          <span class="d-none d-md-inline-block"> Castelli cancellati </span>
         </a>
       </li>
     </ul>

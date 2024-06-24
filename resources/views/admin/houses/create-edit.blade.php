@@ -26,7 +26,7 @@
     @endif
 
     {{-- titolo --}}
-    <div class="col-6 mb-3">
+    <div class="col-12 col-md-6 mb-3">
       <label for="title" class="form-label">Titolo (*)</label>
       <input name="title" type="text" placeholder="Inserisci il nome del castello"
         class="form-control @error('title') is-invalid @enderror" id="title"
@@ -39,7 +39,7 @@
     </div>
 
     {{-- stanze --}}
-    <div class="col-6 mb-3">
+    <div class="col-12 col-md-6 mb-3">
       <label for="rooms" class="form-label">Stanze (*)</label>
       <input name="rooms" type="number" placeholder="Inserisci il numero di stanze"
         class="form-control @error('rooms') is-invalid @enderror" id="rooms"
@@ -52,7 +52,7 @@
     </div>
 
     {{-- bagni --}}
-    <div class="col-6 mb-3">
+    <div class="col-12 col-md-6 mb-3">
       <label for="bathrooms" class="form-label">Bagni (*)</label>
       <input name="bathrooms" type="number" placeholder="Inserisci il numero di bagni"
         class="form-control @error('bathrooms') is-invalid @enderror" id="bathrooms"
@@ -65,7 +65,7 @@
     </div>
 
     {{-- letti --}}
-    <div class="col-6 mb-3">
+    <div class="col-12 col-md-6 mb-3">
       <label for="bed" class="form-label">Posti Letto (*)</label>
       <input name="bed" type="number" placeholder="Inserisci il numero di posti letto"
         class="form-control @error('bed') is-invalid @enderror" id="bed" value="{{ old('bed', $house?->bed) }}"
@@ -78,7 +78,7 @@
     </div>
 
     {{-- mq --}}
-    <div class="col-6 mb-3">
+    <div class="col-12 col-md-6 mb-3">
       <label for="square_meters" class="form-label">Metri Quadri</label>
       <input name="square_meters" type="number" placeholder="Inserisci i metri quadri"
         class="form-control @error('square_meters') is-invalid @enderror" id="square_meters"
@@ -91,7 +91,7 @@
     </div>
 
     {{-- visibilità --}}
-    <div class="col-6 align-content-center">
+    <div class="col-12 col-md-6 align-content-center">
       <label for="is_visible" class="form-label m-0 pe-2">Visibilità del Castello</label>
       <select name="is_visible" id="is_visible" class="p-1 rounded-2">
         <option @if ($house?->is_visible == 1) selected @endif value="1">Sì</option>
@@ -100,7 +100,7 @@
     </div>
 
     {{-- Indirizzo --}}
-    <div class="col-6 mb-3">
+    <div class="col-12 col-md-6 mb-3">
       <label for="address" class="form-label">Indirizzo (*)</label>
       <input type="text" name="address" id="address" placeholder="Inserisci l'indirizzo" class="form-control"
         value="{{ old('', $house?->address) }}" required min="2" max="100">
@@ -114,7 +114,7 @@
       min="-180" max="180">
 
     {{-- descrizione  --}}
-    <div class="col-6 mb-3">
+    <div class="col-12 col-md-6 mb-3">
       <label for="description" class="form-label">Descrizione</label>
       <textarea name="description" placeholder="Inserisci una descrizione"
         class="form-control @error('description') is-invalid @enderror" id="description" rows="15">{{ old('description', $house?->description) }}</textarea>
@@ -126,7 +126,7 @@
     </div>
 
     {{-- servizi --}}
-    <div class="btn-group col-6 d-block" role="group" aria-label="Basic checkbox toggle button group">
+    <div class="btn-group col-12 col-md-6 d-block" role="group" aria-label="Basic checkbox toggle button group">
       <p class="pe-2">Seleziona i Servizi:</p>
       <div class="d-flex flex-wrap">
         @foreach ($services as $service)

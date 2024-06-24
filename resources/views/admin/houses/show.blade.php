@@ -31,7 +31,7 @@
       @endif
     </div>
 
-    <div class="container d-flex justify-content-between">
+    <div class="container d-flex flex-column justify-content-between flex-md-row">
       <div>
         <p><strong>Annuncio visibile:</strong>
           @if ($house->is_visible == 1)

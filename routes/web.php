@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\TomTomController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\PaymentController;
+use App\Http\Controllers\Admin\SponsorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,13 +43,20 @@ Route::middleware(['auth', 'verified'])
         // rotte crud houses
         Route::resource('houses', HouseController::class);
 
-        // rotte custom
+        // rotte custom per mettere in ordine
         Route::get('orderby/{direction}/{column}', [HouseController::class, 'orderBy'])->name('orderby');
 
+        // rotte custom per pagina castelli cancellati
         Route::get('deleted-castles', [HouseController::class, 'deleted'])->name('deleted');
 
+        // rotte custom per recuperare castello
         Route::put('retrieve-castles/{id}', [HouseController::class, 'retrieve'])->name('retrieve');
 
+        // rotte custom per sponsor
+        Route::get('/sponsors/{house}', [SponsorController::class, 'sponsors'])->name('sponsors');
+        Route::get('/sponsors/{sponsor}/{house}', [SponsorController::class, 'createSponsor'])->name('create-sponsors');
+
+        // rotte custom per pagamento
         Route::get('payment', [PaymentController::class, 'index'])->name('payment.index');
         Route::post('payment/create', [PaymentController::class, 'create'])->name('payment.create');
         Route::get('payment/token', [PaymentController::class, 'generateClientToken'])->name('payment.token');

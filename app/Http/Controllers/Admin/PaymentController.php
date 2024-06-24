@@ -3,15 +3,21 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\House;
+use App\Models\Sponsor;
 use Illuminate\Http\Request;
 use Braintree\Gateway;
 use Illuminate\Support\Facades\Log;
 
 class PaymentController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.payment.index');
+
+        $sponsor = Sponsor::where('slug',$request->query('sponsor'))->first();
+        //  dd($sponsor);
+        $house = House::where('slug',  $request->query('house'))->first();
+        return view('admin.payment.index', compact('sponsor', 'house'));
     }
 
     public function create(Request $request)

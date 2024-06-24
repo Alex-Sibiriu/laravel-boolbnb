@@ -7,9 +7,13 @@
 .header-admin{
     height: 60px;
     background-color: $dark-color !important;
-    .user{
-        color: $brand-color;
-    }
+        a:hover,
+        button:hover{
+            color: $brand-color !important;
+        }
+        .user{
+            color: $light-color;
+        }
 }
 
 li{
@@ -18,13 +22,11 @@ li{
         color: lightgrey !important;
         font-weight: bold !important;
     }
-    &:hover a{
-        color: $brand-color!important;
-    }
+
 }
 
 .main{
-    width: calc(100% - 200px);
+    width: 100% ;
     height: calc(100vh - 60px);
     overflow-y: auto;
     overflow-x: hidden;
