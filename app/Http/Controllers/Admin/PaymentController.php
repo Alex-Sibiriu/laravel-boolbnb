@@ -33,12 +33,12 @@ class PaymentController extends Controller
         ]);
 
         if ($result->success) {
-            return redirect()->route('admin.payment.index')->with('success', 'Payment successful!');
+            return redirect()->route('admin.payment.index')->with('success', 'Pagamento riuscito!');
         } else {
             // Log the error details for debugging
             Log::error('Payment failed', ['errors' => $result->errors->deepAll()]);
 
-            return back()->with('error', 'Payment failed. Please try again.');
+            return back()->with('error', 'Pagamento fallito. Prova ancora.');
         }
     }
 
