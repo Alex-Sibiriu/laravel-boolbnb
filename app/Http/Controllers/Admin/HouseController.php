@@ -87,7 +87,7 @@ class HouseController extends Controller
                 $type = $key === 0 ? 'cover' : 'thumb';
 
 
-                $imagePath = $image->store('houses/images', 'public');
+                $imagePath = $image->store('images', 'public');
 
                 // Creazione dell'immagine nel database
 
@@ -141,41 +141,58 @@ class HouseController extends Controller
      * Update the specified resource in storage.
      */
     public function update(HouseRequest $request, House $house)
-    {
-        $val_data = $request->all();
-        $val_data['user_id'] = Auth::user()->id;
-        $val_data['slug'] = Helper::generateSlug($val_data['title'], House::class);
+{
+    $val_data = $request->all();
 
-        $val_data['address'] = Helper::reverseGeocode($val_data['latitude'], $val_data['longitude']);
+    $val_data['user_id'] = Auth::user()->id;
+    $val_data['slug'] = Helper::generateSlug($val_data['title'], House::class);
+    $val_data['address'] = Helper::reverseGeocode($val_data['latitude'], $val_data['longitude']);
 
-        $house->update($val_data);
+    $house->update($val_data);
 
-        if (array_key_exists('services', $val_data)) {
-            $house->services()->sync($val_data['services']);
-        } else {
-            $house->services->detach();
-        }
+    if (array_key_exists('services', $val_data)) {
+        $house->services()->sync($val_data['services']);
+    } else {
+        $house->services()->detach();
+    }
 
-        if ($request->hasFile('images')) {
-            // Elimina le vecchie immagini se necessario
-            foreach ($house->images as $image) {
+    // Gestione immagini
+    $existingImages = $house->images->pluck('id')->toArray();
+    $newImages = $request->file('images') ?? [];
+
+    // Rimozione delle immagini selezionate per l'eliminazione
+    if ($request->has('remove_images')) {
+        $imagesToRemove = explode(',', $request->input('remove_images'));
+        foreach ($imagesToRemove as $imageId) {
+            if (in_array($imageId, $existingImages)) {
+                $image = Image::find($imageId);
                 Storage::delete('public/' . $image->image_path);
                 $image->delete();
             }
-
-            foreach ($request->file('images') as $key => $image) {
-                $path = $image->store('images', 'public');
-                Image::create([
-                    'image_path' => $path,
-                    // FIX ME
-                    'type' => 'cover',
-                    'house_id' => $house->id,
-                ]);
-            }
         }
-
-        return redirect()->route('admin.houses.show', compact('house'))->with('update', 'Il castello è stato aggiornato');
     }
+
+    // Controllo se esiste già una cover
+    $hasCover = $house->images()->where('type', 'cover')->exists();
+
+    // Aggiunta delle nuove immagini
+    foreach ($newImages as $key => $image) {
+        // Se c'è già una cover, tutte le nuove immagini saranno thumb
+        $type = $hasCover ? 'thumb' : ($key === 0 ? 'cover' : 'thumb');
+        if ($type === 'cover') $hasCover = true;
+
+        $path = $image->store('images', 'public');
+
+        Image::create([
+            'image_path' => $path,
+            'house_id' => $house->id,
+            'type' => $type,
+        ]);
+    }
+
+    return redirect()->route('admin.houses.index')->with('success', 'House updated successfully.');
+}
+
 
     /**
      * Remove the specified resource from storage.

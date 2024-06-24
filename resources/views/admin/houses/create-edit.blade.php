@@ -14,7 +14,6 @@
     @csrf
     @method($method)
 
-    {{-- alert per errori request --}}
     @if ($errors->any())
       <div class="alert alert-danger">
         <ul class="m-0">
@@ -91,7 +90,8 @@
     </div>
 
     {{-- visibilità --}}
-    <div class="col-12 col-md-6 align-content-center">
+    <div class="col-12 col-md-6 mb-3 align-content-center">
+
       <label for="is_visible" class="form-label m-0 pe-2">Visibilità del Castello</label>
       <select name="is_visible" id="is_visible" class="p-1 rounded-2">
         <option @if ($house?->is_visible == 1) selected @endif value="1">Sì</option>
@@ -156,7 +156,7 @@
             <div class="image-container position-relative d-inline-block mx-1">
               <img src="{{ asset('storage/' . $image->image_path) }}" class="img-thumbnail"
                 style="max-height: 100px;">
-              <button type="button"
+              <button type="button" data-image-id="{{ $image->id }}"
                 class="btn btn-danger btn-sm position-absolute top-0 end-0 remove-image-btn">x</button>
             </div>
           @endforeach
@@ -164,6 +164,7 @@
       </div>
 
       <button type="button" id="clear-images" class="btn btn-danger mt-2 d-none">Cancella immagini</button>
+      <input type="hidden" name="remove_images" id="remove_images" value="">
     </div>
 
     <small>* La prima immagine caricata verrà salvata come copertina</small>
@@ -177,71 +178,70 @@
 
   {{-- javascript  --}}
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const addressInput = document.getElementById('address');
-      const addressList = document.getElementById('addressList');
-      const latitudeInput = document.getElementById('latitude');
-      const longitudeInput = document.getElementById('longitude');
-      const clearImagesButton = document.getElementById('clear-images');
-      const imagePreviewDiv = document.getElementById('image-preview');
-      const imagesInput = document.getElementById('images');
+  document.addEventListener('DOMContentLoaded', function() {
+    const addressInput = document.getElementById('address');
+    const addressList = document.getElementById('addressList');
+    const latitudeInput = document.getElementById('latitude');
+    const longitudeInput = document.getElementById('longitude');
+    const clearImagesButton = document.getElementById('clear-images');
+    const imagePreviewDiv = document.getElementById('image-preview');
+    const imagesInput = document.getElementById('images');
+    const removeImagesInput = document.getElementById('remove_images');
 
-      let addressSelected = @json($isEdit);
+    let addressSelected = @json($isEdit);
 
-      // Funzione debounce
-      function debounce(func, wait) {
+    function debounce(func, wait) {
         let timeout;
         return function(...args) {
-          const later = () => {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
             clearTimeout(timeout);
-            func(...args);
-          };
-          clearTimeout(timeout);
-          timeout = setTimeout(later, wait);
+            timeout = setTimeout(later, wait);
         };
-      }
+    }
 
-      // Funzione che gestisce l'input dell'indirizzo con debounce
-      const handleAddressInput = debounce(function() {
+    const handleAddressInput = debounce(function() {
         let query = addressInput.value;
         addressSelected = false;
 
         if (query.length > 1) {
-          fetch('{{ route('autocomplete') }}?query=' + encodeURIComponent(query))
-            .then(response => response.json())
-            .then(data => {
-              addressList.innerHTML = '';
+            fetch('{{ route('autocomplete') }}?query=' + encodeURIComponent(query))
+                .then(response => response.json())
+                .then(data => {
+                    addressList.innerHTML = '';
 
-              data.forEach(item => {
-                const option = document.createElement('div');
-                option.classList.add('bg-white', 'p-1', 'ps-2', 'border-bottom', 'border-secondary-subtle');
-                option.innerHTML = "<strong>" + item.address.freeformAddress + "</strong>";
+                    data.forEach(item => {
+                        const option = document.createElement('div');
+                        option.classList.add('bg-white', 'p-1', 'ps-2', 'border-bottom', 'border-secondary-subtle');
+                        option.innerHTML = "<strong>" + item.address.freeformAddress + "</strong>";
 
-                option.addEventListener('click', function() {
-                  addressInput.value = item.address.freeformAddress;
-                  latitudeInput.value = item.position.lat;
-                  longitudeInput.value = item.position.lon;
-                  addressList.innerHTML = '';
-                  addressSelected = true;
+                        option.addEventListener('click', function() {
+                            addressInput.value = item.address.freeformAddress;
+                            latitudeInput.value = item.position.lat;
+                            longitudeInput.value = item.position.lon;
+                            addressList.innerHTML = '';
+                            addressSelected = true;
+                        });
+
+                        addressList.appendChild(option);
+                    });
                 });
-
-                addressList.appendChild(option);
-              });
-            });
         } else {
-          addressList.innerHTML = '';
+            addressList.innerHTML = '';
         }
-      }, 300);
+    }, 300);
 
-      addressInput.addEventListener('input', handleAddressInput);
+    addressInput.addEventListener('input', handleAddressInput);
 
-      document.addEventListener('click', function(e) {
+    document.addEventListener('click', function(e) {
         if (!addressList.contains(e.target) && e.target !== addressInput) {
-          addressList.innerHTML = '';
+            addressList.innerHTML = '';
         }
-      });
+    });
 
-      document.getElementById('houseForm').addEventListener('submit', function(event) {
+    document.getElementById('houseForm').addEventListener('submit', function(event) {
         let valid = true;
 
         const title = document.getElementById('title').value;
@@ -254,130 +254,115 @@
         const validImageTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif', 'image/svg+xml'];
 
         for (let i = 0; i < images.length; i++) {
-          if (!validImageTypes.includes(images[i].type)) {
-            alert('I file selezionati devono essere di tipo jpeg, png, jpg, gif o svg');
-            valid = false;
-            break;
-          }
+            if (!validImageTypes.includes(images[i].type)) {
+                alert('I file selezionati devono essere di tipo jpeg, png, jpg, gif o svg');
+                valid = false;
+                break;
+            }
         }
 
         if (title.length < 3 || title.length > 100) {
-          alert('Il titolo deve contenere tra 3 e 100 caratteri');
-          valid = false;
+            alert('Il titolo deve contenere tra 3 e 100 caratteri');
+            valid = false;
         }
         if (rooms < 1) {
-          alert('Il numero di stanze deve essere almeno 1');
-          valid = false;
+            alert('Il numero di stanze deve essere almeno 1');
+            valid = false;
         }
         if (bathrooms < 1) {
-          alert('Il numero di bagni deve essere almeno 1');
-          valid = false;
+            alert('Il numero di bagni deve essere almeno 1');
+            valid = false;
         }
         if (bed < 1) {
-          alert('Il numero di letti deve essere almeno 1');
-          valid = false;
+            alert('Il numero di letti deve essere almeno 1');
+            valid = false;
         }
         if (!address || address.length < 2 || address.length > 100 || addressSelected === false) {
-          alert('L\'indirizzo inserito non è valido. Per favore, seleziona un indirizzo dalla lista');
-          valid = false;
+            alert('L\'indirizzo inserito non è valido. Per favore, seleziona un indirizzo dalla lista');
+            valid = false;
         }
 
         if (!valid) {
-          event.preventDefault();
+            event.preventDefault();
         }
-      });
+    });
 
-      // Gestione rimozione immagini
-      function handleImageRemoval(event) {
+    function handleImageRemoval(event) {
         const btn = event.target;
         const imageContainer = btn.parentElement;
-        const imageIndex = Array.from(imageContainer.parentElement.children).indexOf(imageContainer);
+        const imageId = btn.getAttribute('data-image-id');
 
-        // Rimuovi l'elemento immagine dalla preview
+        if (imageId) {
+            let removeImages = removeImagesInput.value ? removeImagesInput.value.split(',') : [];
+            removeImages.push(imageId);
+            removeImagesInput.value = removeImages.join(',');
+        }
+
         imageContainer.remove();
+        updateClearImagesButton();
+    }
 
-        // Rimuovi l'immagine dalla lista dei file selezionati
-        const dataTransfer = new DataTransfer();
-        const input = document.getElementById('images');
-        const {
-          files
-        } = input;
-
-        for (let i = 0; i < files.length; i++) {
-          if (i !== imageIndex) {
-            dataTransfer.items.add(files[i]);
-          }
-        }
-
-        input.files = dataTransfer.files;
-
-        // Controlla se ci sono ancora immagini selezionate
-        if (input.files.length === 0) {
-          clearImagesButton.classList.add('d-none');
-        }
-      }
-
-      // Event listener per il cambio delle immagini selezionate
-      imagesInput.addEventListener('change', function() {
+    imagesInput.addEventListener('change', function() {
         const images = this.files;
 
-        imagePreviewDiv.innerHTML = '';
-
         for (let i = 0; i < images.length; i++) {
-          const file = images[i];
-          const reader = new FileReader();
+            const file = images[i];
+            const reader = new FileReader();
 
-          reader.onload = function(e) {
-            const imageContainer = document.createElement('div');
-            imageContainer.classList.add('image-container', 'position-relative', 'd-inline-block', 'mx-1');
+            reader.onload = function(e) {
+                const imageContainer = document.createElement('div');
+                imageContainer.classList.add('image-container', 'position-relative', 'd-inline-block', 'mx-1');
 
-            const image = document.createElement('img');
-            image.src = e.target.result;
-            image.classList.add('img-thumbnail');
-            image.style.maxHeight = '100px';
+                const image = document.createElement('img');
+                image.src = e.target.result;
+                image.classList.add('img-thumbnail');
+                image.style.maxHeight = '100px';
 
-            const removeButton = document.createElement('button');
-            removeButton.type = 'button';
-            removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'position-absolute', 'top-0', 'end-0',
-              'remove-image-btn');
-            removeButton.textContent = 'x';
+                const removeButton = document.createElement('button');
+                removeButton.type = 'button';
+                removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'position-absolute', 'top-0', 'end-0', 'remove-image-btn');
+                removeButton.textContent = 'x';
 
-            imageContainer.appendChild(image);
-            imageContainer.appendChild(removeButton);
-            imagePreviewDiv.appendChild(imageContainer);
+                imageContainer.appendChild(image);
+                imageContainer.appendChild(removeButton);
+                imagePreviewDiv.appendChild(imageContainer);
 
-            removeButton.addEventListener('click', handleImageRemoval);
-          };
+                removeButton.addEventListener('click', function() {
+                    imageContainer.remove();
+                    updateClearImagesButton();
+                });
+            };
 
-          reader.readAsDataURL(file);
+            reader.readAsDataURL(file);
         }
 
-        // Mostra il bottone "Cancella immagini" se ci sono immagini selezionate
-        if (images.length > 0) {
-          clearImagesButton.classList.remove('d-none');
-        } else {
-          clearImagesButton.classList.add('d-none');
-        }
-      });
+        updateClearImagesButton();
+    });
 
-      // Event listener per il bottone "Cancella immagini"
-      clearImagesButton.addEventListener('click', function() {
-        // Deseleziona tutte le immagini
+    clearImagesButton.addEventListener('click', function() {
         imagesInput.value = '';
         imagePreviewDiv.innerHTML = '';
-        clearImagesButton.classList.add('d-none');
-      });
-
-      // Event listener per la rimozione delle immagini già esistenti
-      document.querySelectorAll('.remove-image-btn').forEach(btn => {
-        btn.addEventListener('click', handleImageRemoval);
-      });
-
-      // Controlla se ci sono immagini già caricate al caricamento della pagina
-      if (imagePreviewDiv.children.length > 0) {
-        clearImagesButton.classList.remove('d-none');
-      }
+        removeImagesInput.value = '';
+        updateClearImagesButton();
     });
-  </script>
 
+    document.querySelectorAll('.remove-image-btn').forEach(btn => {
+        btn.addEventListener('click', handleImageRemoval);
+    });
+
+    if (imagePreviewDiv.children.length > 0) {
+        updateClearImagesButton();
+    }
+
+    function updateClearImagesButton() {
+        if (imagePreviewDiv.children.length > 0) {
+            clearImagesButton.classList.remove('d-none');
+        } else {
+            clearImagesButton.classList.add('d-none');
+        }
+    }
+});
+
+
+  </script>
 @endsection
