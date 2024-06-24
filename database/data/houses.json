@@ -20,16 +20,6 @@
         "longitude": 12.3789
     },
     {
-        "title": "Castello di Spaltenna",
-        "rooms": 37,
-        "bathrooms": 20,
-        "bed": 25,
-        "square_meters": 5000,
-        "description": "Un antico monastero trasformato in un lussuoso hotel nel cuore del Chianti.",
-        "latitude": 43.4667,
-        "longitude": 11.4678
-    },
-    {
         "title": "Castello di Pavone",
         "rooms": 38,
         "bathrooms": 21,
@@ -38,16 +28,6 @@
         "description": "Un castello medievale vicino a Ivrea, ora un esclusivo hotel e ristorante.",
         "latitude": 45.4699,
         "longitude": 7.8752
-    },
-    {
-        "title": "Castello di Petroia",
-        "rooms": 20,
-        "bathrooms": 15,
-        "bed": 15,
-        "square_meters": 3000,
-        "description": "Un castello storico situato in Umbria, ora un elegante hotel.",
-        "latitude": 43.2763,
-        "longitude": 12.5061
     },
     {
         "title": "Castello di Vicarello",
@@ -228,26 +208,6 @@
         "description": "Un castello medievale situato in Emilia-Romagna, ora un esclusivo hotel.",
         "latitude": 44.8364,
         "longitude": 9.9920
-    },
-    {
-        "title": "Castello di Vigoleno",
-        "rooms": 40,
-        "bathrooms": 21,
-        "bed": 31,
-        "square_meters": 2000,
-        "description": "Un castello medievale trasformato in un affascinante hotel in Emilia-Romagna.",
-        "latitude": 44.8251,
-        "longitude": 9.8513
-    },
-    {
-        "title": "Castello di Monterone",
-        "rooms": 38,
-        "bathrooms": 18,
-        "bed": 28,
-        "square_meters": 2000,
-        "description": "Un castello medievale situato vicino a Perugia, ora un affascinante hotel.",
-        "latitude": 43.0975,
-        "longitude": 12.3789
     },
     {
         "title": "Castello di Spaltenna",
