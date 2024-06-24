@@ -102,6 +102,14 @@
                     <i class="fa-solid fa-pen-to-square"></i>
                   </a>
 
+                  <a href="{{ route('admin.sponsors', $house) }}" class="btn btn-success me-2">
+                    <i class="fa-solid fa-rocket"></i>
+                  </a>
+
+                  <a href="" class="btn btn-secondary me-2">
+                    <i class="fa-solid fa-chart-simple"></i>
+                  </a>
+
                   @include('admin.partials.formdelete', [
                       'route' => route('admin.houses.destroy', $house),
                       'message' => "Sei sicuro di voler eliminare  $house->title ?",

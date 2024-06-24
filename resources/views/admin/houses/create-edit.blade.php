@@ -91,6 +91,7 @@
 
     {{-- visibilità --}}
     <div class="col-12 col-md-6 mb-3 align-content-center">
+
       <label for="is_visible" class="form-label m-0 pe-2">Visibilità del Castello</label>
       <select name="is_visible" id="is_visible" class="p-1 rounded-2">
         <option @if ($house?->is_visible == 1) selected @endif value="1">Sì</option>

@@ -2,12 +2,14 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center py-5">
         <div class="col-md-8">
-            {{-- <div class="card"> --}}
-                {{-- <div class="card-header">Make a Payment</div> --}}
-
+            <div class="card">
+                <div class="card-header">PAGAMENTO</div>
                 <div class="card-body">
+                    <p class="@if (session('success'))
+                    d-none
+                @endif"> Sponsor <strong class="text-capitalize">{{$sponsor?->name}}</strong> per <strong>{{$house?->title}}</strong></p>
                     @if(session('success'))
                         <div class="alert alert-success">
                             {{ session('success') }}
@@ -20,12 +22,14 @@
                         </div>
                     @endif
 
-                    <form method="post" action="{{ route('admin.payment.create') }}">
+                    <form method="post" action="{{ route('admin.payment.create') }}" class="@if (session('success'))
+                        d-none
+                    @endif">
                         @csrf
 
                         <div class="form-group">
-                            <label for="amount"></label>
-                            <input type="hidden" class="form-control" id="amount" name="amount" value="10.00" readonly>
+                            <label for="amount" class="fw-bold mb-2">Pagherai:</label>
+                            <input type="" class="border-0" id="amount" name="amount" value="{{$sponsor?->price}}" readonly>
                         </div>
 
                         <div class="form-group">
@@ -37,7 +41,7 @@
                         <button type="submit" class="btn btn-primary">Paga</button>
                     </form>
                 </div>
-            {{-- </div> --}}
+            </div>
         </div>
     </div>
 </div>

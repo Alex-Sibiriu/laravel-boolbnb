@@ -15,4 +15,20 @@
             margin-bottom: 20px;
         }
     }
+
+    .activeAside{
+        background-color: $brand-color;
+        padding: 10px 0 10px 20px ;
+    }
+
+}
+
+@media screen and (max-width : 768px) {
+    .aside-bar{
+        width: fit-content;
+        .activeAside{
+            padding: 10px 15px ;
+        }
+    }
+
 }

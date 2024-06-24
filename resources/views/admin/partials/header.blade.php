@@ -17,8 +17,8 @@
 
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item text-capitalize">
-            <span class="nav-link text-white fw-bold"><span
-                class="user">{{ Auth::user()->name}} {{ Auth::user()->surname }}</span></span>
+            <span class="nav-link text-white fw-bold user">
+            {{ Auth::user()->name}} {{ Auth::user()->surname }}</span>
           </li>
 
           <li class="nav-item">
