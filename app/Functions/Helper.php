@@ -33,6 +33,13 @@ class Helper
         return date_format($date, 'd/m/Y');
     }
 
+    public static function formatDateandTime($data)
+    {
+
+        $date = date_create($data);
+        return date_format($date, 'd/m/Y H:i:s');
+    }
+
 
     public static function reverseGeocode($latitude, $longitude)
     {

@@ -117,7 +117,6 @@ class HouseController extends Controller
         $house = House::with(['sponsors' => function($query) {
             $query->where('expiration_date', '>=', Carbon::now());
         }])->findOrFail($house->id);
-
         return view('admin.houses.show', compact('house'));
     }
 
