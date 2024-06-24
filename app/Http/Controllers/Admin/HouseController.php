@@ -11,6 +11,7 @@ use App\Models\Image;
 use App\Functions\Helper;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Request\HouseRequest;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 
 class HouseController extends Controller
@@ -112,6 +113,10 @@ class HouseController extends Controller
         }
         // Carica anche le immagini associate al castello
         $house->load('images');
+
+        $house = House::with(['sponsors' => function($query) {
+            $query->where('expiration_date', '>=', Carbon::now());
+        }])->findOrFail($house->id);
 
         return view('admin.houses.show', compact('house'));
     }
