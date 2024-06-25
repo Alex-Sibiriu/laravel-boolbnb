@@ -29,7 +29,7 @@
             <div class="container ">
                 {{-- passo all'url la voce dell'env così ad ognuno prende la sua  --}}
                 <a class="navbar-brand d-flex align-items-center" href="{{env('APP_FRONTEND_URL')}}">
-                    <img src="/img/logo2.png" alt="" class="logo">
+                    <img src="/img/logo2.png" alt="" class="logo mt-2">
                 </a>
 
                 {{-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

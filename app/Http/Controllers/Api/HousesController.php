@@ -14,7 +14,7 @@ class HousesController extends Controller
 {
     public function index()
     {
-        $houses = House::with('user', 'messages', 'services', 'sponsors', 'images')->get();
+        $houses = House::orderBy('id', 'desc')->with('user', 'messages', 'services', 'sponsors', 'images')->get();
         return response()->json($houses);
     }
 

@@ -7,10 +7,12 @@
                 <div class="card">
                     <div class="card-header">PAGAMENTO</div>
                     <div class="card-body">
-                        <p class="@if (session('success')) d-none @endif"> Sponsor <strong
+                        <p class="@if (session('success')) d-none @endif text-capitalize"> Sponsor <strong
                                 class="text-capitalize">{{ $sponsor?->name }}</strong> per
                             <strong>{{ $house?->title }}</strong>
                         </p>
+                        <p class="@if (session('success')) d-none @endif"><strong>User:</strong> {{ Auth::user()->name}} {{ Auth::user()->surname }}</p>
+                        <p class="@if (session('success')) d-none @endif"><strong>Ricevuta di pagamento inviata a:</strong> {{ Auth::user()->email}}</p>
                         @if (session('success'))
                             <div class="alert alert-success">
                                 {{ session('success') }}
@@ -29,7 +31,7 @@
 
                             <div class="form-group">
                                 <label for="amount" class="fw-bold mb-2">Pagherai:</label>
-                                <input type="" class="border-0 text-dark" id="amount" name="amount"
+                                <input type="" class="border-0 text-dark bg-white" id="amount" name="amount"
                                     value="{{ $sponsor?->price }} &euro;" readonly disabled>
                             </div>
 

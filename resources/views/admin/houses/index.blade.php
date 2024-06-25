@@ -42,7 +42,7 @@
 
                 <th scope="col">Immagine</th>
                 <th scope="col">
-                  <a class="text-white text-decoration-none"
+                  <a class="text-dark text-decoration-none"
                     href="{{ route('admin.orderby', ['direction' => $direction, 'column' => 'title']) }}">Nome
 
                     @if ($direction === 'asc')
