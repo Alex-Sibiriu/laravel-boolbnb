@@ -1,3 +1,6 @@
+@php
+      use App\Functions\Helper;
+@endphp
 @extends('layouts.admin')
 
 @section('content')
@@ -61,8 +64,14 @@
         <p><strong>Sponsor attivi:</strong></p>
             <ul>
                 @foreach ($house->sponsors as $sponsor)
+                @php
+
+
+                    $start  = Helper::formatDateandTime($sponsor->pivot->start_date );
+                    $expire = Helper::formatDateandTime($sponsor->pivot->expiration_date );
+                @endphp
                 <li class="text-capitalize">
-                    {{ $sponsor->name }}:  {{ $sponsor->pivot->start_date }} - {{ $sponsor->pivot->expiration_date }}
+                    {{ $sponsor->name }}:  {{ $start}} - {{ $expire }}
                 </li>
             @endforeach
             </ul>
