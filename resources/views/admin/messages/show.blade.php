@@ -7,6 +7,7 @@
       <div class="w-100 text-dark p-3 mb-3">
         <p><strong>Riferito al Castello: </strong>{{ $message->house->title }}</p>
         <p><strong>Inviato da:</strong> {{ $message->email }}</p>
+        <p><strong>Data di Ricezione:</strong> {{ \Carbon\Carbon::parse($message->created_at)->format('d/m/y \a\l\l\e H:i') }}</p>
         <p class="m-0 p-2 rounded-2 bg-body-secondary">{{ $message->message }}</p>
       </div>
     </div>
