@@ -140,7 +140,7 @@
 
     {{-- immagini --}}
     <div class="col-12 mb-3">
-      <label for="images" class="form-label">Immagini</label>
+      <label class="mt-5 mb-4" for="images" class="form-label">Immagini - La prima immagine caricata verrà salvata come copertina</label>
       <input name="images[]" type="file" class="form-control @error('images.*') is-invalid @enderror"
         id="images" multiple>
       @error('images.*')
@@ -167,7 +167,7 @@
       <input type="hidden" name="remove_images" id="remove_images" value="">
     </div>
 
-    <small>* La prima immagine caricata verrà salvata come copertina</small>
+
 
     <div class="text-center pt-3">
       <button type="submit"
