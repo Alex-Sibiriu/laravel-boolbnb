@@ -22,3 +22,17 @@
         }
     }
 }
+
+.auth-nav{
+    li{
+        a{
+            &:hover{
+                color: $brand-color !important;
+            }
+        }
+    }
+    .drop-auth{
+        color: $dark-color !important;
+
+    }
+}
