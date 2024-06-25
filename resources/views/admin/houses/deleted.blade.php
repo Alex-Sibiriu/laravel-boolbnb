@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-  <div class="row pt-2 pb-5 px-5">
+  <div class="row pt-2 pb-5 px-0 px-sm-5 px-md-0 px-lg-5">
 
     <div class="col-12">
       <div class="px-2 pb-1">

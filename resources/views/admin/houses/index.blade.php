@@ -23,7 +23,7 @@
     </div>
   </div>
 
-  <div class="row pt-2 pb-5 px-5">
+  <div class="row pt-2 pb-5 px-0 px-sm-5 px-md-0 px-lg-5">
     @if (isset($_GET['toSearch']))
       <div class="mt-2">
         <h1>Castelli trovati per <span class="text-danger">"{{ $_GET['toSearch'] }}"</span> : {{ $count_search }} </h1>
@@ -35,12 +35,12 @@
           <h2 class="py-3 text-dark rounded-3 fw-bold fs-2 p-3 mt-3">I tuoi Castelli</h2>
         @endif
 
-        <table class="table table-light table-striped">
+        <table class="table table-light table-striped table-responsive">
           @if (count($houses) > 0)
             <thead>
               <tr>
 
-                <th scope="col">Immagine</th>
+                <th scope="col" class="d-none d-md-table-cell">Immagine</th>
                 <th scope="col">
                   <a class="text-dark text-decoration-none"
                     href="{{ route('admin.orderby', ['direction' => $direction, 'column' => 'title']) }}">Nome
@@ -54,8 +54,8 @@
                   </a>
 
                 </th>
-                <th class="text-center" scope="col">Sponsor</th>
-                <th class="text-center" scope="col">Pubblica</th>
+                <th class="text-center d-none d-md-table-cell " scope="col">Sponsor</th>
+                <th class="text-center d-none  d-md-table-cell " scope="col">Pubblica</th>
                 <th class="text-center" scope="col">Azioni</th>
               </tr>
             </thead>
@@ -65,9 +65,9 @@
             @forelse ($houses as $house)
               <tr>
 
-                <td class="align-content-center">
+                <td class="align-content-center d-none d-md-table-cell">
 
-                  <img src="{{ asset('storage/' . $house?->images->first()?->image_path) }}" alt="{{ $house?->title }}"
+                  <img src="{{ asset('storage/' . $house?->images->first()?->image_path) }}" alt="{{ $house?->title }}" class="h-100"
                     width="100" onerror="this.src='/img/not-found.jpg'">
 
                 </td>
@@ -76,7 +76,7 @@
                   {{ $house->title }}
                 </td>
 
-                <td class="align-content-center text-center">
+                <td class="align-content-center text-center d-none d-md-table-cell ">
                   @if ($house->sponsors()->exists())
                     Si
                   @else
@@ -84,7 +84,7 @@
                   @endif
                 </td>
 
-                <td class="align-content-center text-center">
+                <td class="align-content-center text-center d-none  d-md-table-cell ">
                   @if ($house->is_visible === 1)
                     <i class="fa-solid fa-circle text-success"></i>
                   @else
@@ -94,19 +94,19 @@
 
                 <td class="align-content-center text-center">
 
-                  <a href="{{ route('admin.houses.show', $house) }}" class="btn btn-info me-2">
+                  <a href="{{ route('admin.houses.show', $house) }}" class="btn btn-info me-2 mb-2">
                     <i class="fa-solid fa-eye"></i>
                   </a>
 
-                  <a href="{{ route('admin.houses.edit', $house) }}" class="btn btn-warning me-2">
+                  <a href="{{ route('admin.houses.edit', $house) }}" class="btn btn-warning me-2 mb-2">
                     <i class="fa-solid fa-pen-to-square"></i>
                   </a>
 
-                  <a href="{{ route('admin.sponsors', $house) }}" class="btn btn-success me-2">
+                  <a href="{{ route('admin.sponsors', $house) }}" class="btn btn-success me-2 mb-2">
                     <i class="fa-solid fa-rocket"></i>
                   </a>
 
-                  <a href="" class="btn btn-secondary me-2">
+                  <a href="" class="btn btn-secondary mx-2 mb-2">
                     <i class="fa-solid fa-chart-simple"></i>
                   </a>
 
