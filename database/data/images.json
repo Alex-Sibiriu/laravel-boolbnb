@@ -103,8 +103,6 @@
         "house_id": 7,
         "image_path": "images/castello-di-guarene-3.jpg",
         "type": "thumb"
-
-
     },
     {
         "house_id": 8,
@@ -228,17 +226,17 @@
     },
     {
         "house_id": 16,
-        "image_path": "images/castello-di-vincigliata-1.png",
+        "image_path": "images/castello-di-vincigliata-1.jpeg",
         "type": "cover"
     },
     {
         "house_id": 16,
-        "image_path": "images/castello-di-vincigliata-2.jpg",
+        "image_path": "images/castello-di-vincigliata-2.jpeg",
         "type": "thumb"
     },
     {
         "house_id": 16,
-        "image_path": "images/castello-di-vincigliata-3.jpg",
+        "image_path": "images/castello-di-vincigliata-3.jpeg",
         "type": "thumb"
     },
     {
@@ -361,6 +359,4 @@
         "image_path": "images/castello-di-meleto-3.jpg",
         "type": "thumb"
     }
-
-
 ]
