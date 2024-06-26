@@ -57,9 +57,15 @@ class PaymentController extends Controller
                 // Se non ci sono sponsor precedenti per questa casa
                 $start_date = Carbon::now();
             } else {
-                // Se ci sono sponsor precedenti, usa la data di scadenza più recente
-                $latest_expiration_date = $house->sponsors()->max('expiration_date');
-                $start_date = Carbon::parse($latest_expiration_date)->addSecond(); // Aggiungi 1 secondo dopo l'ultima scadenza
+                // Se expiration_date < della data attuale allora la data di inizio sponsor inizia ora
+                if($house->sponsors()->max('expiration_date') < Carbon::now()){
+                    // La data inizia ora
+                    $start_date = Carbon::now();
+                }else{
+                    // La data inizia quando finisce il sponsor precedente
+                    $latest_expiration_date = $house->sponsors()->max('expiration_date');
+                    $start_date = Carbon::parse($latest_expiration_date)->addSecond(); // Aggiungi 1 secondo dopo l'ultima scadenza
+                }
             }
 
             $sponsor = Sponsor::find($sponsorId);
