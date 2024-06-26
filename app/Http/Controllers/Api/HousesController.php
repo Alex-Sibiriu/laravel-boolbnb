@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\House;
 use App\Models\Message;
 use App\Models\Service;
+use Carbon\Carbon;
 use GrahamCampbell\ResultType\Success;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
@@ -29,7 +30,7 @@ class HousesController extends Controller
         $services = $request->input('services');
 
         // Inizializzo la query base
-        $query = House::where('is_visible' , 1)->with('user', 'messages', 'images', 'services', 'sponsors');
+        $query = House::where('is_visible', 1)->with('user', 'messages', 'images', 'services', 'sponsors');
 
         if (!empty($address)) {
             // Chiamata all'API di TomTom per ottenere le coordinate geografiche
@@ -61,7 +62,7 @@ class HousesController extends Controller
                 ->having('distance', '<', $radius)
                 ->orderBy('distance');
         } else {
-            // Ordina per data di creazione se non è specificata la distanza
+            // Ordina per data di creazione se non Ã¨ specificata la distanza
             $query->orderBy('created_at', 'desc');
         }
 
@@ -94,16 +95,31 @@ class HousesController extends Controller
         $nonSponsoredQuery = clone $query;
 
         // Query per case sponsorizzate
-        $sponsoredHouses = $sponsoredQuery->whereHas('sponsors')->get();
+        // $sponsoredHouses = $sponsoredQuery->whereHas('sponsors')->get();
 
         // Query per case non sponsorizzate
-        $nonSponsoredHouses = $nonSponsoredQuery->whereDoesntHave('sponsors')->get();
+        // $nonSponsoredHouses = $nonSponsoredQuery->whereDoesntHave('sponsors')->get();
+
+        $currentDate = Carbon::now();
+
+        // Query per case sponsorizzate con expiration_date massima superiore alla data corrente
+        $sponsoredHouses = $sponsoredQuery->whereHas('sponsors', function ($q) use ($currentDate) {
+            $q->where('house_sponsor.expiration_date', '>', $currentDate);
+        })->get();
+
+        // Query per case non sponsorizzate o con tutte le expiration_date inferiori o uguali alla data corrente
+        $nonSponsoredHouses = $nonSponsoredQuery->where(function ($query) use ($currentDate) {
+            $query->whereDoesntHave('sponsors')
+                ->orWhereHas('sponsors', function ($q) use ($currentDate) {
+                    $q->where('house_sponsor.expiration_date', '<=', $currentDate);
+                });
+        })->get();
 
         // Unisco i risultati, con le case sponsorizzate per prime
         $houses = $sponsoredHouses->merge($nonSponsoredHouses);
 
         return response()->json($houses);
-    }
+   }
 
     public function getServices()
     {
