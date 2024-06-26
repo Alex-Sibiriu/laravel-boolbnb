@@ -33,18 +33,21 @@ class HouseController extends Controller
             $count_search = House::count();
         }
 
+        $today = Carbon::now();
+        // dd($today);
         $direction = 'asc';
 
-        return view('admin.houses.index', compact('houses', 'direction', 'count_search'));
+        return view('admin.houses.index', compact('houses', 'today','direction', 'count_search'));
     }
 
     // funzione rotta custom per cambiare l'ordine di visualizzazione
     public function orderBy($direction, $column)
     {
         $direction = $direction === 'desc' ? 'asc' : 'desc';
+        $today = Carbon::now();
         $houses = House::where('user_id', Auth::id())->orderBy($column, $direction)->paginate(5);
 
-        return view('admin.houses.index', compact('houses', 'direction'));
+        return view('admin.houses.index', compact('houses','today' ,'direction'));
     }
 
     /**
@@ -116,6 +119,7 @@ class HouseController extends Controller
 
         $house = House::with(['sponsors' => function($query) {
             $query->where('expiration_date', '>=', Carbon::now());
+
         }])->findOrFail($house->id);
         return view('admin.houses.show', compact('house'));
     }

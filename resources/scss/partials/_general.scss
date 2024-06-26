@@ -1,4 +1,23 @@
 @use './variables' as * ;
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    z-index: 999;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background-color: $dark-color;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $brand-color;
+    border-radius: 10px;
+  }
+
+
 .nav-log{
     background-color: #051C2C;
     height: 100px;
@@ -31,6 +50,7 @@ li{
     overflow-y: auto;
     overflow-x: hidden;
     background-color: white;
+
     .toSearch{
         border-color: lightgray;
         &:focus{
@@ -38,9 +58,7 @@ li{
         }
     }
 
-    .show{
-        border: 1px solid #051C2C;
-    }
+
 }
 
 h1{
@@ -65,4 +83,47 @@ h1{
 }
 
 
-h3{color:$dark-color}
+
+
+.icone{
+    width: 30px;
+    display: inline-block;
+    text-align: center;
+}
+
+
+
+    .tools{
+        width: 40px;
+        background-color: rgba(234, 234, 234, .7);
+        backdrop-filter: blur(5px) ;
+        position: fixed;
+        right: 10px;
+        top: 50%;
+        border-radius: 7px 0 0 7px  ;
+        i{
+            color: $dark-color;
+            &.fa-pen-to-square:hover{
+                color: #ffc107;
+            }
+            &.fa-rocket:hover{
+                color: #198754;
+            }
+            &.fa-chart-simple:hover{
+                color: #6c757d;
+            }
+            &.fa-trash-can:hover{
+                color: #dc3545;
+            }
+            &.fa-arrow-right-from-bracket:hover{
+                color: #0dcaf0
+            }
+
+        }
+        button{
+            border: none;
+            background-color: transparent;
+        }
+
+    }
+

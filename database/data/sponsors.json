@@ -1,7 +1,7 @@
 [
     {
         "name": "silver",
-        "duration": 24,
+        "duration": 1,
         "price": 2.99
     },
     {
@@ -15,3 +15,5 @@
         "price": 9.99
     }
 ]
+
+

@@ -77,7 +77,8 @@
                 </td>
 
                 <td class="align-content-center text-center d-none d-md-table-cell ">
-                  @if ($house->sponsors()->exists())
+                  {{-- @if ($house->sponsors()->exists()) --}}
+                  @if ($house->sponsors()->max('expiration_date') >= $today)
                     Si
                   @else
                     No
