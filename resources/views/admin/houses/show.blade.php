@@ -4,9 +4,9 @@
 @extends('layouts.admin')
 
 @section('content')
-  <div class="py-3 show">
+  <div class="py-3 px-5 show">
 
-    <div class="col-12">
+    <div class="col-12 px-3">
       @if (session('success'))
         <div class="alert alert-success container" role="alert">
           {{ session('success') }}
@@ -54,9 +54,9 @@
 
       <div>
         <p><strong>Servizi:</strong></p>
-        <ul>
+        <ul class=" list-unstyled">
           @forelse ($house->services as $service)
-            <li class="me-2">{{ $service->name }} <i class="{{ $service->icon }} ms-1"></i></li>
+            <li class="me-2"> <span class="icone"><i class="{{ $service->icon }}"></i></span> {{ $service->name }} </li>
           @empty
           @endforelse
         </ul>
@@ -90,14 +90,21 @@
       </div>
     @endif
 
-    <div class="container text-center mt-5">
-      <a href="{{ route('admin.houses.edit', $house) }}" class="btn btn-warning"> <i
-          class="fa-solid fa-pen-to-square"></i></a>
-      @include('admin.partials.formdelete', [
-          'route' => route('admin.houses.destroy', $house),
-          'message' => "Sei sicuro di voler eliminare  $house->title ?",
-      ])
-      <a href="{{ route('admin.houses.index') }}" class="btn btn-success">Torna ai Castelli</a>
+
+    <div class="tools text-center">
+        <a href="{{ route('admin.houses.edit', $house) }}" > <i
+            class="fa-solid fa-pen-to-square m-2"></i></a>
+
+        <a href="{{ route('admin.sponsors', $house) }}"><i class="fa-solid fa-rocket m-2"></i></a>
+
+        <a href=""><i class="fa-solid fa-chart-simple m-2"></i></a>
+
+        @include('admin.partials.formdelete', [
+            'route' => route('admin.houses.destroy', $house),
+            'message' => "Sei sicuro di voler eliminare  $house->title ?",
+        ])
+
+        <a href="{{ route('admin.houses.index') }}"><i class="fa-solid fa-arrow-right-from-bracket m-2"></i></a>
     </div>
-  </div>
+</div>
 @endsection
