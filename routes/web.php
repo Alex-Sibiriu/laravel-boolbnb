@@ -40,10 +40,18 @@ Route::middleware(['auth', 'verified'])
         // rotte crud messages
         Route::resource('messages', MessageController::class);
 
+
+
         // rotte crud houses
         Route::resource('houses', HouseController::class);
 
+        //rotta statistiche
+
+        Route::get('/stats/{house}', [HouseController::class,'stats'])->name('stats');
+
+
         // rotte custom per mettere in ordine
+
         Route::get('orderby/{direction}/{column}', [HouseController::class, 'orderBy'])->name('orderby');
 
         // rotte custom per pagina castelli cancellati
