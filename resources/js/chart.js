@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             { label: 'Apr 24', count: numeroCasuale(1,100) },
             { label: 'May 24', count: numeroCasuale(1,100) },
             { label: 'Jun 24', count: numeroCasuale(1,100) },
-            { label: 'Jul 24', count: numeroCasuale(1,100) },
+
         ];
 
         new Chart(ctx, {
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             { label: 'Apr 24', count: numeroCasuale(1,1000) },
             { label: 'May 24', count: numeroCasuale(1,1000) },
             { label: 'Jun 24', count: numeroCasuale(1,1000) },
-            { label: 'Jul 24', count: numeroCasuale(1,1000) },
+
         ];
 
         new Chart(ctx, {
@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             { label: 'Apr 24', count: numeroCasuale(1,31) },
             { label: 'May 24', count: numeroCasuale(1,31) },
             { label: 'Jun 24', count: numeroCasuale(1,31) },
-            { label: 'Jul 24', count: numeroCasuale(1,31) },
+
         ];
 
         new Chart(ctx, {

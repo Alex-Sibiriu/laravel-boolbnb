@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\House;
 use App\Models\Message;
 use App\Models\Service;
+use App\Models\User;
 use Carbon\Carbon;
 use GrahamCampbell\ResultType\Success;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HousesController extends Controller
 {
@@ -139,4 +141,15 @@ class HousesController extends Controller
         $service = Service::where('slug', $slug)->with('houses')->first();
         return response()->json($service);
     }
+
+
+    // public function getUserStatus(){
+    //     if(Auth::check()){
+    //         $success = true;
+    //         $user = User::where('id', Auth::id())->first();
+    //         return response()->json(['success' => $success, 'user'=> $user]);
+    //     }
+    //     $success = false;
+    //     return response()->json(['success' => $success]);
+    // }
 }

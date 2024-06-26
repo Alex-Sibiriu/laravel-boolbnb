@@ -9,10 +9,11 @@
     box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 
     ul{
-        padding-left: 15px;
+        padding: 0;
         li{
+            padding-left: 10px;
             list-style: none;
-            margin-bottom: 20px;
+            width: 100%;
         }
     }
 
@@ -27,7 +28,7 @@
     .aside-bar{
         width: fit-content;
         .activeAside{
-            padding: 10px 15px ;
+            padding-left: 10px;
         }
     }
 

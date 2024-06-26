@@ -33,3 +33,7 @@ Route::get('/house-service/{slug}', [HousesController::class, 'getHousesByServic
 
 // Salvataggio messaggi dal front end
 Route::post('/send-message', [MessagesController::class, 'create']);
+
+
+// json utente loggato
+// Route::get('/user', [HousesController::class, 'getUserStatus']);

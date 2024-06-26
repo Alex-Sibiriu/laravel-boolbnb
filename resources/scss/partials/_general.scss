@@ -4,11 +4,13 @@
 ::-webkit-scrollbar {
     width: 10px;
     z-index: 999;
+
   }
 
   /* Track */
   ::-webkit-scrollbar-track {
     background-color: $dark-color;
+
   }
 
   /* Handle */

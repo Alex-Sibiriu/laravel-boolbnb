@@ -6,7 +6,7 @@ use App\Functions\Helper as Helper;
 
 @section('content')
 
-<div class=" overflow-y-scroll  p-5 ">
+<div class="  p-5 ">
 
     <h1 class="mb-2">Ciao {{Auth::user()->name}}</h1>
 
