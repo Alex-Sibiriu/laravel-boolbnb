@@ -222,4 +222,15 @@ class HouseController extends Controller
         return redirect()->route('admin.houses.index')->with('deleted', 'Il castello ' . $house->title . ' è stato ripristinato');
         // non lo recupera veramente
     }
+    public function stats(House $house){
+
+        if (Auth::id() !== $house->user_id) {
+            abort('404');
+        }
+
+       $house= House::where('slug',$house->slug)->get();
+
+       return view('admin.houses.stats', compact('house'));
+    }
+
 }

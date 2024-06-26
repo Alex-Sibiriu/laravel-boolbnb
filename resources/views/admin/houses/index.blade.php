@@ -106,7 +106,7 @@
                     <i class="fa-solid fa-rocket"></i>
                   </a>
 
-                  <a href="" class="btn btn-secondary mx-2 mb-2">
+                  <a href="{{ route('admin.stats', $house) }}" class="btn btn-secondary mx-2 mb-2">
                     <i class="fa-solid fa-chart-simple"></i>
                   </a>
 
