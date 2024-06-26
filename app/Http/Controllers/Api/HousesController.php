@@ -14,7 +14,7 @@ class HousesController extends Controller
 {
     public function index()
     {
-        $houses = House::orderBy('id', 'desc')->with('user', 'messages', 'services', 'sponsors', 'images')->get();
+        $houses = House::where('is_visible' , 1)->orderBy('id', 'desc')->with('user', 'messages', 'services', 'sponsors', 'images')->get();
         return response()->json($houses);
     }
 
@@ -29,7 +29,7 @@ class HousesController extends Controller
         $services = $request->input('services');
 
         // Inizializzo la query base
-        $query = House::with('user', 'messages', 'images', 'services', 'sponsors');
+        $query = House::where('is_visible' , 1)->with('user', 'messages', 'images', 'services', 'sponsors');
 
         if (!empty($address)) {
             // Chiamata all'API di TomTom per ottenere le coordinate geografiche
