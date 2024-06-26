@@ -9,20 +9,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const ctx = document.getElementById('dataMes');
     if (ctx) {
         const data = [
+            { label: 'Jun 23', count: numeroCasuale(1,100) },
+            { label: 'Jul 23', count: numeroCasuale(1,100) },
+            { label: 'Aug 23', count: numeroCasuale(1,100) },
+            { label: 'Sep 23', count: numeroCasuale(1,100) },
+            { label: 'Oct 23', count: numeroCasuale(1,100) },
+            { label: 'Nov 23', count: numeroCasuale(1,100) },
+            { label: 'Dec 23', count: numeroCasuale(1,100) },
+            { label: 'Jan 24', count: numeroCasuale(1,100) },
+            { label: 'Feb 24', count: numeroCasuale(1,100) },
+            { label: 'Mar 24', count: numeroCasuale(1,100) },
+            { label: 'Apr 24', count: numeroCasuale(1,100) },
+            { label: 'May 24', count: numeroCasuale(1,100) },
             { label: 'Jun 24', count: numeroCasuale(1,100) },
             { label: 'Jul 24', count: numeroCasuale(1,100) },
-            { label: 'Aug 24', count: numeroCasuale(1,100) },
-            { label: 'Sep 24', count: numeroCasuale(1,100) },
-            { label: 'Oct 24', count: numeroCasuale(1,100) },
-            { label: 'Nov 24', count: numeroCasuale(1,100) },
-            { label: 'Dec 24', count: numeroCasuale(1,100) },
-            { label: 'Jan 25', count: numeroCasuale(1,100) },
-            { label: 'Feb 25', count: numeroCasuale(1,100) },
-            { label: 'Mar 25', count: numeroCasuale(1,100) },
-            { label: 'Apr 25', count: numeroCasuale(1,100) },
-            { label: 'May 25', count: numeroCasuale(1,100) },
-            { label: 'Jun 25', count: numeroCasuale(1,100) },
-            { label: 'Jul 25', count: numeroCasuale(1,100) },
         ];
 
         new Chart(ctx, {
@@ -83,20 +83,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const ctx = document.getElementById('dataVis');
     if (ctx) {
         const data = [
+            { label: 'Jun 23', count: numeroCasuale(1,1000) },
+            { label: 'Jul 23', count: numeroCasuale(1,1000) },
+            { label: 'Aug 23', count: numeroCasuale(1,1000) },
+            { label: 'Sep 23', count: numeroCasuale(1,1000) },
+            { label: 'Oct 23', count: numeroCasuale(1,1000) },
+            { label: 'Nov 23', count: numeroCasuale(1,1000) },
+            { label: 'Dec 23', count: numeroCasuale(1,1000) },
+            { label: 'Jan 24', count: numeroCasuale(1,1000) },
+            { label: 'Feb 24', count: numeroCasuale(1,1000) },
+            { label: 'Mar 24', count: numeroCasuale(1,1000) },
+            { label: 'Apr 24', count: numeroCasuale(1,1000) },
+            { label: 'May 24', count: numeroCasuale(1,1000) },
             { label: 'Jun 24', count: numeroCasuale(1,1000) },
             { label: 'Jul 24', count: numeroCasuale(1,1000) },
-            { label: 'Aug 24', count: numeroCasuale(1,1000) },
-            { label: 'Sep 24', count: numeroCasuale(1,1000) },
-            { label: 'Oct 24', count: numeroCasuale(1,1000) },
-            { label: 'Nov 24', count: numeroCasuale(1,1000) },
-            { label: 'Dec 24', count: numeroCasuale(1,1000) },
-            { label: 'Jan 25', count: numeroCasuale(1,1000) },
-            { label: 'Feb 25', count: numeroCasuale(1,1000) },
-            { label: 'Mar 25', count: numeroCasuale(1,1000) },
-            { label: 'Apr 25', count: numeroCasuale(1,1000) },
-            { label: 'May 25', count: numeroCasuale(1,1000) },
-            { label: 'Jun 25', count: numeroCasuale(1,1000) },
-            { label: 'Jul 25', count: numeroCasuale(1,1000) },
         ];
 
         new Chart(ctx, {
@@ -156,20 +156,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const ctx = document.getElementById('dataSpo');
     if (ctx) {
         const data = [
+            { label: 'Jun 23', count: numeroCasuale(1,31) },
+            { label: 'Jul 23', count: numeroCasuale(1,31) },
+            { label: 'Aug 23', count: numeroCasuale(1,31) },
+            { label: 'Sep 23', count: numeroCasuale(1,31) },
+            { label: 'Oct 23', count: numeroCasuale(1,31) },
+            { label: 'Nov 23', count: numeroCasuale(1,31) },
+            { label: 'Dec 23', count: numeroCasuale(1,31) },
+            { label: 'Jan 24', count: numeroCasuale(1,31) },
+            { label: 'Feb 24', count: numeroCasuale(1,31) },
+            { label: 'Mar 24', count: numeroCasuale(1,31) },
+            { label: 'Apr 24', count: numeroCasuale(1,31) },
+            { label: 'May 24', count: numeroCasuale(1,31) },
             { label: 'Jun 24', count: numeroCasuale(1,31) },
             { label: 'Jul 24', count: numeroCasuale(1,31) },
-            { label: 'Aug 24', count: numeroCasuale(1,31) },
-            { label: 'Sep 24', count: numeroCasuale(1,31) },
-            { label: 'Oct 24', count: numeroCasuale(1,31) },
-            { label: 'Nov 24', count: numeroCasuale(1,31) },
-            { label: 'Dec 24', count: numeroCasuale(1,31) },
-            { label: 'Jan 25', count: numeroCasuale(1,31) },
-            { label: 'Feb 25', count: numeroCasuale(1,31) },
-            { label: 'Mar 25', count: numeroCasuale(1,31) },
-            { label: 'Apr 25', count: numeroCasuale(1,31) },
-            { label: 'May 25', count: numeroCasuale(1,31) },
-            { label: 'Jun 25', count: numeroCasuale(1,31) },
-            { label: 'Jul 25', count: numeroCasuale(1,31) },
         ];
 
         new Chart(ctx, {

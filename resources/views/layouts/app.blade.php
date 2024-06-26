@@ -25,7 +25,7 @@
     <div id="app">
 
 
-        <nav class="navbar navbar-expand-md nav-log navbar-light shadow-sm mb-4">
+        <nav class="navbar navbar-expand nav-log navbar-light shadow-sm mb-4">
             <div class="container ">
                 {{-- passo all'url la voce dell'env così ad ognuno prende la sua  --}}
                 <a class="navbar-brand d-flex align-items-center" href="{{env('APP_FRONTEND_URL')}}">
@@ -59,7 +59,7 @@
                         @else
                         <li class="nav-item dropdown ">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle text-capitalize" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
+                                {{ Auth::user()->name }} {{ Auth::user()->surname }}
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown ">

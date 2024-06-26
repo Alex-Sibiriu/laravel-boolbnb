@@ -97,7 +97,7 @@
 
         <a href="{{ route('admin.sponsors', $house) }}"><i class="fa-solid fa-rocket m-2"></i></a>
 
-        <a href=""><i class="fa-solid fa-chart-simple m-2"></i></a>
+        <a href="{{ route('admin.stats', $house) }}"><i class="fa-solid fa-chart-simple m-2"></i></a>
 
         @include('admin.partials.formdelete', [
             'route' => route('admin.houses.destroy', $house),
