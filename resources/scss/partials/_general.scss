@@ -33,6 +33,17 @@
         .user{
             color: $light-color;
         }
+        li{
+            a{
+                &:hover{
+                    color: $brand-color !important;
+                }
+            }
+        }
+        .drop-auth{
+            color: $dark-color !important;
+
+        }
 }
 
 li{
@@ -95,37 +106,37 @@ h3{
 
 
 
-    .tools{
-        width: 40px;
-        background-color: rgba(234, 234, 234, .7);
-        backdrop-filter: blur(5px) ;
-        position: fixed;
-        right: 10px;
-        top: 50%;
-        border-radius: 7px 0 0 7px  ;
-        i{
-            color: $dark-color;
-            &.fa-pen-to-square:hover{
-                color: #ffc107;
-            }
-            &.fa-rocket:hover{
-                color: #198754;
-            }
-            &.fa-chart-simple:hover{
-                color: #6c757d;
-            }
-            &.fa-trash-can:hover{
-                color: #dc3545;
-            }
-            &.fa-arrow-right-from-bracket:hover{
-                color: #0dcaf0
-            }
-
+.tools{
+    width: 40px;
+    background-color: rgba(234, 234, 234, .7);
+    backdrop-filter: blur(5px) ;
+    position: fixed;
+    right: 10px;
+    top: 50%;
+    border-radius: 7px 0 0 7px  ;
+    i{
+        color: $dark-color;
+        &.fa-pen-to-square:hover{
+            color: #ffc107;
         }
-        button{
-            border: none;
-            background-color: transparent;
+        &.fa-rocket:hover{
+            color: #198754;
+        }
+        &.fa-chart-simple:hover{
+            color: #6c757d;
+        }
+        &.fa-trash-can:hover{
+            color: #dc3545;
+        }
+        &.fa-arrow-right-from-bracket:hover{
+            color: #0dcaf0
         }
 
     }
+    button{
+        border: none;
+        background-color: transparent;
+    }
+
+}
 
