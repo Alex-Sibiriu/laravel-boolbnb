@@ -75,7 +75,13 @@
               return;
             }
 
-            payButton.disabled = false;
+            instance.on('paymentMethodRequestable', function() {
+              payButton.disabled = false;
+            });
+
+            instance.on('noPaymentMethodRequestable', function() {
+              payButton.disabled = true;
+            });
 
             form.addEventListener('submit', function(event) {
               event.preventDefault();
