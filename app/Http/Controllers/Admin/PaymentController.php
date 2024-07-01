@@ -31,6 +31,8 @@ class PaymentController extends Controller
         $sponsorId = session('sponsor_id');
         $houseId = session('house_id');
 
+        $sponsor = Sponsor::find($sponsorId);
+
         $gateway = new Gateway([
             'environment' => config('services.braintree.env'),
             'merchantId' => config('services.braintree.merchant_id'),
@@ -38,9 +40,9 @@ class PaymentController extends Controller
             'privateKey' => config('services.braintree.private_key')
         ]);
 
-        $nonce = $request->input('payment_method_nonce');
+        // $nonce = $request->input('payment_method_nonce');
         $result = $gateway->transaction()->sale([
-            'amount' => '10.00',
+            'amount' => $sponsor->price,
 
             // abbiamo cambiato $nonce che prende il value dall'input del pagamento e lo abbiamo sostituito con "fake-valid-nonce" che serve per la moalità sviluppo
             'paymentMethodNonce' => "fake-valid-nonce",
@@ -68,7 +70,7 @@ class PaymentController extends Controller
                 }
             }
 
-            $sponsor = Sponsor::find($sponsorId);
+
             $expiration_date = $start_date->copy()->addHours($sponsor->duration);
 
 
@@ -77,6 +79,7 @@ class PaymentController extends Controller
                 'expiration_date' => $expiration_date,
             ]);
 
+            // dd($result);
             return redirect()->route('admin.houses.show', compact('house'))->with('success', 'Pagamento riuscito!');
         } else {
             // Log the error details for debugging
