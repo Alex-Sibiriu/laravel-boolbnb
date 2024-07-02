@@ -79,7 +79,7 @@ h1{
 }
 
 .house-image{
-    height: 200px;
+    width: 50%;
     object-fit: cover;
 }
 
@@ -164,6 +164,17 @@ h3{
 
 .container-show{
     width: 60%;
+}
+
+@media screen and (max-width: 600px){
+    .house-image{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 768px){
+    .house-image{
+        width: 75%;
+    }
 }
 
 @media screen and (max-width: 991px){

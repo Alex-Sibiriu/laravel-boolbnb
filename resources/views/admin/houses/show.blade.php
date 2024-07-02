@@ -24,7 +24,7 @@
 
     <h2 class="text-center my-5">Immagine di copertina</h2>
 
-    <div class="text-center mb-5">
+    <div class="text-center mb-5 ">
       @if ($house->images->count() > 0)
         <img src="{{ asset('storage/' . $house->images->first()->image_path) }}" alt="{{ $house->title }}"
           class="house-image">
