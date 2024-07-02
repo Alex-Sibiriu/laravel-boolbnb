@@ -51,12 +51,5 @@ class Handler extends ExceptionHandler
      *
      * @throws \Throwable
      */
-    public function render($request, Throwable $exception)
-    {
-        if ($exception instanceof ModelNotFoundException || $exception instanceof NotFoundHttpException) {
-            return response()->view('admin.errors.404', [], 404);
-        }
 
-        return parent::render($request, $exception);
-    }
 }

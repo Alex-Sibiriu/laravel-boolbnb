@@ -68,6 +68,12 @@ Route::middleware(['auth', 'verified'])
         Route::get('payment', [PaymentController::class, 'index'])->name('payment.index');
         Route::post('payment/create', [PaymentController::class, 'create'])->name('payment.create');
         Route::get('payment/token', [PaymentController::class, 'generateClientToken'])->name('payment.token');
+
+
     });
+
+Route::fallback(function () {
+    return response()->view('errors.404', [], 404);
+});
 
 require __DIR__ . '/auth.php';
