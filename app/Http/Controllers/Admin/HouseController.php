@@ -37,7 +37,7 @@ class HouseController extends Controller
         // dd($today);
         $direction = 'asc';
 
-        return view('admin.houses.index', compact('houses', 'today','direction', 'count_search'));
+        return view('admin.home', compact('houses', 'today','direction', 'count_search'));
     }
 
     // funzione rotta custom per cambiare l'ordine di visualizzazione
@@ -47,7 +47,7 @@ class HouseController extends Controller
         $today = Carbon::now();
         $houses = House::where('user_id', Auth::id())->orderBy($column, $direction)->paginate(5);
 
-        return view('admin.houses.index', compact('houses','today' ,'direction'));
+        return view('admin.home', compact('houses','today' ,'direction'));
     }
 
     /**
@@ -198,7 +198,7 @@ class HouseController extends Controller
         ]);
     }
 
-    return redirect()->route('admin.houses.index')->with('success', 'House updated successfully.');
+    return redirect()->route('admin.houses.show', compact('house'))->with('success', 'House updated successfully.');
 }
 
 
@@ -208,7 +208,7 @@ class HouseController extends Controller
     public function destroy(House $house)
     {
         $house->delete();
-        return redirect()->route('admin.houses.index')->with('deleted', 'Il castello' . ' ' . $house->title . ' ' . 'è stato cancellato con successo!');
+        return redirect()->route('admin.home')->with('deleted', 'Il castello' . ' ' . $house->title . ' ' . 'è stato cancellato con successo!');
     }
 
     public function deleted()
@@ -223,7 +223,7 @@ class HouseController extends Controller
         $house = House::onlyTrashed()->where('id', $id)->where('user_id', Auth::id())->firstOrFail();
         $house->restore();
 
-        return redirect()->route('admin.houses.index')->with('deleted', 'Il castello ' . $house->title . ' è stato ripristinato');
+        return redirect()->route('admin.home')->with('deleted', 'Il castello ' . $house->title . ' è stato ripristinato');
         // non lo recupera veramente
     }
     public function stats(House $house){
