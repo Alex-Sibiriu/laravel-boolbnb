@@ -142,3 +142,21 @@ h3{
 
 }
 
+.errorPage{
+
+    background-image: url("/public/img/burning-castle.jpg")  ;
+    background-size: cover;
+    height: calc(100vh - 60px);
+
+    .errorText{
+        h1{font-size: 7rem;}
+        h1,h2{
+
+
+          color: rgba($color: #ffffff8a, $alpha: 0.5);
+          text-shadow: black 3px 3px 3px ;
+        }
+
+
+    }
+}

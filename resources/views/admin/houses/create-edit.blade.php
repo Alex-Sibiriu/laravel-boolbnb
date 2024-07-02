@@ -179,171 +179,179 @@
     {{-- javascript  --}}
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const addressInput = document.getElementById('address');
-            const addressList = document.getElementById('addressList');
-            const latitudeInput = document.getElementById('latitude');
-            const longitudeInput = document.getElementById('longitude');
-            const imagePreviewDiv = document.getElementById('image-preview');
-            const imagesInput = document.getElementById('images');
-            const removeImagesInput = document.getElementById('remove_images');
+    const addressInput = document.getElementById('address');
+    const addressList = document.getElementById('addressList');
+    const latitudeInput = document.getElementById('latitude');
+    const longitudeInput = document.getElementById('longitude');
+    const imagePreviewDiv = document.getElementById('image-preview');
+    const imagesInput = document.getElementById('images');
+    const removeImagesInput = document.getElementById('remove_images');
 
-            let addressSelected = @json($isEdit);
+    let addressSelected = @json($isEdit);
 
-            function debounce(func, wait) {
-                let timeout;
-                return function(...args) {
-                    const later = () => {
-                        clearTimeout(timeout);
-                        func(...args);
-                    };
-                    clearTimeout(timeout);
-                    timeout = setTimeout(later, wait);
-                };
-            }
+    function debounce(func, wait) {
+        let timeout;
+        return function(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
 
-            const handleAddressInput = debounce(function() {
-                let query = addressInput.value;
-                addressSelected = false;
+    const handleAddressInput = debounce(function() {
+        let query = addressInput.value;
+        addressSelected = false;
 
-                if (query.length > 1) {
-                    fetch('{{ route('autocomplete') }}?query=' + encodeURIComponent(query))
-                        .then(response => response.json())
-                        .then(data => {
+        if (query.length > 1) {
+            fetch('{{ route('autocomplete') }}?query=' + encodeURIComponent(query))
+                .then(response => response.json())
+                .then(data => {
+                    addressList.innerHTML = '';
+
+                    data.forEach(item => {
+                        const option = document.createElement('div');
+                        option.classList.add('bg-white', 'p-1', 'ps-2', 'border-bottom', 'border-secondary-subtle');
+                        option.innerHTML = "<strong>" + item.address.freeformAddress + "</strong>";
+
+                        option.addEventListener('click', function() {
+                            addressInput.value = item.address.freeformAddress;
+                            latitudeInput.value = item.position.lat;
+                            longitudeInput.value = item.position.lon;
                             addressList.innerHTML = '';
-
-                            data.forEach(item => {
-                                const option = document.createElement('div');
-                                option.classList.add('bg-white', 'p-1', 'ps-2', 'border-bottom',
-                                    'border-secondary-subtle');
-                                option.innerHTML = "<strong>" + item.address.freeformAddress +
-                                    "</strong>";
-
-                                option.addEventListener('click', function() {
-                                    addressInput.value = item.address.freeformAddress;
-                                    latitudeInput.value = item.position.lat;
-                                    longitudeInput.value = item.position.lon;
-                                    addressList.innerHTML = '';
-                                    addressSelected = true;
-                                });
-
-                                addressList.appendChild(option);
-                            });
+                            addressSelected = true;
                         });
-                } else {
-                    addressList.innerHTML = '';
-                }
-            }, 300);
 
-            addressInput.addEventListener('input', handleAddressInput);
+                        addressList.appendChild(option);
+                    });
+                });
+        } else {
+            addressList.innerHTML = '';
+        }
+    }, 300);
 
-            document.addEventListener('click', function(e) {
-                if (!addressList.contains(e.target) && e.target !== addressInput) {
-                    addressList.innerHTML = '';
-                }
-            });
+    addressInput.addEventListener('input', handleAddressInput);
 
-            document.getElementById('houseForm').addEventListener('submit', function(event) {
-                let valid = true;
+    document.addEventListener('click', function(e) {
+        if (!addressList.contains(e.target) && e.target !== addressInput) {
+            addressList.innerHTML = '';
+        }
+    });
 
-                const title = document.getElementById('title').value;
-                const rooms = document.getElementById('rooms').value;
-                const bathrooms = document.getElementById('bathrooms').value;
-                const bed = document.getElementById('bed').value;
-                const address = document.getElementById('address').value;
+    document.getElementById('houseForm').addEventListener('submit', function(event) {
+        let valid = true;
 
-                const images = document.getElementById('images').files;
-                const validImageTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif',
-                    'image/svg+xml'
-                ];
+        const title = document.getElementById('title').value;
+        const rooms = document.getElementById('rooms').value;
+        const bathrooms = document.getElementById('bathrooms').value;
+        const bed = document.getElementById('bed').value;
+        const address = document.getElementById('address').value;
 
-                for (let i = 0; i < images.length; i++) {
-                    if (!validImageTypes.includes(images[i].type)) {
-                        alert('I file selezionati devono essere di tipo jpeg, png, jpg, gif o svg');
-                        valid = false;
-                        break;
-                    }
-                }
+        const images = document.getElementById('images').files;
+        const validImageTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif', 'image/svg+xml'];
 
-                if (title.length < 3 || title.length > 100) {
-                    alert('Il titolo deve contenere tra 3 e 100 caratteri');
-                    valid = false;
-                }
-                if (rooms < 1) {
-                    alert('Il numero di stanze deve essere almeno 1');
-                    valid = false;
-                }
-                if (bathrooms < 1) {
-                    alert('Il numero di bagni deve essere almeno 1');
-                    valid = false;
-                }
-                if (bed < 1) {
-                    alert('Il numero di letti deve essere almeno 1');
-                    valid = false;
-                }
-                if (!address || address.length < 2 || address.length > 100 || addressSelected === false) {
-                    alert(
-                        'L\'indirizzo inserito non è valido. Per favore, seleziona un indirizzo dalla lista');
-                    valid = false;
-                }
-
-                if (!valid) {
-                    event.preventDefault();
-                }
-            });
-
-            function handleImageRemoval(event) {
-                const btn = event.target;
-                const imageContainer = btn.parentElement;
-                const imageId = btn.getAttribute('data-image-id');
-
-                if (imageId) {
-                    let removeImages = removeImagesInput.value ? removeImagesInput.value.split(',') : [];
-                    removeImages.push(imageId);
-                    removeImagesInput.value = removeImages.join(',');
-                }
-
-                imageContainer.remove();
+        for (let i = 0; i < images.length; i++) {
+            if (!validImageTypes.includes(images[i].type)) {
+                alert('I file selezionati devono essere di tipo jpeg, png, jpg, gif o svg');
+                valid = false;
+                break;
             }
+        }
 
-            imagesInput.addEventListener('change', function() {
-                const images = this.files;
+        if (title.length < 3 || title.length > 100) {
+            alert('Il titolo deve contenere tra 3 e 100 caratteri');
+            valid = false;
+        }
+        if (rooms < 1) {
+            alert('Il numero di stanze deve essere almeno 1');
+            valid = false;
+        }
+        if (bathrooms < 1) {
+            alert('Il numero di bagni deve essere almeno 1');
+            valid = false;
+        }
+        if (bed < 1) {
+            alert('Il numero di letti deve essere almeno 1');
+            valid = false;
+        }
+        if (!address || address.length < 2 || address.length > 100 || addressSelected === false) {
+            alert('L\'indirizzo inserito non è valido. Per favore, seleziona un indirizzo dalla lista');
+            valid = false;
+        }
 
-                for (let i = 0; i < images.length; i++) {
-                    const file = images[i];
-                    const reader = new FileReader();
+        if (!valid) {
+            event.preventDefault();
+        }
+    });
 
-                    reader.onload = function(e) {
-                        const imageContainer = document.createElement('div');
-                        imageContainer.classList.add('image-container', 'position-relative',
-                            'd-inline-block', 'mx-1');
+    function handleImageRemoval(event) {
+        const btn = event.target;
+        const imageContainer = btn.parentElement;
+        const imageId = btn.getAttribute('data-image-id');
 
-                        const image = document.createElement('img');
-                        image.src = e.target.result;
-                        image.classList.add('img-thumbnail');
-                        image.style.maxHeight = '100px';
+        if (imageId) {
+            let removeImages = removeImagesInput.value ? removeImagesInput.value.split(',') : [];
+            removeImages.push(imageId);
+            removeImagesInput.value = removeImages.join(',');
+        }
 
-                        const removeButton = document.createElement('button');
-                        removeButton.type = 'button';
-                        removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'position-absolute',
-                            'top-0', 'end-0', 'remove-image-btn');
-                        removeButton.textContent = 'x';
+        imageContainer.remove();
 
-                        imageContainer.appendChild(image);
-                        imageContainer.appendChild(removeButton);
-                        imagePreviewDiv.appendChild(imageContainer);
+        // Remove image from the input file
+        let dt = new DataTransfer();
+        let files = imagesInput.files;
 
-                        removeButton.addEventListener('click', function() {
-                            imageContainer.remove();
-                        });
-                    };
+        for (let i = 0; i < files.length; i++) {
+            if (files[i] !== imageContainer.file) {
+                dt.items.add(files[i]);
+            }
+        }
 
-                    reader.readAsDataURL(file);
-                }
-            });
+        imagesInput.files = dt.files;
+    }
 
-            document.querySelectorAll('.remove-image-btn').forEach(btn => {
-                btn.addEventListener('click', handleImageRemoval);
-            });
-        });
+    imagesInput.addEventListener('change', function() {
+        const images = this.files;
+        imagePreviewDiv.innerHTML = ''; // Clear previous preview
+
+        for (let i = 0; i < images.length; i++) {
+            const file = images[i];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const imageContainer = document.createElement('div');
+                imageContainer.classList.add('image-container', 'position-relative', 'd-inline-block', 'mx-1');
+                imageContainer.file = file; // Store file reference
+
+                const image = document.createElement('img');
+                image.src = e.target.result;
+                image.classList.add('img-thumbnail');
+                image.style.maxHeight = '100px';
+
+                const removeButton = document.createElement('button');
+                removeButton.type = 'button';
+                removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'position-absolute', 'top-0', 'end-0', 'remove-image-btn');
+                removeButton.textContent = 'x';
+
+                imageContainer.appendChild(image);
+                imageContainer.appendChild(removeButton);
+                imagePreviewDiv.appendChild(imageContainer);
+
+                removeButton.addEventListener('click', function() {
+                    handleImageRemoval(event);
+                });
+            };
+
+            reader.readAsDataURL(file);
+        }
+    });
+
+    document.querySelectorAll('.remove-image-btn').forEach(btn => {
+        btn.addEventListener('click', handleImageRemoval);
+    });
+});
+
     </script>
 @endsection
