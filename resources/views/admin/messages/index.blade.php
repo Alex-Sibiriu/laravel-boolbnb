@@ -24,7 +24,7 @@
               <tr>
 
                 <th scope="col">Relativo a</th>
-                <th scope="col" class="d-none d-lg-table-cell">Anteprima</th>
+                <th scope="col" class="d-none d-xl-table-cell">Anteprima</th>
                 <th scope="col" class="d-none d-md-table-cell">Data di Ricezione</th>
                 <th scope="col">Mittente</th>
                 <th class="text-center" scope="col">Azioni</th>
@@ -38,7 +38,7 @@
 
                 <td class="align-content-center">{{ $message->house->title }}</td>
 
-                <td class="align-content-center d-none d-lg-table-cell">
+                <td class="align-content-center d-none d-xl-table-cell">
                   <p class="m-0 truncate-text">{{ $message->message }}</p>
                 </td>
 

@@ -100,7 +100,7 @@
         </div>
 
         {{-- Indirizzo --}}
-        <div class="col-12 col-md-6 mb-3">
+        <div class="col-12 col-xl-6 mb-3">
             <label for="address" class="form-label">Indirizzo (*)</label>
             <input type="text" name="address" id="address" placeholder="Inserisci l'indirizzo" class="form-control"
                 value="{{ old('', $house?->address) }}" required min="2" max="100">
@@ -114,10 +114,10 @@
             min="-180" max="180">
 
         {{-- descrizione  --}}
-        <div class="col-12 col-md-6 mb-3">
+        <div class="col-12 col-xl-6 mb-3">
             <label for="description" class="form-label">Descrizione</label>
             <textarea name="description" placeholder="Inserisci una descrizione"
-                class="form-control @error('description') is-invalid @enderror" id="description" rows="15">{{ old('description', $house?->description) }}</textarea>
+                class="form-control @error('description') is-invalid @enderror" id="description" rows="6">{{ old('description', $house?->description) }}</textarea>
             @error('description')
                 <small class="text-danger fw-bold">
                     {{ $message }}
@@ -126,7 +126,7 @@
         </div>
 
         {{-- servizi --}}
-        <div class="btn-group col-12 col-md-6 d-block" role="group" aria-label="Basic checkbox toggle button group">
+        <div class="btn-group col-12 d-block" role="group" aria-label="Basic checkbox toggle button group">
             <p class="pe-2">Seleziona i Servizi:</p>
             <div class="d-flex flex-wrap">
                 @foreach ($services as $service)

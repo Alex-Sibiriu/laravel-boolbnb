@@ -34,8 +34,8 @@
       @endif
     </div>
 
-    <div class="container d-flex flex-column justify-content-between flex-md-row">
-      <div>
+    <div class="container d-flex flex-column justify-content-between flex-lg-row ">
+      <div class="container-show">
         <p><strong>Annuncio visibile:</strong>
           @if ($house->is_visible == 1)
             <i class="fa-solid fa-circle text-success"></i>
@@ -44,7 +44,7 @@
           @endif
         </p>
 
-        <p><strong>Descrizione: </strong>{{ $house->description }}</p>
+        <p class="pe-3"><strong>Descrizione: </strong>{{ $house->description }}</p>
         <p><strong>Indirizzo:</strong> {{ $house->address }}</p>
         <p><strong>Metri quadri:</strong> {{ $house->square_meters }} mq</p>
         <p><strong>Numero stanze:</strong> {{ $house->rooms }}</p>

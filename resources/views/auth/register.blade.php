@@ -119,7 +119,7 @@
 
                             {{-- reCAPTCHA --}}
                             <div class="mb-3 row">
-                                <div class="col-md-6 offset-md-4">
+                                <div class="col d-flex justify-content-center">
                                     <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site') }}"></div>
                                     @if ($errors->has('g-recaptcha-response'))
                                         <span class="invalid-feedback" role="alert">

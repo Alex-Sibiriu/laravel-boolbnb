@@ -160,3 +160,14 @@ h3{
 
     }
 }
+
+.container-show{
+    width: 60%;
+}
+
+@media screen and (max-width: 991px){
+    .container-show{
+        width: 100%;
+    }
+
+}

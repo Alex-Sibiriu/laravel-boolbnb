@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-  <div class="row py-2 px-5 justify-content-between">
+  <div class="row py-2 px-lg-5 px-2 justify-content-between">
     <div class="col-12">
       {{-- alert di avvenuta cancellazione  --}}
       @if (session('deleted'))
@@ -11,7 +11,7 @@
       @endif
     </div>
 
-    <div class="col-4 my-3">
+    <div class="col-8 my-3 col-lg-4">
       <form action="{{ route('admin.houses.index') }}" method="GET" class="d-flex" role="search">
         <input name="toSearch" class=" toSearch form-control me-2" type="search" placeholder="Cerca" aria-label="Search">
 
@@ -25,7 +25,7 @@
 
   <div class="row pt-2 pb-5 px-0 px-sm-5 px-md-0 px-lg-5">
     @if (isset($_GET['toSearch']))
-      <div class="mt-2">
+      <div class="mt-2 ps-4">
         <h1>Castelli trovati per <span class="text-danger">"{{ $_GET['toSearch'] }}"</span> : {{ $count_search }} </h1>
       </div>
     @endif
