@@ -53,13 +53,18 @@
       </div>
 
       <div>
+
+        @if ($house->services->count() > 0)
+
         <p><strong>Servizi:</strong></p>
         <ul class=" list-unstyled">
-          @forelse ($house->services as $service)
+            @forelse ($house->services as $service)
             <li class="me-2"> <span class="icone"><i class="{{ $service->icon }}"></i></span> {{ $service->name }} </li>
-          @empty
-          @endforelse
+            @empty
+            @endforelse
         </ul>
+        @endif
+
         @if ($house->sponsors->count() > 0)
         <p><strong>Sponsor attivi:</strong></p>
             <ul>
