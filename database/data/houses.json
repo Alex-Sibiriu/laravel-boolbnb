@@ -5,7 +5,7 @@
         "bathrooms": 25,
         "bed": 50,
         "square_meters": 7000,
-        "description": "Un lussuoso resort situato in Toscana, con vista sulle colline di Montalcino.",
+        "description": "Costruito nel XI secolo, il Castello di Velona è situato sulle colline di Montalcino, in Toscana. Originariamente una fortificazione strategica lungo la Via Francigena, fu usato per proteggere il territorio dagli attacchi dei Saraceni. Nel corso dei secoli, il castello fu al centro di numerosi scontri tra le potenti famiglie toscane dei Buonsignori e dei Tolomei. Durante il Rinascimento, il castello fu ampliato e decorato con affreschi rinascimentali. Una leggenda narra che vi soggiornò anche Federico Barbarossa durante le sue campagne italiane.",
         "latitude": 43.0249,
         "longitude": 11.5295
     },
@@ -15,7 +15,7 @@
         "bathrooms": 15,
         "bed": 18,
         "square_meters": 2500,
-        "description": "Un castello medievale situato vicino a Perugia, ora un affascinante hotel.",
+        "description": "Il Castello di Monterone, costruito nel XIII secolo, si erge maestoso vicino a Perugia. Eretto dai nobili di Monterone, fu teatro di numerosi scontri tra le fazioni guelfe e ghibelline. Durante il XIV secolo, ospitò vari signori della guerra e fu anche sede di intrighi politici e tradimenti. Fu qui che si tenne il famoso Consiglio di Monterone nel 1353, dove i signori umbri discussero le alleanze contro le truppe imperiali. Il castello conserva ancora molti elementi architettonici originali, come le torri di guardia e il ponte levatoio.",
         "latitude": 43.0975,
         "longitude": 12.3789
     },
@@ -25,7 +25,7 @@
         "bathrooms": 21,
         "bed": 26,
         "square_meters": 4500,
-        "description": "Un castello medievale vicino a Ivrea, ora un esclusivo hotel e ristorante.",
+        "description": "Risalente al IX secolo, il Castello di Pavone si trova vicino a Ivrea. Fu costruito dai Longobardi e divenne presto un importante bastione durante le guerre tra i Marchesi di Monferrato e i Conti di Biandrate. Nel corso dei secoli, il castello fu ampliato e rinforzato, diventando un simbolo di potere e autorità. Durante il Rinascimento, il castello divenne un centro culturale e ospitò numerosi artisti e studiosi. Si dice che Leonardo da Vinci visitò il castello nel 1493 per studiare le tecniche difensive utilizzate nella sua costruzione.",
         "latitude": 45.4699,
         "longitude": 7.8752
     },
@@ -35,7 +35,7 @@
         "bathrooms": 10,
         "bed": 15,
         "square_meters": 2000,
-        "description": "Un boutique hotel situato in un antico castello in Toscana.",
+        "description": "Edificato nel XII secolo, il Castello di Vicarello in Toscana ha una storia ricca e complessa. Originariamente una roccaforte contro le incursioni saracene, fu successivamente ampliato dai nobili locali per diventare una residenza fortificata. Durante il Rinascimento, ospitò famiglie nobili come i Tolomei e i Piccolomini. Il castello fu anche un centro di produzione agricola, famoso per i suoi vigneti e oliveti. Nei suoi saloni si tennero banchetti sontuosi e celebrazioni che attiravano nobili da tutta la Toscana.",
         "latitude": 42.9131,
         "longitude": 11.3051
     },
@@ -45,7 +45,7 @@
         "bathrooms": 20,
         "bed": 30,
         "square_meters": 6000,
-        "description": "Un lussuoso resort situato in un castello del X secolo in Toscana.",
+        "description": "Il Castello di Casole, situato in Toscana, ha origini che risalgono al X secolo. Fu inizialmente costruito come fortezza militare dai Longobardi e successivamente passò sotto il controllo dei Conti della Gherardesca. Durante le guerre tra Siena e Firenze, il castello fu un punto strategico di difesa e fu più volte assediato e danneggiato. Nel Rinascimento, fu ricostruito e abbellito con opere d'arte e giardini rinascimentali. Il castello ospitò illustri ospiti, tra cui Papa Pio II, che qui trovò rifugio durante una delle sue visite pastorali in Toscana.",
         "latitude": 43.3484,
         "longitude": 11.0252
     },
@@ -55,7 +55,7 @@
         "bathrooms": 15,
         "bed": 15,
         "square_meters": 2500,
-        "description": "Un castello medievale trasformato in un hotel affascinante in Toscana.",
+        "description": "Costruito nel XIII secolo, il Castello di Gargonza è una testimonianza vivente del tumultuoso passato della Toscana medievale. Fu un importante bastione durante le guerre tra le città-stato toscane, in particolare tra Arezzo e Siena. Durante la ribellione contro l'imperatore Federico II, il castello fu usato come rifugio dai ghibellini. Nei secoli successivi, il castello fu ampliato e divenne un centro agricolo e artigianale, con numerosi contadini e artigiani che lavoravano nei suoi terreni. Le sue mura raccontano storie di assedi, difese eroiche e la vita quotidiana nel Medioevo.",
         "latitude": 43.3140,
         "longitude": 11.6865
     },
@@ -65,7 +65,7 @@
         "bathrooms": 10,
         "bed": 10,
         "square_meters": 3000,
-        "description": "Un lussuoso hotel situato in un castello settecentesco nelle Langhe.",
+        "description": "Edificato nel XVIII secolo nelle Langhe, il Castello di Guarene fu progettato dall'architetto Carlo Giuseppe Rangone per la nobile famiglia Roero. Questo castello barocco, con i suoi splendidi giardini e saloni affrescati, fu il centro della vita sociale e politica della regione. Durante il Risorgimento italiano, il castello fu un luogo di incontri segreti tra i patrioti piemontesi che pianificavano l'unificazione dell'Italia. La biblioteca del castello contiene antichi manoscritti e libri rari che testimoniano la sua ricca storia intellettuale. Le sale del castello ospitarono anche importanti trattative diplomatiche.",
         "latitude": 44.7444,
         "longitude": 8.0463
     },
@@ -75,7 +75,7 @@
         "bathrooms": 15,
         "bed": 15,
         "square_meters": 2000,
-        "description": "Un castello storico trasformato in un accogliente hotel in Toscana.",
+        "description": "Situato in Toscana, il Castello di Ripa d'Orcia fu costruito nel XIII secolo. Fu una roccaforte chiave durante le contese tra Siena e Firenze, spesso cambiando di mano tra le due potenze. Il castello fu anche un importante centro agricolo e commerciale nel Medioevo, con numerosi contadini e artigiani che lavoravano nei suoi terreni. Le sue mura conservano storie di antichi assedi e difese eroiche da parte dei suoi abitanti. Nei secoli successivi, il castello fu ampliato e decorato con affreschi che narrano episodi di vita quotidiana e battaglie storiche.",
         "latitude": 43.0573,
         "longitude": 11.6256
     },
@@ -85,7 +85,7 @@
         "bathrooms": 11,
         "bed": 11,
         "square_meters": 2500,
-        "description": "Un antico castello trasformato in un hotel boutique in Abruzzo.",
+        "description": "Il Castello di Semivicoli, situato in Abruzzo, risale al XVII secolo. Costruito dalla famiglia Piccolomini, il castello fu un importante centro di amministrazione feudale. Durante l'invasione napoleonica, il castello fu saccheggiato e molti dei suoi tesori andarono perduti. Nei suoi saloni, i membri della nobiltà abruzzese si riunivano per discutere strategie politiche e alleanze matrimoniali. La sua storia è segnata da momenti di grande splendore alternati a periodi di decadenza e abbandono, fino alla sua completa ristrutturazione nel XX secolo.",
         "latitude": 42.2811,
         "longitude": 14.2186
     },
@@ -95,7 +95,7 @@
         "bathrooms": 8,
         "bed": 13,
         "square_meters": 3000,
-        "description": "Un castello medievale ora un affascinante hotel in Emilia-Romagna.",
+        "description": "Situato in Emilia-Romagna, il Castello di Vigoleno fu costruito nel XII secolo. Fu un'importante roccaforte durante le guerre tra i guelfi e i ghibellini. Nel XVI secolo, divenne proprietà della famiglia Scotti che lo trasformò in una residenza signorile. Il castello è famoso per la sua torre imponente e per le sue mura difensive, che hanno resistito a numerosi assedi e conflitti. Ospita una delle più antiche torri dell'orologio funzionanti in Italia e un piccolo teatro privato dove si esibivano artisti e musicisti.",
         "latitude": 44.8251,
         "longitude": 9.8513
     },
@@ -105,7 +105,7 @@
         "bathrooms": 9,
         "bed": 15,
         "square_meters": 2200,
-        "description": "Un castello storico situato in Umbria, ora un esclusivo agriturismo.",
+        "description": "Edificato nel XIII secolo in Umbria, il Castello di Montegiove fu un'importante roccaforte durante le guerre tra i comuni umbri. Nel Rinascimento, il castello fu ampliato e decorato dalla famiglia Misciattelli. Le sue mura hanno visto passare truppe mercenarie e numerosi signori della guerra, e la sua cappella ospita affreschi che risalgono al XIV secolo. Il castello è anche noto per la produzione di un pregiato vino, che viene prodotto nei vigneti circostanti da secoli.",
         "latitude": 42.8582,
         "longitude": 12.1428
     },
@@ -115,7 +115,7 @@
         "bathrooms": 12,
         "bed": 12,
         "square_meters": 2500,
-        "description": "Un castello medievale trasformato in un affascinante hotel nel Chianti.",
+        "description": "Costruito nel XII secolo nel cuore del Chianti, il Castello di Tornano fu una roccaforte strategica nelle lotte tra Siena e Firenze. Durante il Rinascimento, il castello fu ampliato e decorato con opere d'arte e arredi pregiati. La leggenda narra che nel castello fu imprigionato un famoso brigante che terrorizzava la regione. Il castello ha conservato molte delle sue caratteristiche medievali originali, tra cui una torre di avvistamento e le mura difensive.",
         "latitude": 43.4203,
         "longitude": 11.3887
     },
@@ -125,7 +125,7 @@
         "bathrooms": 16,
         "bed": 16,
         "square_meters": 2000,
-        "description": "Un elegante castello situato in Toscana, ora disponibile per soggiorni esclusivi.",
+        "description": "Situato in Toscana, il Castello di Celsa risale al XIII secolo. Originariamente costruito come roccaforte difensiva, fu successivamente trasformato in una residenza nobiliare dai Conti della Gherardesca. Il castello è noto per i suoi splendidi giardini all'italiana e per aver ospitato importanti figure della nobiltà toscana durante il Rinascimento. Fu anche un centro di produzione agricola, con oliveti e vigneti che producevano prodotti di alta qualità.",
         "latitude": 43.3273,
         "longitude": 11.3608
     },
@@ -135,7 +135,7 @@
         "bathrooms": 12,
         "bed": 12,
         "square_meters": 2200,
-        "description": "Un antico castello trasformato in un hotel di charme nelle Langhe.",
+        "description": "Il Castello di Sinio, nelle Langhe, fu costruito nel XIII secolo. Fu un'importante roccaforte durante le guerre tra i Marchesi di Saluzzo e i Conti di Savoy. Nel corso dei secoli, il castello fu ampliato e trasformato in una residenza signorile, ospitando numerosi eventi culturali e artistici. Durante il Risorgimento, il castello fu un luogo di incontri segreti tra patrioti italiani che pianificavano l'unificazione dell'Italia. La sua biblioteca contiene numerosi manoscritti storici e libri rari.",
         "latitude": 44.6356,
         "longitude": 8.0232
     },
@@ -145,7 +145,7 @@
         "bathrooms": 12,
         "bed": 25,
         "square_meters": 2000,
-        "description": "Un castello medievale ora un agriturismo esclusivo in Umbria.",
+        "description": "Costruito nel XIII secolo in Umbria, il Castello di Magrano fu una roccaforte strategica nelle guerre tra i comuni umbri. Durante il Rinascimento, il castello fu ampliato e decorato con affreschi e opere d'arte. Fu anche un centro di produzione agricola, con numerosi contadini e artigiani che lavoravano nei suoi terreni. La sua cappella ospita affreschi del XIV secolo che narrano la vita dei santi locali.",
         "latitude": 43.2859,
         "longitude": 12.5695
     },
@@ -155,7 +155,7 @@
         "bathrooms": 15,
         "bed": 25,
         "square_meters": 1800,
-        "description": "Un castello storico situato vicino a Firenze, ora disponibile per soggiorni esclusivi.",
+        "description": "Situato vicino a Firenze, il Castello di Vincigliata risale al XIII secolo. Fu una roccaforte chiave durante le guerre tra Siena e Firenze. Nel corso dei secoli, il castello fu ampliato e trasformato in una residenza signorile, ospitando numerosi eventi culturali e artistici. Durante il Rinascimento, il castello fu un centro di produzione artistica, con artisti e scultori che lavoravano nei suoi laboratori. La sua biblioteca contiene numerosi manoscritti e libri rari.",
         "latitude": 43.7866,
         "longitude": 11.3074
     },
@@ -165,7 +165,7 @@
         "bathrooms": 15,
         "bed": 25,
         "square_meters": 2200,
-        "description": "Un castello medievale trasformato in un elegante hotel in Emilia-Romagna.",
+        "description": "Il Castello di Rivalta, situato in Emilia-Romagna, risale al XII secolo. Fu un'importante roccaforte durante le guerre tra i guelfi e i ghibellini. Nel corso dei secoli, il castello fu ampliato e trasformato in una residenza signorile dalla famiglia Landi. Ospitò numerosi eventi culturali e artistici, e la sua cappella contiene affreschi del XV secolo. Durante il Risorgimento, il castello fu un luogo di incontri segreti tra patrioti italiani che pianificavano l'unificazione dell'Italia.",
         "latitude": 44.9033,
         "longitude": 9.6051
     },
@@ -175,7 +175,7 @@
         "bathrooms": 17,
         "bed": 28,
         "square_meters": 3500,
-        "description": "Un castello medievale ora un agriturismo di lusso in Umbria.",
+        "description": "Edificato nel XII secolo in Umbria, il Castello di Sismano fu un'importante roccaforte durante le guerre tra i comuni umbri. Nel Rinascimento, il castello fu ampliato e decorato con affreschi e opere d'arte. Fu anche un centro di produzione agricola, con numerosi contadini e artigiani che lavoravano nei suoi terreni. Durante il Risorgimento, il castello fu un luogo di incontri segreti tra patrioti italiani che pianificavano l'unificazione dell'Italia.",
         "latitude": 42.7138,
         "longitude": 12.3996
     },
@@ -185,7 +185,7 @@
         "bathrooms": 20,
         "bed": 30,
         "square_meters": 2000,
-        "description": "Un castello storico situato nel Lazio, ora un agriturismo esclusivo.",
+        "description": "Il Castello di Santa Cristina, nel Lazio, fu costruito nel XIII secolo come roccaforte difensiva. Durante il Rinascimento, il castello fu trasformato in una residenza signorile e ospitò numerosi eventi culturali e artistici. Fu anche un importante centro agricolo e commerciale della regione. Le sue mura raccontano storie di assedi e difese eroiche, e la sua cappella contiene affreschi del XIV secolo che narrano la vita dei santi locali.",
         "latitude": 42.6014,
         "longitude": 11.8671
     },
@@ -195,7 +195,7 @@
         "bathrooms": 20,
         "bed": 30,
         "square_meters": 2500,
-        "description": "Un castello medievale trasformato in un elegante hotel in Umbria.",
+        "description": "Situato in Umbria, il Castello di Petroia risale al XII secolo. Fu un'importante roccaforte durante le guerre tra i comuni umbri e fu ampliato nel Rinascimento. Il castello ospitò numerosi signori della guerra e fu un centro di potere e strategia militare. La sua cappella contiene affreschi del XIV secolo, e la biblioteca del castello contiene numerosi manoscritti e libri rari.",
         "latitude": 43.2763,
         "longitude": 12.5061
     },
@@ -205,7 +205,7 @@
         "bathrooms": 24,
         "bed": 35,
         "square_meters": 1800,
-        "description": "Un castello medievale situato in Emilia-Romagna, ora un esclusivo hotel.",
+        "description": "Edificato nel XII secolo in Emilia-Romagna, il Castello di Scipione fu un'importante roccaforte durante le guerre tra i comuni. Il castello fu ampliato nel Rinascimento e divenne una residenza signorile, ospitando numerosi eventi culturali e artistici. Fu anche un importante centro agricolo della regione. Le sue mura raccontano storie di assedi e difese eroiche, e la sua cappella contiene affreschi del XIV secolo.",
         "latitude": 44.8364,
         "longitude": 9.9920
     },
@@ -215,7 +215,7 @@
         "bathrooms": 20,
         "bed": 30,
         "square_meters": 2000,
-        "description": "Un antico monastero trasformato in un lussuoso hotel nel cuore del Chianti.",
+        "description": "Situato nel cuore del Chianti, il Castello di Spaltenna risale al XII secolo. Originariamente un monastero, fu trasformato in una roccaforte difensiva durante le guerre tra Siena e Firenze. Nel Rinascimento, divenne una residenza nobiliare e ospitò importanti figure della nobiltà toscana. Le sue mura raccontano storie di assedi e difese eroiche, e la sua cappella contiene affreschi del XIV secolo.",
         "latitude": 43.4667,
         "longitude": 11.4678
     },
@@ -225,7 +225,7 @@
         "bathrooms": 30,
         "bed": 40,
         "square_meters": 2500,
-        "description": "Un antico castello trasformato in un elegante hotel in Toscana.",
+        "description": "Costruito nel XIII secolo in Toscana, il Castello di Montegufoni fu un'importante roccaforte durante le guerre tra i comuni toscani. Nel Rinascimento, il castello fu ampliato e decorato con opere d'arte e affreschi. Fu anche un centro culturale e artistico, ospitando poeti e artisti dell'epoca. La sua biblioteca contiene numerosi manoscritti e libri rari, e la cappella del castello contiene affreschi del XIV secolo.",
         "latitude": 43.6401,
         "longitude": 11.0991
     },
@@ -235,7 +235,7 @@
         "bathrooms": 20,
         "bed": 30,
         "square_meters": 1800,
-        "description": "Un castello medievale situato nel Chianti, ora un elegante hotel.",
+        "description": "Situato nel Chianti, il Castello di Meleto risale al XII secolo. Fu un'importante roccaforte durante le guerre tra Siena e Firenze. Nel Rinascimento, il castello fu ampliato e trasformato in una residenza signorile, ospitando numerosi eventi culturali e artistici. Le sue mura raccontano storie di assedi e difese eroiche, e la sua cappella contiene affreschi del XIV secolo. La biblioteca del castello contiene numerosi manoscritti e libri rari, e il castello è noto per la produzione di vino di alta qualità.",
         "latitude": 43.4725,
         "longitude": 11.4186
     }
