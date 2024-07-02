@@ -9,7 +9,7 @@
 
 <button
   type="submit"
-  class="{{Route::currentRouteName() !== 'admin.houses.show' ? 'btn btn-danger': 'm-2'}} @if (Route::currentRouteName() === 'admin.houses.index')
+  class="{{Route::currentRouteName() !== 'admin.houses.show' ? 'btn btn-danger': 'm-2'}} @if (Route::currentRouteName() === 'admin.home')
       mb-2
       @elseif (Route::currentRouteName() === 'admin.messages.index')
       mb-2

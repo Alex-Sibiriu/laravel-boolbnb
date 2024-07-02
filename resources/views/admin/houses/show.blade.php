@@ -104,7 +104,7 @@
             'message' => "Sei sicuro di voler eliminare  $house->title ?",
         ])
 
-        <a href="{{ route('admin.houses.index') }}"><i class="fa-solid fa-arrow-right-from-bracket m-2"></i></a>
+        <a href="{{ route('admin.home') }}"><i class="fa-solid fa-arrow-right-from-bracket m-2"></i></a>
     </div>
 </div>
 @endsection
