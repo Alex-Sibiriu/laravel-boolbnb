@@ -132,8 +132,13 @@ class HousesController extends Controller
     public function getHouseBySlug($slug)
     {
         $house = House::where('slug', $slug)->with('user', 'messages', 'images', 'services', 'sponsors')->first();
+        if(!empty($house)){
 
-        return response()->json($house);
+            return response()->json($house);
+        }else{
+            return response()->json(['message' => 'House not found'], 404);
+        }
+
     }
 
     public function getHousesByServices($slug)
