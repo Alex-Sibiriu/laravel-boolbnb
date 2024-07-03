@@ -198,7 +198,7 @@ class HouseController extends Controller
         ]);
     }
 
-    return redirect()->route('admin.houses.show', compact('house'))->with('success', 'House updated successfully.');
+    return redirect()->route('admin.houses.show', compact('house'))->with('success', 'Il castello è stato aggiornato con successo!');
 }
 
 
