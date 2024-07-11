@@ -68,7 +68,7 @@
                 <td class="align-content-center d-none d-md-table-cell">
 
                   <img src="{{ asset('storage/' . $house?->images->first()?->image_path) }}" alt="{{ $house?->title }}"
-                    class="h-100" width="100" onerror="this.src='/img/not-found.jpg'">
+                    class="img-100"  onerror="this.src='/img/not-found.jpg'">
 
                 </td>
 
