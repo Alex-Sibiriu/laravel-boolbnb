@@ -12,7 +12,7 @@
     </div>
 
     <div class="col-8 my-3 col-lg-4">
-      <form action="{{ route('admin.houses.index') }}" method="GET" class="d-flex" role="search">
+      <form action="{{ route('admin.home') }}" method="GET" class="d-flex" role="search">
         <input name="toSearch" class=" toSearch form-control me-2" type="search" placeholder="Cerca" aria-label="Search">
 
         <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-circle-chevron-right"></i></button>
@@ -24,7 +24,7 @@
   </div>
 
   <div class="row pt-2 pb-5 px-0 px-sm-5 px-md-0 px-lg-5">
-    @if (isset($_GET['toSearch']))
+    @if (isset($_GET['toSearch']) && !empty($_GET['toSearch']))
       <div class="mt-2 ps-4">
         <h1>Castelli trovati per <span class="text-danger">"{{ $_GET['toSearch'] }}"</span> : {{ $count_search }} </h1>
       </div>
@@ -67,8 +67,8 @@
 
                 <td class="align-content-center d-none d-md-table-cell">
 
-                  <img src="{{ asset('storage/' . $house?->images->first()?->image_path) }}" alt="{{ $house?->title }}" class="h-100"
-                    width="100" onerror="this.src='/img/not-found.jpg'">
+                  <img src="{{ asset('storage/' . $house?->images->first()?->image_path) }}" alt="{{ $house?->title }}"
+                    class="h-100" width="100" onerror="this.src='/img/not-found.jpg'">
 
                 </td>
 
@@ -103,11 +103,12 @@
                     <i class="fa-solid fa-pen-to-square"></i>
                   </a>
 
-                  <a href="{{ route('admin.sponsors', $house) }}" class="btn btn-success me-2 mb-2">
+                  <a href="{{ route('admin.sponsors', $house) }}" role="button" aria-disabled="true"
+                    class="btn btn-success mb-2 @if (!$house->is_visible) disabled @endif">
                     <i class="fa-solid fa-rocket"></i>
                   </a>
 
-                  <a href="{{ route('admin.stats', $house) }}" class="btn btn-secondary mx-2 mb-2">
+                  <a href="{{ route('admin.stats', $house) }}" class="btn btn-secondary mx-2  mb-2">
                     <i class="fa-solid fa-chart-simple"></i>
                   </a>
 

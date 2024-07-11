@@ -1,5 +1,5 @@
 @php
-      use App\Functions\Helper;
+  use App\Functions\Helper;
 @endphp
 @extends('layouts.admin')
 
@@ -55,31 +55,30 @@
       <div>
 
         @if ($house->services->count() > 0)
-
-        <p><strong>Servizi:</strong></p>
-        <ul class=" list-unstyled">
+          <p><strong>Servizi:</strong></p>
+          <ul class=" list-unstyled">
             @forelse ($house->services as $service)
-            <li class="me-2"> <span class="icone"><i class="{{ $service->icon }}"></i></span> {{ $service->name }} </li>
+              <li class="me-2"> <span class="icone"><i class="{{ $service->icon }}"></i></span> {{ $service->name }}
+              </li>
             @empty
             @endforelse
-        </ul>
+          </ul>
         @endif
 
         @if ($house->sponsors->count() > 0)
-        <p><strong>Sponsor attivi:</strong></p>
-            <ul>
-                @foreach ($house->sponsors as $sponsor)
-                @php
+          <p><strong>Sponsor attivi:</strong></p>
+          <ul>
+            @foreach ($house->sponsors as $sponsor)
+              @php
 
-
-                    $start  = Helper::formatDateandTime($sponsor->pivot->start_date );
-                    $expire = Helper::formatDateandTime($sponsor->pivot->expiration_date );
-                @endphp
-                <li class="text-capitalize">
-                    {{ $sponsor->name }}:  {{ $start}} - {{ $expire }}
-                </li>
+                $start = Helper::formatDateandTime($sponsor->pivot->start_date);
+                $expire = Helper::formatDateandTime($sponsor->pivot->expiration_date);
+              @endphp
+              <li class="text-capitalize">
+                {{ $sponsor->name }}: {{ $start }} - {{ $expire }}
+              </li>
             @endforeach
-            </ul>
+          </ul>
         @endif
       </div>
     </div>
@@ -95,21 +94,21 @@
       </div>
     @endif
 
-
     <div class="tools text-center">
-        <a href="{{ route('admin.houses.edit', $house) }}" > <i
-            class="fa-solid fa-pen-to-square m-2"></i></a>
+      <a href="{{ route('admin.houses.edit', $house) }}"> <i class="fa-solid fa-pen-to-square m-2"></i></a>
 
+      @if ($house->is_visible)
         <a href="{{ route('admin.sponsors', $house) }}"><i class="fa-solid fa-rocket m-2"></i></a>
+      @endif
 
-        <a href="{{ route('admin.stats', $house) }}"><i class="fa-solid fa-chart-simple m-2"></i></a>
+      <a href="{{ route('admin.stats', $house) }}"><i class="fa-solid fa-chart-simple m-2"></i></a>
 
-        @include('admin.partials.formdelete', [
-            'route' => route('admin.houses.destroy', $house),
-            'message' => "Sei sicuro di voler eliminare  $house->title ?",
-        ])
+      @include('admin.partials.formdelete', [
+          'route' => route('admin.houses.destroy', $house),
+          'message' => "Sei sicuro di voler eliminare  $house->title ?",
+      ])
 
-        <a href="{{ route('admin.home') }}"><i class="fa-solid fa-arrow-right-from-bracket m-2"></i></a>
+      <a href="{{ route('admin.home') }}"><i class="fa-solid fa-arrow-right-from-bracket m-2"></i></a>
     </div>
-</div>
+  </div>
 @endsection
