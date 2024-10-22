@@ -27,6 +27,12 @@
 
 <body>
 
+  @guest
+    <script>
+      window.location.href = "{{ route('login') }}";
+    </script>
+  @endguest
+
   @include('admin.partials.header')
 
   <div class="d-flex">
