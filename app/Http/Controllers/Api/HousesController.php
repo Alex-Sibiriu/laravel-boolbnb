@@ -36,7 +36,7 @@ class HousesController extends Controller
 
         if (!empty($address)) {
             // Chiamata all'API di TomTom per ottenere le coordinate geografiche
-            $cacertPath = (__DIR__ . '/' . env('CACERT_PEM_PATH'));
+            $cacertPath = realpath(base_path(env('CACERT_PEM_PATH')));
             $client = new Client([
                 'base_uri' => 'https://api.tomtom.com/',
                 'verify' => $cacertPath,

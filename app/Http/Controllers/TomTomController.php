@@ -9,7 +9,7 @@ class TomTomController extends Controller
 {
     public function autocomplete(Request $request)
     {
-        $cacertPath = (__DIR__ . '/' . env('CACERT_PEM_PATH'));
+        $cacertPath = realpath(base_path(env('CACERT_PEM_PATH')));
         $client = new Client([
             'base_uri' => 'https://api.tomtom.com/',
             'verify' => $cacertPath,
