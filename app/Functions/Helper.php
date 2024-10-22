@@ -47,7 +47,7 @@ class Helper
         $apiKey = env('TOMTOM_API_KEY');
 
         // Percorso del file cacert.pem (serve per i permessi , dei certificati)
-        $cacertPath = env('CACERT_PEM_PATH');
+        $cacertPath = (__DIR__ . '/' . env('CACERT_PEM_PATH'));
 
         // Configura il client GuzzleHttp
         $client = new Client([

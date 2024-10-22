@@ -17,7 +17,7 @@ class HousesController extends Controller
 {
     public function index()
     {
-        $houses = House::where('is_visible' , 1)->orderBy('id', 'desc')->with('user', 'messages', 'services', 'sponsors', 'images')->get();
+        $houses = House::where('is_visible', 1)->orderBy('id', 'desc')->with('user', 'messages', 'services', 'sponsors', 'images')->get();
         return response()->json($houses);
     }
 
@@ -36,7 +36,7 @@ class HousesController extends Controller
 
         if (!empty($address)) {
             // Chiamata all'API di TomTom per ottenere le coordinate geografiche
-            $cacertPath = env('CACERT_PEM_PATH');
+            $cacertPath = (__DIR__ . '/' . env('CACERT_PEM_PATH'));
             $client = new Client([
                 'base_uri' => 'https://api.tomtom.com/',
                 'verify' => $cacertPath,
@@ -121,7 +121,7 @@ class HousesController extends Controller
         $houses = $sponsoredHouses->merge($nonSponsoredHouses);
 
         return response()->json($houses);
-   }
+    }
 
     public function getServices()
     {
@@ -132,13 +132,12 @@ class HousesController extends Controller
     public function getHouseBySlug($slug)
     {
         $house = House::where('slug', $slug)->with('user', 'messages', 'images', 'services', 'sponsors')->first();
-        if(!empty($house)){
+        if (!empty($house)) {
 
             return response()->json($house);
-        }else{
+        } else {
             return response()->json(['message' => 'House not found'], 404);
         }
-
     }
 
     public function getHousesByServices($slug)
