@@ -61,10 +61,13 @@ class HousesController extends Controller
                 "*, (6371 * acos(cos(radians(?)) * cos(radians(latitude)) * cos(radians(longitude) - radians(?)) + sin(radians(?)) * sin(radians(latitude)))) AS distance",
                 [$latitude, $longitude, $latitude]
             )
-                ->having('distance', '<', $radius)
+                ->whereRaw(
+                    "(6371 * acos(cos(radians(?)) * cos(radians(latitude)) * cos(radians(longitude) - radians(?)) + sin(radians(?)) * sin(radians(latitude)))) < ?",
+                    [$latitude, $longitude, $latitude, $radius]
+                )
                 ->orderBy('distance');
         } else {
-            // Ordina per data di creazione se non Ã¨ specificata la distanza
+            // Ordina per data di creazione se non è specificata la distanza
             $query->orderBy('created_at', 'desc');
         }
 
@@ -96,12 +99,6 @@ class HousesController extends Controller
         $sponsoredQuery = clone $query;
         $nonSponsoredQuery = clone $query;
 
-        // Query per case sponsorizzate
-        // $sponsoredHouses = $sponsoredQuery->whereHas('sponsors')->get();
-
-        // Query per case non sponsorizzate
-        // $nonSponsoredHouses = $nonSponsoredQuery->whereDoesntHave('sponsors')->get();
-
         $currentDate = Carbon::now();
 
         // Query per case sponsorizzate con expiration_date massima superiore alla data corrente
@@ -122,6 +119,7 @@ class HousesController extends Controller
 
         return response()->json($houses);
     }
+
 
     public function getServices()
     {
